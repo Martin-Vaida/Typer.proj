@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 class MarryHadALittleLambController:UITableViewController {
-    var startingTime:Date = Date()
+    var timer:Timer?
+    var timeCounter = 0.0
+    var strß = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,18 +71,57 @@ class MarryHadALittleLambController:UITableViewController {
         labelFourteen.text = "Why, Mary loves the lamb, you know. The lamb, you know, the lamb, you know"
         labelFifteen.text = "Why, Mary loves the lamb, you know, the teacher did reply."
         
+        lineOne.text = " "
+    }
+    
+    
+    //Timer
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+            self.timeCounter += 0.1
+            guard self.timer != nil else { return }
+            
+            let str = String(self.timeCounter)
+            var array:[String] = []
+            self.strß = ""
+            
+            for i in str {
+                array.append(String(i))
+            }
+            
+            for i in 0...array.count-1 {
+                self.strß += array[i]
+                
+                if array[i] == "." {
+                    self.strß += array[i+1]
+                    break
+                }
+            }
+            
+            self.navigationItem.title = String(self.strß)
+        })
+    }
+    
+    func stopTimer() {
+        if timer != nil {
+            timer!.invalidate() //销毁timer
+            timer = nil
+        }
     }
     
     //new
-    @IBAction func lineOneBegin(_ sender: Any) {
-        lineOne.text = "|"
-    }
     
+    
+    
+    @IBAction func lineOneBegin(_ sender: Any) {
+        startTimer()
+    }
     
     @IBAction func lineOneChanged(_ sender: Any) {
         if lineOne.text?.count == labelOne.text!.count+1 {
             lineOne.resignFirstResponder()
-            lineTow.text = "|"
+            lineTow.text = " "
             lineTow.becomeFirstResponder()
         }
     }
@@ -88,7 +129,7 @@ class MarryHadALittleLambController:UITableViewController {
     @IBAction func lineTwoChaged(_ sender: Any) {
         if lineTow.text?.count == labelTwo.text!.count+1 {
             lineTow.resignFirstResponder()
-            lineThree.text = "|"
+            lineThree.text = " "
             lineThree.becomeFirstResponder()
         }
         
@@ -101,7 +142,7 @@ class MarryHadALittleLambController:UITableViewController {
     @IBAction func lineThreeChanged(_ sender: Any) {
         if lineThree.text?.count == labelThree.text!.count+1 {
             lineThree.resignFirstResponder()
-            lineFour.text = "|"
+            lineFour.text = " "
             lineFour.becomeFirstResponder()
         }
         
@@ -111,37 +152,8 @@ class MarryHadALittleLambController:UITableViewController {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    //old
-    
-    @IBAction func lineOneEnter(_ sender: Any) {
-        lineOne.resignFirstResponder()
-        lineTow.becomeFirstResponder()
-        
-    }
-    
-    @IBAction func lineTwoEnter(_ sender: Any) {
-        lineTow.resignFirstResponder()
-        lineThree.becomeFirstResponder()
-        startingTime = Date()
-        
-    }
-    
-    @IBAction func lineThreeEnter(_ sender: Any) {
-        
-    }
-    
-    @IBAction func lineOneChaged(_ sender: Any) {
-        let nowTime = Date()
-        let deltaTime = Float(nowTime.timeIntervalSince(startingTime))
-        
-        navigationItem.title = String(deltaTime)
+    @IBAction func doneTapped(_ sender: Any) {
+        stopTimer()
     }
     
     

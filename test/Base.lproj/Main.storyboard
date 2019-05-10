@@ -206,10 +206,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
-                                                        <action selector="lineOneBegin:" destination="eNl-15-bRz" eventType="editingDidBegin" id="M71-G6-Yn4"/>
-                                                        <action selector="lineOneChaged:" destination="eNl-15-bRz" eventType="editingChanged" id="mzp-fc-qIi"/>
+                                                        <action selector="lineOneBegin:" destination="eNl-15-bRz" eventType="editingDidBegin" id="uRz-BH-qlO"/>
                                                         <action selector="lineOneChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="03h-dz-VYC"/>
-                                                        <action selector="lineOneEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="Qh0-iI-QXC"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -257,7 +255,6 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="lineTwoChaged:" destination="eNl-15-bRz" eventType="editingChanged" id="91P-qW-j3H"/>
-                                                        <action selector="lineTwoEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="Qcf-gf-dJp"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -305,7 +302,6 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="lineThreeChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="wNu-Lr-Kbb"/>
-                                                        <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="hLA-wE-kl7"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -893,6 +889,11 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="2bF-f1-zZO">
                             <connections>
                                 <segue destination="9r4-i3-q3X" kind="unwind" identifier="MarryHadALittleLambReturn" unwindAction="unwindToChoosePassageWithSegue:" id="eRA-p6-3yh"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="7O5-ql-zbM">
+                            <connections>
+                                <action selector="doneTapped:" destination="eNl-15-bRz" id="Whs-xI-OUv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
