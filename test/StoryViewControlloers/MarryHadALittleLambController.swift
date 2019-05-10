@@ -13,12 +13,17 @@ class MarryHadALittleLambController:UITableViewController {
     var timer:Timer?
     var timeCounter = 0.0
     var strß = ""
+    
     var timeTappedBool = false
-    var tappedLetersInAll = 0
+    var accuracyTappedBool = false
+    
+    var tappedLetersInAll = -1
+    var lineOneTappedLeters = 0
     
     var correctLettersInAll = 0
     var lineOneCorrectLetters = 0
     
+    let accuracy = 100
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +135,8 @@ class MarryHadALittleLambController:UITableViewController {
             if self.timeTappedBool {
                 self.navigationItem.title = self.timeLabel.title
                 self.timeLabel.title = "Time"
-            } else {
+            }
+            if !self.timeTappedBool && !self.accuracyTappedBool {
                 self.navigationItem.title = "Mary Had A Little Lamb"
             }
         })
@@ -143,6 +149,16 @@ class MarryHadALittleLambController:UITableViewController {
         }
     }
     
+    
+    
+    func updateAccuracyLabel() {
+        if accuracyTappedBool {
+            self.navigationItem.title = "Correct Letters: \(correctLettersInAll), Tapped Letters: \(tappedLetersInAll), Accuracy Rate: \(correctLettersInAll*accuracy/tappedLetersInAll)%"
+            self.accuracylabel.title = "Accuracy Rate"
+        } else {
+            self.accuracylabel.title = "Accuracy: \(correctLettersInAll*accuracy/tappedLetersInAll)%"
+        }
+    }
     
     //viewcontrollers
     
@@ -168,6 +184,8 @@ class MarryHadALittleLambController:UITableViewController {
         tappedLetersInAll = lineOne.text!.count
         
         var tempCorrectLetterCount = 0
+        tempCorrectLetterCount = 0
+        
         for i in 1...lineOne!.text!.count-1 {
             let inputLetter = lineOne!.text![lineOne!.text!.index(lineOne!.text!.startIndex, offsetBy: i)]
             let origenalLetter = labelOne!.text![labelOne!.text!.index(labelOne!.text!.startIndex, offsetBy: i-1)]
@@ -179,7 +197,14 @@ class MarryHadALittleLambController:UITableViewController {
                 lineOne!.text!.insert("_", at: lineOne!.text!.index(lineOne!.text!.startIndex, offsetBy: i))
             }
         }
+        
         lineOneCorrectLetters = tempCorrectLetterCount
+        lineOneTappedLeters = lineOne!.text!.count - 1
+        
+        correctLettersInAll = lineOneCorrectLetters
+        tappedLetersInAll = lineOneTappedLeters
+        
+        updateAccuracyLabel()
         
     }
     
@@ -218,13 +243,13 @@ class MarryHadALittleLambController:UITableViewController {
     }
     
     @IBAction func accuracyTapped(_ sender: Any) {
-        
+        guard accuracylabel.title != nil else { return }
+        accuracyTappedBool = !accuracyTappedBool
+        updateAccuracyLabel()
     }
     
     
     @IBAction func doneTapped(_ sender: Any) {
         stopTimer()
     }
-    
-    
 }
