@@ -15,25 +15,10 @@ class MarryHadALittleLambController:UITableViewController {
     var strß = ""
     var timeTappedBool = false
     var tappedLetersInAll = 0
+    
     var correctLettersInAll = 0
+    var lineOneCorrectLetters = 0
     
-    var labelOneText = ""
-    var labelTwoText = ""
-    var labelThreeText = ""
-    var labelFourText = ""
-    var labelFiveText = ""
-    var labelSixText = ""
-    var labelSevenText = ""
-    var labelEightText = ""
-    var labelNineText = ""
-    var labelTenText = ""
-    var labelElevenText = ""
-    var labelTwelveText = ""
-    var labelThirteenText = ""
-    var labelFourteenText = ""
-    var labelFifteenText = ""
-    
-    var lineOneCurrentLetterCount = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,39 +81,23 @@ class MarryHadALittleLambController:UITableViewController {
     
     //define texts
     func setup() {
-        labelOne.text = "Mary had a little lamb, little lamb, little lamb,"
-        labelTwo.text = "Mary had a little lamb, its fleece was white as snow."
-        labelThree.text = "And everywhere that Mary went, Mary went, Mary went,"
-        labelFour.text = "And everywhere that Mary went, the lamb was sure to go."
-        labelFive.text = "It followed her to school one day school one day, school one day,"
-        labelSix.text = "It followed her to school one day, which was against the rules."
-        labelSeven.text = "It made the children laugh and play, laugh and play, laugh and play,"
-        labelEight.text = "It made the children laugh and play to see a lamb at school."
-        labelNine.text = "And so the teacher turned it out, turned it out, turned it out,"
-        labelTen.text = "And so the teacher turned it out, but still it lingered near, And waited patiently about"
-        labelEleven.text = "And waited patiently about till Mary did appear."
-        labelTwelve.text = "Why does the lamb love Mary so? Love Mary so? Love Mary so?"
-        labelThirteen.text = "Why does the lamb love Mary so, the eager children cry."
-        labelFourteen.text = "Why, Mary loves the lamb, you know. The lamb, you know, the lamb, you know"
-        labelFifteen.text = "Why, Mary loves the lamb, you know, the teacher did reply."
+        labelOne.text = "Mary had a little lamb, little lamb, little lamb,"
+        labelTwo.text = "Mary had a little lamb, its fleece was white as snow."
+        labelThree.text = "And everywhere that Mary went, Mary went, Mary went,"
+        labelFour.text = "And everywhere that Mary went, the lamb was sure to go."
+        labelFive.text = "It followed her to school one day, school one day, school one day,"
+        labelSix.text = "It followed her to school one day, which was against the rules."
+        labelSeven.text = "It made the children laugh and play, laugh and play, laugh and play,"
+        labelEight.text = "It made the children laugh and play to see a lamb at school."
+        labelNine.text = "And so the teacher turned it out, turned it out, turned it out,"
+        labelTen.text = "And so the teacher turned it out, but still it lingered near, And waited patiently about"
+        labelEleven.text = "And waited patiently about till Mary did appear."
+        labelTwelve.text = "Why does the lamb love Mary so? Love Mary so? Love Mary so?"
+        labelThirteen.text = "Why does the lamb love Mary so, the eager children cry."
+        labelFourteen.text = "Why, Mary loves the lamb, you know. The lamb, you know, the lamb, you know"
+        labelFifteen.text = "Why, Mary loves the lamb, you know, the teacher did reply."
         
         lineOne.text = " "
-        
-        labelOneText = labelOne.text!
-        labelTwoText = labelTwo.text!
-        labelThreeText = labelThree.text!
-        labelFourText = labelFour.text!
-        labelFiveText = labelFive.text!
-        labelSixText = labelSix.text!
-        labelSevenText = labelSeven.text!
-        labelEightText = labelEight.text!
-        labelNineText = labelNine.text!
-        labelTenText = labelTen.text!
-        labelElevenText = labelEleven.text!
-        labelTwelveText = labelTwelve.text!
-        labelThirteenText = labelThirteen.text!
-        labelFourteenText = labelFourteen.text!
-        labelFifteenText = labelFifteen.text!
     }
     
     
@@ -188,30 +157,29 @@ class MarryHadALittleLambController:UITableViewController {
             lineTow.becomeFirstResponder()
         }
         
-        if lineOne.text?.count == 0 {
+        guard lineOne.text != nil else { return }
+        
+        if lineOne.text!.count == 0 {
             lineOne.text = " "
         }
         
-        guard lineOne.text != nil else { return }
         guard labelOne.text != nil else { return }
         guard lineOne.text!.count >= 2 else { return }
-        
-        if lineOne.text!.count < lineOneCurrentLetterCount {
-            //按下了删除键
-            lineOneCurrentLetterCount -= 2
-            
-        }
-            
-        lineOneCurrentLetterCount += 1
-        
         tappedLetersInAll = lineOne.text!.count
         
-        let inputLetter = lineOne.text![lineOne.text!.index(before: lineOne.text!.endIndex)]
-        let originalLetter = labelOneText[labelOneText.startIndex]
-        
-        if inputLetter == originalLetter {
+        var tempCorrectLetterCount = 0
+        for i in 1...lineOne!.text!.count-1 {
+            let inputLetter = lineOne!.text![lineOne!.text!.index(lineOne!.text!.startIndex, offsetBy: i)]
+            let origenalLetter = labelOne!.text![labelOne!.text!.index(labelOne!.text!.startIndex, offsetBy: i-1)]
             
+            if inputLetter == origenalLetter {
+                tempCorrectLetterCount += 1
+            } else {
+                lineOne!.text!.remove(at: lineOne!.text!.index(lineOne!.text!.startIndex, offsetBy: i))
+                lineOne!.text!.insert("_", at: lineOne!.text!.index(lineOne!.text!.startIndex, offsetBy: i))
+            }
         }
+        lineOneCorrectLetters = tempCorrectLetterCount
         
     }
     
