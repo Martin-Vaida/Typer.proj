@@ -69,10 +69,13 @@ class MarryHadALittleLambController:UITableViewController {
         labelFourteen.text = "Why, Mary loves the lamb, you know. The lamb, you know, the lamb, you know"
         labelFifteen.text = "Why, Mary loves the lamb, you know, the teacher did reply."
         
-        lineOne.text = "|"
     }
     
     //new
+    @IBAction func lineOneBegin(_ sender: Any) {
+        lineOne.text = "|"
+    }
+    
     
     @IBAction func lineOneChanged(_ sender: Any) {
         if lineOne.text?.count == labelOne.text!.count+1 {

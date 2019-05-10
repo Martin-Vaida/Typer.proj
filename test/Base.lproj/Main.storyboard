@@ -206,6 +206,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineOneBegin:" destination="eNl-15-bRz" eventType="editingDidBegin" id="M71-G6-Yn4"/>
                                                         <action selector="lineOneChaged:" destination="eNl-15-bRz" eventType="editingChanged" id="mzp-fc-qIi"/>
                                                         <action selector="lineOneChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="03h-dz-VYC"/>
                                                         <action selector="lineOneEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="Qh0-iI-QXC"/>
