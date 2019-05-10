@@ -303,6 +303,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineThreeChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="wNu-Lr-Kbb"/>
                                                         <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="hLA-wE-kl7"/>
                                                     </connections>
                                                 </textField>

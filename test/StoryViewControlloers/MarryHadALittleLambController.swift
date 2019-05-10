@@ -75,7 +75,7 @@ class MarryHadALittleLambController:UITableViewController {
     //new
     
     @IBAction func lineOneChanged(_ sender: Any) {
-        if lineOne.text?.count == labelOne.text?.count {
+        if lineOne.text?.count == labelOne.text!.count+1 {
             lineOne.resignFirstResponder()
             lineTow.text = "|"
             lineTow.becomeFirstResponder()
@@ -83,7 +83,7 @@ class MarryHadALittleLambController:UITableViewController {
     }
     
     @IBAction func lineTwoChaged(_ sender: Any) {
-        if lineTow.text?.count == labelTwo.text?.count {
+        if lineTow.text?.count == labelTwo.text!.count+1 {
             lineTow.resignFirstResponder()
             lineThree.text = "|"
             lineThree.becomeFirstResponder()
@@ -94,6 +94,20 @@ class MarryHadALittleLambController:UITableViewController {
             lineOne.becomeFirstResponder()
         }
     }
+    
+    @IBAction func lineThreeChanged(_ sender: Any) {
+        if lineThree.text?.count == labelThree.text!.count+1 {
+            lineThree.resignFirstResponder()
+            lineFour.text = "|"
+            lineFour.becomeFirstResponder()
+        }
+        
+        if lineThree.text?.count == 0 {
+            lineThree.resignFirstResponder()
+            lineTow.becomeFirstResponder()
+        }
+    }
+    
     
     
     
