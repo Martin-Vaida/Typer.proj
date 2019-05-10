@@ -13,11 +13,49 @@ class MarryHadALittleLambController:UITableViewController {
     var timer:Timer?
     var timeCounter = 0.0
     var strß = ""
+    var timeTappedBool = false
+    var tappedLetersInAll = 0
+    var correctLettersInAll = 0
+    
+    var labelOneText = ""
+    var labelTwoText = ""
+    var labelThreeText = ""
+    var labelFourText = ""
+    var labelFiveText = ""
+    var labelSixText = ""
+    var labelSevenText = ""
+    var labelEightText = ""
+    var labelNineText = ""
+    var labelTenText = ""
+    var labelElevenText = ""
+    var labelTwelveText = ""
+    var labelThirteenText = ""
+    var labelFourteenText = ""
+    var labelFifteenText = ""
+    
+    var lineOneCurrentLetterCount = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        self.navigationItem.title = "Mary Had A Little Lamb"
         
+        //cancel auto correcting
+        lineOne.autocorrectionType = .no
+        lineTow.autocorrectionType = .no
+        lineThree.autocorrectionType = .no
+        lineFour.autocorrectionType = .no
+        lineFive.autocorrectionType = .no
+        lineSix.autocorrectionType = .no
+        lineSeven.autocorrectionType = .no
+        lineEight.autocorrectionType = .no
+        lineNine.autocorrectionType = .no
+        lineTen.autocorrectionType = .no
+        lineEleven.autocorrectionType = .no
+        lineTwelve.autocorrectionType = .no
+        lineThirteen.autocorrectionType = .no
+        lineFourteen.autocorrectionType = .no
+        lineFifteen.autocorrectionType = .no
     }
     
     @IBOutlet weak var labelOne: UILabel!
@@ -52,6 +90,9 @@ class MarryHadALittleLambController:UITableViewController {
     @IBOutlet weak var lineFourteen: UITextField!
     @IBOutlet weak var lineFifteen: UITextField!
     
+    @IBOutlet weak var timeLabel: UIBarButtonItem!
+    @IBOutlet weak var accuracylabel: UIBarButtonItem!
+    
     
     //define texts
     func setup() {
@@ -72,6 +113,22 @@ class MarryHadALittleLambController:UITableViewController {
         labelFifteen.text = "Why, Mary loves the lamb, you know, the teacher did reply."
         
         lineOne.text = " "
+        
+        labelOneText = labelOne.text!
+        labelTwoText = labelTwo.text!
+        labelThreeText = labelThree.text!
+        labelFourText = labelFour.text!
+        labelFiveText = labelFive.text!
+        labelSixText = labelSix.text!
+        labelSevenText = labelSeven.text!
+        labelEightText = labelEight.text!
+        labelNineText = labelNine.text!
+        labelTenText = labelTen.text!
+        labelElevenText = labelEleven.text!
+        labelTwelveText = labelTwelve.text!
+        labelThirteenText = labelThirteen.text!
+        labelFourteenText = labelFourteen.text!
+        labelFifteenText = labelFifteen.text!
     }
     
     
@@ -99,7 +156,14 @@ class MarryHadALittleLambController:UITableViewController {
                 }
             }
             
-            self.navigationItem.title = String(self.strß)
+            self.timeLabel.title = "Time: \(String(self.strß))"
+            
+            if self.timeTappedBool {
+                self.navigationItem.title = self.timeLabel.title
+                self.timeLabel.title = "Time"
+            } else {
+                self.navigationItem.title = "Mary Had A Little Lamb"
+            }
         })
     }
     
@@ -110,9 +174,8 @@ class MarryHadALittleLambController:UITableViewController {
         }
     }
     
-    //new
     
-    
+    //viewcontrollers
     
     @IBAction func lineOneBegin(_ sender: Any) {
         startTimer()
@@ -124,6 +187,32 @@ class MarryHadALittleLambController:UITableViewController {
             lineTow.text = " "
             lineTow.becomeFirstResponder()
         }
+        
+        if lineOne.text?.count == 0 {
+            lineOne.text = " "
+        }
+        
+        guard lineOne.text != nil else { return }
+        guard labelOne.text != nil else { return }
+        guard lineOne.text!.count >= 2 else { return }
+        
+        if lineOne.text!.count < lineOneCurrentLetterCount {
+            //按下了删除键
+            lineOneCurrentLetterCount -= 2
+            
+        }
+            
+        lineOneCurrentLetterCount += 1
+        
+        tappedLetersInAll = lineOne.text!.count
+        
+        let inputLetter = lineOne.text![lineOne.text!.index(before: lineOne.text!.endIndex)]
+        let originalLetter = labelOneText[labelOneText.startIndex]
+        
+        if inputLetter == originalLetter {
+            
+        }
+        
     }
     
     @IBAction func lineTwoChaged(_ sender: Any) {
@@ -151,6 +240,19 @@ class MarryHadALittleLambController:UITableViewController {
             lineTow.becomeFirstResponder()
         }
     }
+    
+    
+    //Navigation Item
+    
+    @IBAction func timetapped(_ sender: Any) {
+        guard timeLabel.title != nil else { return }
+        timeTappedBool = !timeTappedBool
+    }
+    
+    @IBAction func accuracyTapped(_ sender: Any) {
+        
+    }
+    
     
     @IBAction func doneTapped(_ sender: Any) {
         stopTimer()

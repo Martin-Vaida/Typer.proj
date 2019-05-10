@@ -891,13 +891,26 @@
                                 <segue destination="9r4-i3-q3X" kind="unwind" identifier="MarryHadALittleLambReturn" unwindAction="unwindToChoosePassageWithSegue:" id="eRA-p6-3yh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="7O5-ql-zbM">
-                            <connections>
-                                <action selector="doneTapped:" destination="eNl-15-bRz" id="Whs-xI-OUv"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="done" id="7O5-ql-zbM">
+                                <connections>
+                                    <action selector="doneTapped:" destination="eNl-15-bRz" id="Whs-xI-OUv"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Accuracy" id="ZPq-Gz-3zn">
+                                <connections>
+                                    <action selector="accuracyTapped:" destination="eNl-15-bRz" id="Qjo-8d-Lgl"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Time" id="06u-vn-PZO">
+                                <connections>
+                                    <action selector="timetapped:" destination="eNl-15-bRz" id="bGn-GK-bKD"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="accuracylabel" destination="ZPq-Gz-3zn" id="dIa-vt-Trf"/>
                         <outlet property="labelEight" destination="EgF-tj-uXf" id="BC3-Cp-t7n"/>
                         <outlet property="labelEleven" destination="34Z-vB-Qi9" id="l5T-Xm-TJz"/>
                         <outlet property="labelFifteen" destination="Xd6-Ap-I7Y" id="e4b-WC-9Db"/>
@@ -928,6 +941,7 @@
                         <outlet property="lineThree" destination="srD-DI-r3x" id="u44-WG-1dw"/>
                         <outlet property="lineTow" destination="nUW-9e-Uxr" id="XZN-7h-7pK"/>
                         <outlet property="lineTwelve" destination="GtQ-Pz-K2a" id="GJX-Bf-d9W"/>
+                        <outlet property="timeLabel" destination="06u-vn-PZO" id="8gt-7r-Nh4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5aY-c5-w0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
