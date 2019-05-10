@@ -12,6 +12,12 @@ import UIKit
 class MarryHadALittleLambController:UITableViewController {
     var startingTime:Date = Date()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+        
+    }
+    
     @IBOutlet weak var labelOne: UILabel!
     @IBOutlet weak var labelTwo: UILabel!
     @IBOutlet weak var labelThree: UILabel!
@@ -46,8 +52,56 @@ class MarryHadALittleLambController:UITableViewController {
     
     
     //define texts
+    func setup() {
+        labelOne.text = "Mary had a little lamb, little lamb, little lamb,"
+        labelTwo.text = "Mary had a little lamb, its fleece was white as snow."
+        labelThree.text = "And everywhere that Mary went, Mary went, Mary went,"
+        labelFour.text = "And everywhere that Mary went, the lamb was sure to go."
+        labelFive.text = "It followed her to school one day school one day, school one day,"
+        labelSix.text = "It followed her to school one day, which was against the rules."
+        labelSeven.text = "It made the children laugh and play, laugh and play, laugh and play,"
+        labelEight.text = "It made the children laugh and play to see a lamb at school."
+        labelNine.text = "And so the teacher turned it out, turned it out, turned it out,"
+        labelTen.text = "And so the teacher turned it out, but still it lingered near, And waited patiently about"
+        labelEleven.text = "And waited patiently about till Mary did appear."
+        labelTwelve.text = "Why does the lamb love Mary so? Love Mary so? Love Mary so?"
+        labelThirteen.text = "Why does the lamb love Mary so, the eager children cry."
+        labelFourteen.text = "Why, Mary loves the lamb, you know. The lamb, you know, the lamb, you know"
+        labelFifteen.text = "Why, Mary loves the lamb, you know, the teacher did reply."
+        
+        lineOne.text = "|"
+    }
+    
+    //new
+    
+    @IBAction func lineOneChanged(_ sender: Any) {
+        if lineOne.text?.count == labelOne.text?.count {
+            lineOne.resignFirstResponder()
+            lineTow.text = "|"
+            lineTow.becomeFirstResponder()
+        }
+    }
+    
+    @IBAction func lineTwoChaged(_ sender: Any) {
+        if lineTow.text?.count == labelTwo.text?.count {
+            lineTow.resignFirstResponder()
+            lineThree.text = "|"
+            lineThree.becomeFirstResponder()
+        }
+        
+        if lineTow.text?.count == 0 {
+            lineTow.resignFirstResponder()
+            lineOne.becomeFirstResponder()
+        }
+    }
     
     
+    
+    
+    
+    
+    
+    //old
     
     @IBAction func lineOneEnter(_ sender: Any) {
         lineOne.resignFirstResponder()

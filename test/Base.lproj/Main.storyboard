@@ -207,6 +207,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="lineOneChaged:" destination="eNl-15-bRz" eventType="editingChanged" id="mzp-fc-qIi"/>
+                                                        <action selector="lineOneChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="03h-dz-VYC"/>
                                                         <action selector="lineOneEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="Qh0-iI-QXC"/>
                                                     </connections>
                                                 </textField>
@@ -254,6 +255,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineTwoChaged:" destination="eNl-15-bRz" eventType="editingChanged" id="91P-qW-j3H"/>
                                                         <action selector="lineTwoEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="Qcf-gf-dJp"/>
                                                     </connections>
                                                 </textField>
