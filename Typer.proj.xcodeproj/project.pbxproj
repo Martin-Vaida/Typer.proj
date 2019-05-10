@@ -41,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B45F963D228533EE00ACD289 /* StoryViewControlloers */ = {
+			isa = PBXGroup;
+			children = (
+				B4D682C82283E1F0006FBC3C /* MarryHadALittleLambController.swift */,
+			);
+			path = StoryViewControlloers;
+			sourceTree = "<group>";
+		};
 		B4D682A72283E06E006FBC3C = {
 			isa = PBXGroup;
 			children = (
@@ -64,7 +72,7 @@
 				B47B2D922283EC0300CB0911 /* MenuViewController.swift */,
 				B48E2D652284195700E4066C /* scoreView.swift */,
 				B47B2D902283EA4300CB0911 /* ChoosePassageController.swift */,
-				B4D682C82283E1F0006FBC3C /* MarryHadALittleLambController.swift */,
+				B45F963D228533EE00ACD289 /* StoryViewControlloers */,
 				B4D682B72283E06E006FBC3C /* Main.storyboard */,
 				B4D682BD2283E06F006FBC3C /* Assets.xcassets */,
 				B4D682BF2283E06F006FBC3C /* LaunchScreen.storyboard */,
