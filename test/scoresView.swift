@@ -9,11 +9,18 @@
 import Foundation
 import UIKit
 
+var scoresViewHasSet = false
 class scoresView:UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //define the first row
+        if !scoresViewHasSet {
+            let rowFirstCell = Score.init(0, 0, "0", true)
+            scoresView.scoreCollection.insert(rowFirstCell, at: 0)
+            scoresViewHasSet = true
+        }
     }
     
     static var scoreCollection:[Score] = []
@@ -22,5 +29,17 @@ class scoresView:UITableViewController {
         return scoresView.scoreCollection.count
     }
     
-    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "scoresViewCell") as? scoresViewCell else {
+            fatalError("Could not dequeue a cell")
+        }
+        
+        let score = scoresView.scoreCollection[indexPath.row]
+        cell.indexLabel.text = score.indexDescription(indexPath.row)
+        cell.accuracyLabel.text = score.accuracyRateDescriptionShort()
+        cell.dateLabel.text = score.dateDescriptionShort()
+        cell.durationlabel.text = score.timeDescriptionShort()
+        
+       return cell
+    }
 }

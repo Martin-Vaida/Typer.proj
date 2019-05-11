@@ -14,26 +14,29 @@ class Score {
     let tappedLatters:Int
     let timePassed:String
     let dateFomatter = DateFormatter()
+    var index = ""
+    var firstRow:Bool
     
-    init(_ correctLetters:Int, _ tappedLetters:Int, _ timePassed:String) {
+    init(_ correctLetters:Int, _ tappedLetters:Int, _ timePassed:String, _ firstRow:Bool) {
         self.correctLetters = correctLetters
         self.tappedLatters = tappedLetters
         self.timePassed = timePassed
+        self.firstRow = firstRow
     }
     
     func timeDescription() -> String {
         return "Time: \(timePassed) seconds"
     }
     
-    func accuracyRateDescription() -> String {
+    func accuracyRateDescreption() -> String {
         return "Accuracy Rate: \(correctLetters*100/tappedLatters)%"
     }
     
-    func accuracyDiscription() -> String {
+    func accuracyDescription() -> String {
         return "Accuracy: \(correctLetters)/\(tappedLatters)"
     }
     
-    func dateDiscription() -> String {
+    func dateDescription() -> String {
         dateFomatter.dateStyle = .full
         dateFomatter.timeStyle = .medium
         
@@ -41,4 +44,42 @@ class Score {
         
         return "Taken Date: \(dateFomatter.string(from: Date()))"
     }
+    
+    func timeDescriptionShort() -> String {
+        if !firstRow {
+            return String(timePassed)
+        } else {
+            return "Duration"
+        }
+    }
+    
+    func accuracyRateDescriptionShort() -> String {
+        if !firstRow {
+            return "\(correctLetters*100/tappedLatters)%"
+        } else {
+            return "Accuracy Rate"
+        }
+    }
+    
+    func dateDescriptionShort() -> String {
+        if !firstRow {
+            dateFomatter.dateStyle = .short
+            dateFomatter.timeStyle = .none
+            
+            dateFomatter.locale = Locale(identifier: "zh_CN")
+            
+            return String(dateFomatter.string(from: Date()))
+        } else {
+            return "Date"
+        }
+    }
+    
+    func indexDescription(_ index:Int) -> String {
+        if !firstRow {
+            return String(index)
+        } else {
+            return " "
+        }
+    }
+    
 }

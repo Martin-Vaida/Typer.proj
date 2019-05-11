@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import UIKit
+
+class scoresViewCell:UITableViewCell {
+    
+    @IBOutlet weak var indexLabel: UILabel!
+    @IBOutlet weak var accuracyLabel: UILabel!
+    @IBOutlet weak var durationlabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
+}

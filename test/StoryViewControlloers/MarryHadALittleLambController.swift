@@ -261,6 +261,6 @@ class MarryHadALittleLambController:UITableViewController {
         let correctLetters = correctLettersInAll
         let tappedLetters = tappedLetersInAll
         
-        ScoreViewController.score = Score(correctLetters, tappedLetters, timePassed)
+        ScoreViewController.score = Score(correctLetters, tappedLetters, timePassed, false)
     }
 }
