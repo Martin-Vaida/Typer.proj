@@ -24,17 +24,17 @@ class ScoreViewController:UITableViewController {
     
     func updateScore() {
         guard ScoreViewController.score?.timeDescription() != nil,
-            ScoreViewController.score?.accuracyRateDescription() != nil,
-            ScoreViewController.score?.accuracyDiscription() != nil,
-            ScoreViewController.score?.dateDiscription() != nil else {
+            ScoreViewController.score?.accuracyRateDescreption() != nil,
+            ScoreViewController.score?.accuracyDescription() != nil,
+            ScoreViewController.score?.dateDescription() != nil else {
                 defaultScore()
                 return
         }
         
         timeLabel.text = ScoreViewController.score!.timeDescription()
-        accuracyLabelOne.text = ScoreViewController.score!.accuracyRateDescription()
-        accuracyLabelTwo.text = ScoreViewController.score!.accuracyDiscription()
-        takenTimeLabel.text = ScoreViewController.score!.dateDiscription()
+        accuracyLabelOne.text = ScoreViewController.score!.accuracyRateDescreption()
+        accuracyLabelTwo.text = ScoreViewController.score!.accuracyDescription()
+        takenTimeLabel.text = ScoreViewController.score!.dateDescription()
         
         scoresView.scoreCollection.append(ScoreViewController.score!)
     }
