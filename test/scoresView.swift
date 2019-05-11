@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 var scoresViewHasSet = false
-class scoresView:UITableViewController {
+class scoresView:UITableViewController, UINavigationControllerDelegate {
     var isPickerHidden:[Bool] = []
     
     override func viewDidLoad() {
@@ -25,6 +25,10 @@ class scoresView:UITableViewController {
         
         for _ in 1...scoresView.scoreCollection.count {
             isPickerHidden.append(false)
+        }
+        
+        for i in 0...scoresView.scoreCollection.count-1{
+            scoresView.scoreCollection[i].index = String(i)
         }
     }
     
@@ -74,6 +78,52 @@ class scoresView:UITableViewController {
             tableView.beginUpdates()
             tableView.endUpdates()
         }
+    }
+    
+    @IBAction func sortByTapped(_ sender: Any) {
+        
+        let alartController = UIAlertController(title: "Choose The Way To Sort These Items", message: nil, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alartController.addAction(cancelAction)
+        
+        let sortByTimeAction = UIAlertAction(title: "By Duration", style: .default) { (action) in
+            self.sortItems(by: .time)
+        }
+        alartController.addAction(sortByTimeAction)
+        
+        let sortByAccuracyAction = UIAlertAction(title: "By Accuracy", style: .default) { (action) in
+            self.sortItems(by: .accuracy)
+        }
+        alartController.addAction(sortByAccuracyAction)
+        
+        self.present(alartController, animated: true, completion: nil)
+    }
+    
+    enum SortItemsWays {
+        case time, accuracy
+    }
+    
+    func sortItems(by: SortItemsWays) {
+        scoresView.scoreCollection.remove(at: 0)
+        
+        switch by {
+        case .time:
+            let sortedItmes = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
+                return Double(firstItem.timePassed)! < Double(secondItem.timePassed)!
+            }
+            scoresView.scoreCollection = sortedItmes
+        case .accuracy:
+            let sortedItmes = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
+                return firstItem.correctLetters*100/firstItem.tappedLatters < secondItem.correctLetters*100/secondItem.tappedLatters
+            }
+            scoresView.scoreCollection = sortedItmes
+        }
+        
+        let rowFirstCell = Score.init(0, 0, "0", true, .maryHadALittleLamb)
+        scoresView.scoreCollection.insert(rowFirstCell, at: 0)
+        
+        
     }
     
 }

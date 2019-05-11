@@ -217,6 +217,12 @@
                                 <segue destination="mfJ-E0-OZA" kind="unwind" unwindAction="unwindToMenuWithSegue:" id="z54-Gy-KYE"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sort By" id="04f-zj-XfG">
+                            <connections>
+                                <action selector="sortByTapped:" destination="amw-A1-yjU" id="TFx-TW-UXx"/>
+                                <segue destination="amw-A1-yjU" kind="show" id="b6Q-OV-eXf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9KX-2n-Frz" userLabel="First Responder" sceneMemberID="firstResponder"/>
