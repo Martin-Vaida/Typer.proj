@@ -16,12 +16,18 @@ class Score {
     let dateFomatter = DateFormatter()
     var index = ""
     var firstRow:Bool
+    var passageChoice:PassageChoice
     
-    init(_ correctLetters:Int, _ tappedLetters:Int, _ timePassed:String, _ firstRow:Bool) {
+    enum PassageChoice {
+        case maryHadALittleLamb
+    }
+    
+    init(_ correctLetters:Int, _ tappedLetters:Int, _ timePassed:String, _ firstRow:Bool, _ passageChoice:PassageChoice) {
         self.correctLetters = correctLetters
         self.tappedLatters = tappedLetters
         self.timePassed = timePassed
         self.firstRow = firstRow
+        self.passageChoice = passageChoice
     }
     
     func timeDescription() -> String {
@@ -33,7 +39,11 @@ class Score {
     }
     
     func accuracyDescription() -> String {
-        return "Accuracy: \(correctLetters)/\(tappedLatters)"
+        if !firstRow {
+            return "Accuracy: \(correctLetters)/\(tappedLatters)"
+        } else {
+            return " "
+        }
     }
     
     func dateDescription() -> String {
@@ -53,7 +63,11 @@ class Score {
         }
     }
     
-    func accuracyRateDescriptionShort() -> String {
+    func accuracyRateDescriptionShort(_ installed:Bool) -> String {
+        guard installed else {
+            return " "
+        }
+        
         if !firstRow {
             return "\(correctLetters*100/tappedLatters)%"
         } else {
@@ -79,6 +93,13 @@ class Score {
             return String(index)
         } else {
             return " "
+        }
+    }
+    
+    func getPassageName() -> String {
+        switch passageChoice {
+        case .maryHadALittleLamb:
+            return "Passage: Mary Had A Little lamb"
         }
     }
     
