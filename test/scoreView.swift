@@ -1,15 +1,49 @@
 //
-//  scoreView.swift
-//  test
+//  ScoreView.swift
+//  Typer.proj
 //
-//  Created by Vaida on 2019/5/9.
-//  Copyright © 2019 Vaida. All rights reserved.
+//  Created by Vaida on 2019/5/11.
+//  Copyright © 2019 Martin_Vaida. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class scoreView:UITableViewController {
+class ScoreViewController:UITableViewController {
+    static var score:Score?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateScore()
+    }
     
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var accuracyLabelOne: UILabel!
+    @IBOutlet weak var accuracyLabelTwo: UILabel!
+    @IBOutlet weak var takenTimeLabel: UILabel!
+    
+    func updateScore() {
+        guard ScoreViewController.score?.timeDescription() != nil,
+            ScoreViewController.score?.accuracyRateDescription() != nil,
+            ScoreViewController.score?.accuracyDiscription() != nil,
+            ScoreViewController.score?.dateDiscription() != nil else {
+                defaultScore()
+                return
+        }
+        
+        timeLabel.text = ScoreViewController.score!.timeDescription()
+        accuracyLabelOne.text = ScoreViewController.score!.accuracyRateDescription()
+        accuracyLabelTwo.text = ScoreViewController.score!.accuracyDiscription()
+        takenTimeLabel.text = ScoreViewController.score!.dateDiscription()
+        
+        scoresView.scoreCollection.append(ScoreViewController.score!)
+    }
+    
+    func defaultScore() {
+        timeLabel.text = "nil"
+        accuracyLabelOne.text = "nil"
+        accuracyLabelTwo.text = "nil"
+        takenTimeLabel.text = "nil"
+    }
 }
+

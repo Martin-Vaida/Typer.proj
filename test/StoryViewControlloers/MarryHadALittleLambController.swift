@@ -12,7 +12,7 @@ import UIKit
 class MarryHadALittleLambController:UITableViewController {
     var timer:Timer?
     var timeCounter = 0.0
-    var strß = ""
+    var timePassed = ""
     
     var timeTappedBool = false
     var accuracyTappedBool = false
@@ -115,22 +115,22 @@ class MarryHadALittleLambController:UITableViewController {
             
             let str = String(self.timeCounter)
             var array:[String] = []
-            self.strß = ""
+            self.timePassed = ""
             
             for i in str {
                 array.append(String(i))
             }
             
             for i in 0...array.count-1 {
-                self.strß += array[i]
+                self.timePassed += array[i]
                 
                 if array[i] == "." {
-                    self.strß += array[i+1]
+                    self.timePassed += array[i+1]
                     break
                 }
             }
             
-            self.timeLabel.title = "Time: \(String(self.strß))"
+            self.timeLabel.title = "Time: \(String(self.timePassed))"
             
             if self.timeTappedBool {
                 self.navigationItem.title = self.timeLabel.title
@@ -251,5 +251,16 @@ class MarryHadALittleLambController:UITableViewController {
     
     @IBAction func doneTapped(_ sender: Any) {
         stopTimer()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "ResultsSegue" else { return }
+        
+        let correctLetters = correctLettersInAll
+        let tappedLetters = tappedLetersInAll
+        
+        ScoreViewController.score = Score(correctLetters, tappedLetters, timePassed)
     }
 }
