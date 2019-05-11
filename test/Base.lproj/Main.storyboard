@@ -95,7 +95,7 @@
         <!--Score View-->
         <scene sceneID="8kg-P7-66Y">
             <objects>
-                <tableViewController id="amw-A1-yjU" customClass="scoresView" customModule="Typer_proj" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Score_View" id="amw-A1-yjU" customClass="scoresView" customModule="Typer_proj" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ufn-EI-tCm">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -220,7 +220,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Sort By" id="04f-zj-XfG">
                             <connections>
                                 <action selector="sortByTapped:" destination="amw-A1-yjU" id="TFx-TW-UXx"/>
-                                <segue destination="amw-A1-yjU" kind="show" id="b6Q-OV-eXf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

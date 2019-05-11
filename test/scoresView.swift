@@ -115,7 +115,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
             scoresView.scoreCollection = sortedItmes
         case .accuracy:
             let sortedItmes = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
-                return firstItem.correctLetters*100/firstItem.tappedLatters < secondItem.correctLetters*100/secondItem.tappedLatters
+                return firstItem.correctLetters*100/firstItem.tappedLatters > secondItem.correctLetters*100/secondItem.tappedLatters
             }
             scoresView.scoreCollection = sortedItmes
         }
@@ -123,7 +123,8 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         let rowFirstCell = Score.init(0, 0, "0", true, .maryHadALittleLamb)
         scoresView.scoreCollection.insert(rowFirstCell, at: 0)
         
-        
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View") as! scoresView
+        self.navigationController!.pushViewController(viewController, animated: true)
     }
     
 }
