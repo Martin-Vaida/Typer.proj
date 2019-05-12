@@ -17,6 +17,7 @@ class Score {
     var index = ""
     var firstRow:Bool
     var passageChoice:PassageChoice
+    var dateInt = 0
     
     enum PassageChoice {
         case maryHadALittleLamb
@@ -53,6 +54,75 @@ class Score {
         dateFomatter.locale = Locale(identifier: "zh_CN")
         
         return "Taken Date: \(dateFomatter.string(from: Date()))"
+    }
+    
+    func getDateInt() {
+        dateFomatter.dateStyle = .short
+        dateFomatter.timeStyle = .medium
+        dateFomatter.locale = Locale(identifier: "zh_CN")
+        
+        let str = dateFomatter.string(from: Date())
+        var strArray:[String] = []
+        
+        for i in str {
+            if i == "上" {
+                continue
+            } else if i == "下" {
+                continue
+            } else if i == "午" {
+                continue
+            } else {
+                strArray.append(String(i))
+            }
+        }
+        
+        var tempIntString = ""
+        var used = false
+        for i in strArray {
+            if Int(String(i)) != nil {
+                tempIntString += String(i)
+                
+                if i != strArray[strArray.count-1] {
+                    continue
+                }
+            }
+            
+            if i == "/" && tempIntString.count == 4 {
+                if Int(tempIntString)! % 4 == 0 {
+                    dateInt += Int(tempIntString)!*366*24*60*60
+                } else {
+                    dateInt += Int(tempIntString)!*365*24*60*60
+                }
+                tempIntString = ""
+            } else if i == "/" {
+                guard Int(tempIntString)! != 1,
+                    Int(tempIntString)! != 3,
+                    Int(tempIntString)! != 5,
+                    Int(tempIntString)! != 7,
+                    Int(tempIntString)! != 8,
+                    Int(tempIntString)! != 10,
+                    Int(tempIntString)! != 12 else {
+                        dateInt += Int(tempIntString)!*30*24*60*60
+                        tempIntString = ""
+                        continue
+                }
+                dateInt += Int(tempIntString)!*31*24*60*60
+                
+                tempIntString = ""
+            } else if i == " " {
+                dateInt += Int(tempIntString)!*24*60*60
+                tempIntString = ""
+            } else if i == ":" && !used {
+                used = true
+                dateInt += Int(tempIntString)!*60*60
+                tempIntString = ""
+            } else if i == ":" {
+                dateInt += Int(tempIntString)!*60
+                tempIntString = ""
+            } else {
+                dateInt += Int(tempIntString)!
+            }
+        }
     }
     
     func timeDescriptionShort() -> String {

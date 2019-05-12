@@ -97,11 +97,16 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         }
         alartController.addAction(sortByAccuracyAction)
         
+        let sortBydateAction = UIAlertAction(title: "By Date", style: .default) { (action) in
+            self.sortItems(by: .date)
+        }
+        alartController.addAction(sortBydateAction)
+        
         self.present(alartController, animated: true, completion: nil)
     }
     
     enum SortItemsWays {
-        case time, accuracy
+        case time, accuracy, date
     }
     
     func sortItems(by: SortItemsWays) {
@@ -110,12 +115,17 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         switch by {
         case .time:
             let sortedItmes = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
-                return Double(firstItem.timePassed)! < Double(secondItem.timePassed)!
+                return Double(firstItem.timePassed)! > Double(secondItem.timePassed)!
             }
             scoresView.scoreCollection = sortedItmes
         case .accuracy:
             let sortedItmes = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
                 return firstItem.correctLetters*100/firstItem.tappedLatters > secondItem.correctLetters*100/secondItem.tappedLatters
+            }
+            scoresView.scoreCollection = sortedItmes
+        case .date:
+            let sortedItmes = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
+                return firstItem.dateInt < secondItem.dateInt
             }
             scoresView.scoreCollection = sortedItmes
         }
@@ -124,7 +134,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         scoresView.scoreCollection.insert(rowFirstCell, at: 0)
         
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View") as! scoresView
-        self.navigationController!.pushViewController(viewController, animated: true)
+        self.navigationController!.pushViewController(viewController, animated: false)
     }
     
 }
