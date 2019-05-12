@@ -449,6 +449,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineFourChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="Jqt-wD-hEb"/>
                                                         <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="Muc-Ty-tgP"/>
                                                     </connections>
                                                 </textField>
@@ -496,6 +497,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineFiveChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="Uv4-H8-GDI"/>
                                                         <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="haS-E5-JNU"/>
                                                     </connections>
                                                 </textField>
@@ -543,6 +545,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineSixChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="Z4c-Cx-gWU"/>
                                                         <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="4pf-f6-4OL"/>
                                                     </connections>
                                                 </textField>
@@ -590,6 +593,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineSevenChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="dtO-oW-3KG"/>
                                                         <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="CIY-ed-Ui6"/>
                                                     </connections>
                                                 </textField>
@@ -637,6 +641,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineEightChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="dJW-wR-aDZ"/>
                                                         <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="QuO-Fr-MVt"/>
                                                     </connections>
                                                 </textField>
@@ -684,6 +689,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineNineChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="c6t-EH-Xs4"/>
                                                         <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="Mhq-VX-WsQ"/>
                                                     </connections>
                                                 </textField>
@@ -731,6 +737,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineTenChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="YSz-sw-feT"/>
                                                         <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="2sB-q8-pSa"/>
                                                     </connections>
                                                 </textField>
@@ -778,6 +785,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineElevenChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="ng8-2d-VP7"/>
                                                         <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="fG6-YO-PlY"/>
                                                     </connections>
                                                 </textField>
@@ -826,6 +834,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="sRM-IZ-38k"/>
+                                                        <action selector="lineTwelveChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="Mye-Rs-kCc"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -872,6 +881,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineThirteenChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="1Fc-oy-6M3"/>
                                                         <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="HD7-5m-Jsv"/>
                                                     </connections>
                                                 </textField>
@@ -919,6 +929,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineFourteenChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="Uvz-8Y-2FZ"/>
                                                         <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="4Lc-bj-lj4"/>
                                                     </connections>
                                                 </textField>
@@ -966,6 +977,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="lineFifteenChanged:" destination="eNl-15-bRz" eventType="editingChanged" id="NYR-aT-t8q"/>
                                                         <action selector="lineThreeEnter:" destination="eNl-15-bRz" eventType="primaryActionTriggered" id="GW9-DQ-yId"/>
                                                     </connections>
                                                 </textField>
@@ -1054,7 +1066,7 @@
         <!--Root View Controller-->
         <scene sceneID="iW0-ox-bbx">
             <objects>
-                <tableViewController id="sCo-NB-3v5" customClass="ScoreViewController" customModule="Typer_proj" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Score_View_Single" id="sCo-NB-3v5" customClass="ScoreViewController" customModule="Typer_proj" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="I7I-t2-naZ">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
