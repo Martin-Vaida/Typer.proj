@@ -25,27 +25,14 @@ class MarryHadALittleLambController:UITableViewController {
     
     let accuracy = 100
     
+    var labelArray:[UILabel] = []
+    var lineArray:[UITextField] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         self.navigationItem.title = "Mary Had A Little Lamb"
         
-        //cancel auto correcting
-        lineOne.autocorrectionType = .no
-        lineTow.autocorrectionType = .no
-        lineThree.autocorrectionType = .no
-        lineFour.autocorrectionType = .no
-        lineFive.autocorrectionType = .no
-        lineSix.autocorrectionType = .no
-        lineSeven.autocorrectionType = .no
-        lineEight.autocorrectionType = .no
-        lineNine.autocorrectionType = .no
-        lineTen.autocorrectionType = .no
-        lineEleven.autocorrectionType = .no
-        lineTwelve.autocorrectionType = .no
-        lineThirteen.autocorrectionType = .no
-        lineFourteen.autocorrectionType = .no
-        lineFifteen.autocorrectionType = .no
     }
     
     @IBOutlet weak var labelOne: UILabel!
@@ -103,6 +90,62 @@ class MarryHadALittleLambController:UITableViewController {
         labelFifteen.text = "Why, Mary loves the lamb, you know, the teacher did reply."
         
         lineOne.text = " "
+        
+        //cancel auto correcting
+        lineOne.autocorrectionType = .no
+        lineTow.autocorrectionType = .no
+        lineThree.autocorrectionType = .no
+        lineFour.autocorrectionType = .no
+        lineFive.autocorrectionType = .no
+        lineSix.autocorrectionType = .no
+        lineSeven.autocorrectionType = .no
+        lineEight.autocorrectionType = .no
+        lineNine.autocorrectionType = .no
+        lineTen.autocorrectionType = .no
+        lineEleven.autocorrectionType = .no
+        lineTwelve.autocorrectionType = .no
+        lineThirteen.autocorrectionType = .no
+        lineFourteen.autocorrectionType = .no
+        lineFifteen.autocorrectionType = .no
+        
+        //Define labelArray
+        labelArray.append(labelOne)
+        labelArray.append(labelTwo)
+        labelArray.append(labelThree)
+        labelArray.append(labelFour)
+        labelArray.append(labelFive)
+        labelArray.append(labelSix)
+        labelArray.append(labelSeven)
+        labelArray.append(labelEight)
+        labelArray.append(labelNine)
+        labelArray.append(labelTen)
+        labelArray.append(labelEleven)
+        labelArray.append(labelTwelve)
+        labelArray.append(labelThirteen)
+        labelArray.append(labelFourteen)
+        labelArray.append(labelFifteen)
+        
+        //Define lineArray
+        lineArray.append(lineOne)
+        lineArray.append(lineTow)
+        lineArray.append(lineThree)
+        lineArray.append(lineFour)
+        lineArray.append(lineFive)
+        lineArray.append(lineSix)
+        lineArray.append(lineSeven)
+        lineArray.append(lineEight)
+        lineArray.append(lineNine)
+        lineArray.append(lineTen)
+        lineArray.append(lineEleven)
+        lineArray.append(lineTwelve)
+        lineArray.append(lineThirteen)
+        lineArray.append(lineFourteen)
+        lineArray.append(lineFifteen)
+        
+        //make colors of used labels gray
+        for i in labelArray {
+            i.textColor = .gray
+        }
     }
     
     
@@ -164,13 +207,66 @@ class MarryHadALittleLambController:UITableViewController {
     
     @IBAction func lineOneBegin(_ sender: Any) {
         startTimer()
+        
+        labelOne.textColor = .darkGray
     }
     
+    //When User changed Valve...
+    func updateValue(line:Int) {
+        
+        
+        if lineArray[line-1].text?.count == lineArray[line-1].text!.count+1 {
+            lineArray[line-1].resignFirstResponder()
+            lineArray[line].text = " "
+            lineArray[line].becomeFirstResponder()
+            
+            labelArray[line-1].textColor = .gray
+            labelArray[line].textColor = .darkGray
+        }
+        
+        guard lineArray[line-1].text != nil else { return }
+        
+        if lineArray[line-1].text!.count == 0 {
+            lineArray[line-1].text = " "
+        }
+        
+        guard labelArray[line-1].text != nil else { return }
+        guard lineOne.text!.count >= 2 else { return }
+        tappedLetersInAll = lineOne.text!.count
+        
+        var tempCorrectLetterCount = 0
+        tempCorrectLetterCount = 0
+        
+        for i in 1...lineOne!.text!.count-1 {
+            let inputLetter = lineOne!.text![lineOne!.text!.index(lineOne!.text!.startIndex, offsetBy: i)]
+            let origenalLetter = labelOne!.text![labelOne!.text!.index(labelOne!.text!.startIndex, offsetBy: i-1)]
+            
+            if inputLetter == origenalLetter {
+                tempCorrectLetterCount += 1
+            } else {
+                lineOne!.text!.remove(at: lineOne!.text!.index(lineOne!.text!.startIndex, offsetBy: i))
+                lineOne!.text!.insert("_", at: lineOne!.text!.index(lineOne!.text!.startIndex, offsetBy: i))
+            }
+        }
+        
+        lineOneCorrectLetters = tempCorrectLetterCount
+        lineOneTappedLeters = lineOne!.text!.count - 1
+        
+        correctLettersInAll = lineOneCorrectLetters
+        tappedLetersInAll = lineOneTappedLeters
+        
+        updateAccuracyLabel()
+    }
+    
+    //User is editing lineOne
     @IBAction func lineOneChanged(_ sender: Any) {
         if lineOne.text?.count == labelOne.text!.count+1 {
             lineOne.resignFirstResponder()
             lineTow.text = " "
             lineTow.becomeFirstResponder()
+            
+            labelArray[0].textColor = .gray
+            labelArray[1].textColor = .darkGray
         }
         
         guard lineOne.text != nil else { return }
