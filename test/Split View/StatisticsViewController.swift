@@ -13,20 +13,25 @@ class StatisticsViewController:UITableViewController {
     
     @IBOutlet weak var averageAccuracyRateView: UIView!
     
-    var isViewHidden = [Bool](repeating: true, count: 4)
+    var isViewHiddenå = [Bool](repeating: true, count: 4)
     
     //make the hight of each cell dynamic
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let normalCellHeight = CGFloat(44)
         let largeCellHeihgt = CGFloat(244)
-        
-        return isViewHidden[indexPath.row] ? normalCellHeight : largeCellHeihgt
+        if indexPath.section == 0 {
+            return isViewHiddenå[indexPath.row] ? normalCellHeight : largeCellHeihgt
+        } else {
+            return normalCellHeight
+        }
     }
     
     //make the height of each cell dynamic when you tapped...
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        isViewHidden[indexPath.row] = !isViewHidden[indexPath.row]
+        if indexPath.section == 0 {
+            isViewHiddenå[indexPath.row] = !isViewHiddenå[indexPath.row]
+        }
         tableView.beginUpdates()
         tableView.endUpdates()
     }
