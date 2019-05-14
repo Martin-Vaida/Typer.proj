@@ -527,6 +527,37 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Reset" id="EQ1-ye-R3B">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hlU-6C-G2O">
+                                        <rect key="frame" x="0.0" y="476" width="703.5" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hlU-6C-G2O" id="0Sf-py-gyU">
+                                            <rect key="frame" x="0.0" y="0.0" width="703.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4T-lw-lva">
+                                                    <rect key="frame" x="7" y="0.0" width="689.5" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="PkZ-pf-9PR"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <state key="normal" title="Reset To Default"/>
+                                                    <connections>
+                                                        <action selector="resetTapped:" destination="ip0-mq-wa4" eventType="touchUpInside" id="gU2-Mp-L0v"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="q4T-lw-lva" firstAttribute="top" secondItem="0Sf-py-gyU" secondAttribute="top" id="E0w-cf-UHK"/>
+                                                <constraint firstItem="q4T-lw-lva" firstAttribute="leading" secondItem="0Sf-py-gyU" secondAttribute="leading" constant="7" id="TUl-aq-Aav"/>
+                                                <constraint firstAttribute="trailing" secondItem="q4T-lw-lva" secondAttribute="trailing" constant="7" id="b7w-gy-dvE"/>
+                                                <constraint firstAttribute="bottom" secondItem="q4T-lw-lva" secondAttribute="bottom" id="j6p-yF-zkA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="ip0-mq-wa4" id="1by-Sd-MQm"/>
@@ -1723,7 +1754,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DefaultBackground" width="16" height="16"/>
+        <image name="DefaultBackground" width="1219" height="178"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JgN-8f-O19"/>

@@ -13,8 +13,8 @@ class MarryHadALittleLambController:UITableViewController {
     
     static var currentLabelColor:UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
     static var currentLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-    static var unsedLabelColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
-    static var unsedLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    static var unusedLabelColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    static var unusedLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
     
     var timer:Timer?
     var timeCounter = 0.0
@@ -148,7 +148,7 @@ class MarryHadALittleLambController:UITableViewController {
         
         //make colors of used labels gray
         for i in labelArray {
-            i.textColor = MarryHadALittleLambController.unsedLabelColor
+            i.textColor = MarryHadALittleLambController.unusedLabelColor
         }
     }
     
@@ -229,10 +229,10 @@ class MarryHadALittleLambController:UITableViewController {
             lineArray[line].text = " "
             lineArray[line].becomeFirstResponder()
             
-            labelArray[line-1].textColor = MarryHadALittleLambController.unsedLabelColor
+            labelArray[line-1].textColor = MarryHadALittleLambController.unusedLabelColor
             labelArray[line].textColor = MarryHadALittleLambController.currentLabelColor
             
-            lineArray[line-1].textColor = MarryHadALittleLambController.unsedLineColor
+            lineArray[line-1].textColor = MarryHadALittleLambController.unusedLineColor
             lineArray[line].textColor = MarryHadALittleLambController.currentLineColor
         }
         
@@ -245,10 +245,10 @@ class MarryHadALittleLambController:UITableViewController {
                 lineArray[line-1].resignFirstResponder()
                 lineArray[line-2].becomeFirstResponder()
                 
-                labelArray[line-1].textColor = MarryHadALittleLambController.unsedLabelColor
+                labelArray[line-1].textColor = MarryHadALittleLambController.unusedLabelColor
                 labelArray[line-2].textColor = MarryHadALittleLambController.currentLabelColor
                 
-                lineArray[line-1].textColor = MarryHadALittleLambController.unsedLineColor
+                lineArray[line-1].textColor = MarryHadALittleLambController.unusedLineColor
                 lineArray[line-2].textColor = MarryHadALittleLambController.currentLineColor
             }
         }
