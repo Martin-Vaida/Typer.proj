@@ -65,7 +65,10 @@ class MasterViewController: UITableViewController {
                 
                 if indexPath.section == 0 {
                     controller.enableColorMix = true
-                    
+                }
+                
+                if indexPath.section == 1 {
+                    controller.toStatisticsBool = true
                 }
                 
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem

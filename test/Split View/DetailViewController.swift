@@ -23,16 +23,17 @@ class DetailViewController:UIViewController {
         case currentLabel, currentLine, unusedLabel, unusedLine
     }
     
-    var enableColorMix = false {
-        didSet {
-            enableTableView()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         enableTableView()
+        toStatistics()
+    }
+    
+    var enableColorMix = false {
+        didSet {
+            enableTableView()
+        }
     }
     
     func enableTableView() {
@@ -45,6 +46,19 @@ class DetailViewController:UIViewController {
         if let labelß = label {
             labelß.isHidden = !enableColorMix
         }
+    }
+    
+    var toStatisticsBool:Bool = false {
+        didSet {
+            toStatistics()
+        }
+    }
+    
+    func toStatistics() {
+        guard toStatisticsBool else { return }
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Statistics") as! StatisticsViewController
+        viewController.navigationItem.title = "Statistics"
+        self.navigationController!.pushViewController(viewController, animated: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
