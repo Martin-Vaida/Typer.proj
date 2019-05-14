@@ -64,26 +64,26 @@ class colorMixViewController:UITableViewController {
     @IBOutlet weak var sampleLabel: UILabel!
     
     @IBAction func redSliderChanged(_ sender: Any) {
-        red = CGFloat(redSlider.value)
         updateColor()
     }
     
     @IBAction func yellowSliderChanged(_ sender: Any) {
-        yellow = CGFloat(yellowSlider.value)
         updateColor()
     }
     
     @IBAction func blueSliderChanged(_ sender: Any) {
-        blue = CGFloat(blueSlider.value)
         updateColor()
     }
     
     @IBAction func blackSliderChanged(_ sender: Any) {
-        black = CGFloat(blackSlider.value)
         updateColor()
     }
     
     func updateColor() {
+        red = CGFloat(redSlider.value)
+        yellow = CGFloat(yellowSlider.value)
+        blue = CGFloat(blueSlider.value)
+        black = CGFloat(blackSlider.value)
         sampleLabel.textColor = UIColor(red: red, green: yellow, blue: blue, alpha: black)
     }
     

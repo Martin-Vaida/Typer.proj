@@ -577,7 +577,7 @@
             </objects>
             <point key="canvasLocation" x="1073" y="2241"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Settings-->
         <scene sceneID="g7R-Ds-Ev6">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="FMz-tW-yfA" customClass="MasterViewController" customModule="Typer_proj" customModuleProvider="target" sceneMemberID="viewController">
@@ -644,7 +644,7 @@
                             <outlet property="delegate" destination="FMz-tW-yfA" id="GRr-hQ-MH1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ypv-EO-S8e">
+                    <navigationItem key="navigationItem" title="Settings" id="ypv-EO-S8e">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="ELK-oh-ODP">
                             <connections>
                                 <segue destination="L97-9e-Weu" kind="unwind" unwindAction="unwindToMenuWithSegue:" id="Den-kI-xsq"/>
@@ -1757,7 +1757,7 @@
         <image name="DefaultBackground" width="1219" height="178"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JgN-8f-O19"/>
+        <segue reference="IOX-s6-hXO"/>
         <segue reference="sbH-8g-80O"/>
         <segue reference="uYq-6w-bvu"/>
     </inferredMetricsTieBreakers>
