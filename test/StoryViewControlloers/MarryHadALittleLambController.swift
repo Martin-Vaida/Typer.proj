@@ -10,6 +10,12 @@ import Foundation
 import UIKit
 
 class MarryHadALittleLambController:UITableViewController {
+    
+    static var currentLabelColor:UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
+    static var currentLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    static var unsedLabelColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    static var unsedLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    
     var timer:Timer?
     var timeCounter = 0.0
     var timePassed = ""
@@ -142,7 +148,7 @@ class MarryHadALittleLambController:UITableViewController {
         
         //make colors of used labels gray
         for i in labelArray {
-            i.textColor = .gray
+            i.textColor = MarryHadALittleLambController.unsedLabelColor
         }
     }
     
@@ -206,7 +212,8 @@ class MarryHadALittleLambController:UITableViewController {
     @IBAction func lineOneBegin(_ sender: Any) {
         startTimer()
         
-        labelOne.textColor = .darkGray
+        labelOne.textColor = MarryHadALittleLambController.currentLabelColor
+        lineOne.textColor = MarryHadALittleLambController.currentLineColor
     }
     
     //When User changed Valve...
@@ -222,11 +229,11 @@ class MarryHadALittleLambController:UITableViewController {
             lineArray[line].text = " "
             lineArray[line].becomeFirstResponder()
             
-            labelArray[line-1].textColor = .gray
-            labelArray[line].textColor = .darkGray
+            labelArray[line-1].textColor = MarryHadALittleLambController.unsedLabelColor
+            labelArray[line].textColor = MarryHadALittleLambController.currentLabelColor
             
-            lineArray[line-1].textColor = .gray
-            lineArray[line].textColor = .black
+            lineArray[line-1].textColor = MarryHadALittleLambController.unsedLineColor
+            lineArray[line].textColor = MarryHadALittleLambController.currentLineColor
         }
         
         guard lineArray[line-1].text != nil else { return }
@@ -238,11 +245,11 @@ class MarryHadALittleLambController:UITableViewController {
                 lineArray[line-1].resignFirstResponder()
                 lineArray[line-2].becomeFirstResponder()
                 
-                labelArray[line-1].textColor = .gray
-                labelArray[line-2].textColor = .darkGray
+                labelArray[line-1].textColor = MarryHadALittleLambController.unsedLabelColor
+                labelArray[line-2].textColor = MarryHadALittleLambController.currentLabelColor
                 
-                lineArray[line-1].textColor = .gray
-                lineArray[line-2].textColor = .black
+                lineArray[line-1].textColor = MarryHadALittleLambController.unsedLineColor
+                lineArray[line-2].textColor = MarryHadALittleLambController.currentLineColor
             }
         }
         
