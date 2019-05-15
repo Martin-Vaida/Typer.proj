@@ -13,13 +13,15 @@ class StatisticsViewController:UITableViewController {
     
     @IBOutlet weak var averageAccuracyRateView: UIView!
     
+    var scoreCollectionß = scoresView.scoreCollection
+    
     var isViewHiddenå = [Bool](repeating: true, count: 4)
     
     //make the hight of each cell dynamic
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let normalCellHeight = CGFloat(44)
-        let largeCellHeihgt = CGFloat(254)
+        let largeCellHeihgt = CGFloat(274)
         if indexPath.section == 0 {
             return isViewHiddenå[indexPath.row] ? normalCellHeight : largeCellHeihgt
         } else {
@@ -31,15 +33,29 @@ class StatisticsViewController:UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             isViewHiddenå[indexPath.row] = !isViewHiddenå[indexPath.row]
-        }
+            }
         tableView.beginUpdates()
         tableView.endUpdates()
+        
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                makeAverageAccuracyChart()
+            default:
+                break
+            }
+        default:
+            break
+        }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        makeAverageAccuracyChart()
+        guard scoreCollectionß.count != 0 else { return }
+        scoreCollectionß.remove(at: 0)
     }
     
     //Make Cahrts
@@ -48,8 +64,8 @@ class StatisticsViewController:UITableViewController {
     
     func makeAverageAccuracyChart() {
         
-        // Y-Axis Name Label
-        let yAxisNameLabel = UILabel(frame: CGRect(x: 0, y: 10, width: 60, height: 30))
+        // Y-Axis Name Labels
+        let yAxisNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 30))
         yAxisNameLabel.text = "Percentage"
         yAxisNameLabel.textColor = .lightGray
         yAxisNameLabel.font = .systemFont(ofSize: 12)
@@ -61,7 +77,7 @@ class StatisticsViewController:UITableViewController {
         let yAxisArray:NSArray = ["100", "80", "60", "40", "20", "0"]
         for i:Int in 0 ..< yAxisArray.count {
             // Y-Axis Value
-            let yAxisValue = UILabel(frame: CGRect(x: 0, y: 40+CGFloat(i)*30, width: 30, height: 30))
+            let yAxisValue = UILabel(frame: CGRect(x: 0, y: 30+CGFloat(i)*30, width: 30, height: 30))
             yAxisValue.text = yAxisArray[i] as? String
             yAxisValue.font = .systemFont(ofSize: 11)
             yAxisValue.textAlignment = .center
@@ -69,7 +85,7 @@ class StatisticsViewController:UITableViewController {
             yAxisValue.textColor = .lightGray
             averageAccuracyView.addSubview(yAxisValue)
             // Y-Axis Line
-            let yAxisLine = UIView(frame: CGRect(x: 30, y: 55+30*CGFloat(i) , width: 600, height: 1))
+            let yAxisLine = UIView(frame: CGRect(x: 30, y: 45+30*CGFloat(i) , width: 600, height: 1))
             if i == yAxisArray.count-1 {
                 yAxisLine.backgroundColor = .black
             } else {
@@ -78,6 +94,61 @@ class StatisticsViewController:UITableViewController {
             averageAccuracyView.addSubview(yAxisLine)
         }
         
+        // X-Axis Name Labels
+        let xAxisNameLabel = UILabel(frame: CGRect(x: 600, y: 200, width: 60, height: 30))
+        xAxisNameLabel.text = "Time"
+        xAxisNameLabel.textColor = .lightGray
+        xAxisNameLabel.font = .systemFont(ofSize: 12)
+        xAxisNameLabel.textAlignment = .center
+        xAxisNameLabel.adjustsFontSizeToFitWidth = true
+        averageAccuracyView.addSubview(xAxisNameLabel)
+        
+        // X-Axis Design
+        let xAxisArray:NSArray = ["0", "1", "2"]
+        for i in 0...scoreCollectionß.count {
+            xAxisArray.adding("\(i)")
+        }
+        
+        for i in 0 ..< xAxisArray.count {
+            // X-Axis value
+            let xAxisValue = UILabel(frame: CGRect(x: CGFloat(600/xAxisArray.count*i), y: 200, width: 30, height: 30))
+            xAxisValue.text = xAxisArray[i] as? String
+            xAxisValue.font = .systemFont(ofSize: 12)
+            xAxisValue.adjustsFontSizeToFitWidth = true
+            xAxisValue.textAlignment = .right
+            xAxisValue.textColor = .lightGray
+            averageAccuracyView.addSubview(xAxisValue)
+            // X-Axis Line
+            let xAxisLine = UIView(frame: CGRect(x: CGFloat(600/xAxisArray.count*i)+30, y: 30, width: 1, height: 165))
+            if i == 0 {
+                xAxisLine.backgroundColor = .black
+            } else {
+                xAxisLine.backgroundColor = .lightGray
+            }
+            averageAccuracyView.addSubview(xAxisLine)
+        }
+        
+        //Set Layer
+        let layer = CAShapeLayer()
+        layer.fillColor = UIColor.clear.cgColor
+        layer.lineWidth = 1.0
+        layer.strokeColor = UIColor.blue.cgColor
+        averageAccuracyView.layer.addSublayer(layer)
+        
+        let path = UIBezierPath()
+        //Starting Point
+        path.move(to: CGPoint(x: 30, y: 30))
+        let xArray:NSArray = [50,100]
+        let yArray:NSArray = [90, 100]
+        for i in 0..<xArray.count {
+            path.addLine(to: CGPoint(x: xArray[i] as! CGFloat, y: yArray[i] as! CGFloat))
+        }
+        layer.path = path.cgPath
+        
+        //Connect the points
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.duration = 5.0
+        layer.add(animation, forKey: "strokeEnd")
     }
     
     
