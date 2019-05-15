@@ -34,6 +34,7 @@ class StatisticsViewController:UITableViewController {
         if indexPath.section == 0 {
             isViewHiddenå[indexPath.row] = !isViewHiddenå[indexPath.row]
             }
+        setup()
         tableView.beginUpdates()
         tableView.endUpdates()
         
@@ -50,12 +51,17 @@ class StatisticsViewController:UITableViewController {
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func setup() {
+        //Examples
+        scoresView.scoreCollection.append(Score(0,0,"0", true, .maryHadALittleLamb))
+        scoresView.scoreCollection.append(Score(100,100,"10", false, .maryHadALittleLamb))
+        scoresView.scoreCollection.append(Score(100,1000,"100", false, .maryHadALittleLamb))
         
-        guard scoreCollectionß.count != 0 else { return }
+        scoreCollectionß = scoresView.scoreCollection
+        print("Ha")
+        guard scoreCollectionß.count >= 2 else { return }
         scoreCollectionß.remove(at: 0)
+        print(scoreCollectionß)
     }
     
     //Make Cahrts
@@ -104,15 +110,15 @@ class StatisticsViewController:UITableViewController {
         averageAccuracyView.addSubview(xAxisNameLabel)
         
         // X-Axis Design
-        let xAxisArray:NSArray = ["0", "1", "2"]
+        var xAxisArray:[String] = []
         for i in 0...scoreCollectionß.count {
-            xAxisArray.adding("\(i)")
+            xAxisArray.append("\(i)")
         }
         
         for i in 0 ..< xAxisArray.count {
             // X-Axis value
             let xAxisValue = UILabel(frame: CGRect(x: CGFloat(600/xAxisArray.count*i), y: 200, width: 30, height: 30))
-            xAxisValue.text = xAxisArray[i] as? String
+            xAxisValue.text = xAxisArray[i]
             xAxisValue.font = .systemFont(ofSize: 12)
             xAxisValue.adjustsFontSizeToFitWidth = true
             xAxisValue.textAlignment = .right
@@ -137,11 +143,22 @@ class StatisticsViewController:UITableViewController {
         
         let path = UIBezierPath()
         //Starting Point
-        path.move(to: CGPoint(x: 30, y: 30))
-        let xArray:NSArray = [50,100]
-        let yArray:NSArray = [90, 100]
-        for i in 0..<xArray.count {
-            path.addLine(to: CGPoint(x: xArray[i] as! CGFloat, y: yArray[i] as! CGFloat))
+        var xArray:[Int] = []
+        var yArray:[Double] = []
+        
+        for i in 1 ... scoreCollectionß.count {
+            xArray.append(30+600/xAxisArray.count*i)
+        }
+        
+        for i in scoreCollectionß {
+            yArray.append(45.0+150.0 - ((Double(i.correctLetters)/Double(i.tappedLatters)*150.0)))
+            print(i.correctLetters)
+            print(i.tappedLatters)
+        }
+        
+        path.move(to: CGPoint(x: xArray[0] , y: Int(yArray[0])))
+        for i in 1..<scoreCollectionß.count {
+            path.addLine(to: CGPoint(x: CGFloat(xArray[i]), y: CGFloat(yArray[i])))
         }
         layer.path = path.cgPath
         
