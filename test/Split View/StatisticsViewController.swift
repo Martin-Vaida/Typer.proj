@@ -52,10 +52,6 @@ class StatisticsViewController:UITableViewController {
     }
     
     func setup() {
-        //Examples
-        scoresView.scoreCollection.append(Score(0,0,"0", true, .maryHadALittleLamb))
-        scoresView.scoreCollection.append(Score(100,100,"10", false, .maryHadALittleLamb))
-        scoresView.scoreCollection.append(Score(100,1000,"100", false, .maryHadALittleLamb))
         
         scoreCollectionß = scoresView.scoreCollection
         print("Ha")
