@@ -38,6 +38,7 @@ class StatisticsViewController:UITableViewController {
         tableView.beginUpdates()
         tableView.endUpdates()
         
+        guard scoreCollectionß.count >= 2 else { return }
         switch indexPath.section {
         case 0:
             switch indexPath.row {
@@ -54,7 +55,6 @@ class StatisticsViewController:UITableViewController {
     func setup() {
         
         scoreCollectionß = scoresView.scoreCollection
-        print("Ha")
         guard scoreCollectionß.count >= 2 else { return }
         scoreCollectionß.remove(at: 0)
         print(scoreCollectionß)
