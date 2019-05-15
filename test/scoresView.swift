@@ -82,7 +82,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
     
     @IBAction func sortByTapped(_ sender: Any) {
         
-        let alartController = UIAlertController(title: "Choose The Way To Sort These Items", message: nil, preferredStyle: .alert)
+        let alartController = UIAlertController(title: "Choose The Way To Sort These Items", message: nil, preferredStyle:.actionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alartController.addAction(cancelAction)
@@ -102,7 +102,8 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         }
         alartController.addAction(sortBydateAction)
         
-        self.present(alartController, animated: true, completion: nil)
+        alartController.popoverPresentationController?.sourceView = sender as? UIView
+        present(alartController, animated: true, completion: nil)
     }
     
     enum SortItemsWays {

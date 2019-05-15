@@ -218,10 +218,26 @@
                                 <segue destination="tDI-bh-iO9" kind="unwind" unwindAction="unwindToMenuWithSegue:" id="NMw-TP-P1a"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Sort By" id="Ltq-U3-R7j">
-                            <connections>
-                                <action selector="sortByTapped:" destination="7oG-DO-cIz" id="dhS-cx-B3Q"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ogr-xc-eI0">
+                            <view key="customView" contentMode="scaleToFill" id="yiD-wS-aRq">
+                                <rect key="frame" x="944" y="6.5" width="60" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0m-Yz-y01">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="37"/>
+                                        <state key="normal" title="Sort By"/>
+                                        <connections>
+                                            <action selector="sortByTapped:" destination="7oG-DO-cIz" eventType="touchUpInside" id="idL-8k-pZd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="v0m-Yz-y01" firstAttribute="leading" secondItem="yiD-wS-aRq" secondAttribute="leading" id="3Fp-CE-z7v"/>
+                                    <constraint firstItem="v0m-Yz-y01" firstAttribute="top" secondItem="yiD-wS-aRq" secondAttribute="top" id="cbk-M3-Sdr"/>
+                                    <constraint firstAttribute="bottom" secondItem="v0m-Yz-y01" secondAttribute="bottom" id="ps5-ii-ZiO"/>
+                                    <constraint firstAttribute="trailing" secondItem="v0m-Yz-y01" secondAttribute="trailing" id="wG3-h2-eMU"/>
+                                </constraints>
+                            </view>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
