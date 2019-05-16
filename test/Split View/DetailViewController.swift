@@ -33,6 +33,7 @@ class DetailViewController:UIViewController {
         enableTableView()
         toStatistics()
         
+        studentsModeSwitch.isOn = MenuViewController.studentsMode
     }
     
     var enableColorMix = false {

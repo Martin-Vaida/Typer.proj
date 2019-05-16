@@ -51,6 +51,13 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         cell.accuracyNumberLabel.text = score.accuracyDescription()
         cell.passageLabel.text = score.getPassageName()
         
+        if MenuViewController.studentsMode {
+            cell.isHidden = false
+            cell.scoreLabel.text = score.calculateScore()
+        } else {
+            cell.scoreLabel.isHidden = true
+        }
+        
        return cell
     }
     
@@ -102,12 +109,17 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         }
         alartController.addAction(sortBydateAction)
         
+        let sortByScoreAction = UIAlertAction(title: "By Score", style: .default) { (action) in
+            self.sortItems(by: .score)
+        }
+        alartController.addAction(sortByScoreAction)
+        
         alartController.popoverPresentationController?.sourceView = sender as? UIView
         present(alartController, animated: true, completion: nil)
     }
     
     enum SortItemsWays {
-        case time, accuracy, date
+        case time, accuracy, date, score
     }
     
     func sortItems(by: SortItemsWays) {
@@ -129,6 +141,11 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
                 return firstItem.dateInt < secondItem.dateInt
             }
             scoresView.scoreCollection = sortedItmes
+        case .score:
+            let sortedItems = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
+                return firstItem.score > secondItem.score
+            }
+            scoresView.scoreCollection = sortedItems
         }
         
         let rowFirstCell = Score.init(0, 0, "0", true, .maryHadALittleLamb)

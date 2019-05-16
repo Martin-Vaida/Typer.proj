@@ -18,6 +18,7 @@ class Score {
     var firstRow:Bool
     var passageChoice:PassageChoice
     var dateInt = 0
+    var score = 0
     
     enum PassageChoice {
         case maryHadALittleLamb
@@ -170,6 +171,19 @@ class Score {
         switch passageChoice {
         case .maryHadALittleLamb:
             return "Passage: Mary Had A Little lamb"
+        }
+    }
+    
+    func calculateScore() -> String {
+        if firstRow {
+            return "Score"
+        } else {
+            guard Double(timePassed)! >= 60.0 else {
+                score = 0
+                return "Incompleted"
+            }
+            score = correctLetters
+            return "\(score)"
         }
     }
     

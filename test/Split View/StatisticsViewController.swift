@@ -17,6 +17,14 @@ class StatisticsViewController:UITableViewController {
     
     var isViewHiddenå = [Bool](repeating: true, count: 4)
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if MenuViewController.studentsMode {
+            return 2
+        } else {
+            return 1
+        }
+    }
+    
     //make the hight of each cell dynamic
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -58,8 +66,8 @@ class StatisticsViewController:UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setup()
+        
         
         var average = 0
         var correct = 0

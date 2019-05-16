@@ -125,19 +125,25 @@
                                                     <rect key="frame" x="100" y="0.0" width="924" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxn-jS-g9t">
-                                                            <rect key="frame" x="0.0" y="0.0" width="308" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="231" height="44"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKE-8d-uPo">
-                                                            <rect key="frame" x="308" y="0.0" width="308" height="44"/>
+                                                            <rect key="frame" x="231" y="0.0" width="231" height="44"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaI-vd-hlz">
-                                                            <rect key="frame" x="616" y="0.0" width="308" height="44"/>
+                                                            <rect key="frame" x="462" y="0.0" width="231" height="44"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCb-Nd-sFu">
+                                                            <rect key="frame" x="693" y="0.0" width="231" height="44"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -204,6 +210,7 @@
                                     <outlet property="durationlabel" destination="oKE-8d-uPo" id="o3D-WZ-gQR"/>
                                     <outlet property="indexLabel" destination="VFT-uI-emv" id="qlF-K9-yco"/>
                                     <outlet property="passageLabel" destination="cdx-ne-T5H" id="x1h-6a-CWD"/>
+                                    <outlet property="scoreLabel" destination="zCb-Nd-sFu" id="pBU-96-7Ea"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -320,14 +327,10 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Flw-cG-vWE" firstAttribute="leading" secondItem="jon-mk-5US" secondAttribute="leading" constant="7" id="EbY-Ao-B3G"/>
                                     <constraint firstAttribute="trailing" secondItem="DQU-xT-fCq" secondAttribute="trailing" id="Eff-1t-DY6"/>
-                                    <constraint firstItem="NaP-n8-01c" firstAttribute="leading" secondItem="jon-mk-5US" secondAttribute="leading" constant="7" id="L03-fO-ily"/>
                                     <constraint firstAttribute="trailing" secondItem="rnC-3d-bfa" secondAttribute="trailing" id="Me0-Wg-Jhz"/>
                                     <constraint firstAttribute="trailing" secondItem="NaP-n8-01c" secondAttribute="trailing" id="cS8-8k-Wl1"/>
-                                    <constraint firstItem="rnC-3d-bfa" firstAttribute="leading" secondItem="jon-mk-5US" secondAttribute="leading" constant="7" id="jEe-WC-qJ2"/>
                                     <constraint firstAttribute="trailing" secondItem="Flw-cG-vWE" secondAttribute="trailing" id="mFX-Hx-PE1"/>
-                                    <constraint firstItem="DQU-xT-fCq" firstAttribute="leading" secondItem="jon-mk-5US" secondAttribute="leading" constant="7" id="peR-VI-Fi3"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Colors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRj-ec-g9c">
@@ -523,7 +526,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-2" id="4FU-Da-Urw" userLabel="Accuracy">
+                            <tableViewSection headerTitle="Score" id="4FU-Da-Urw" userLabel="Accuracy">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eNx-Qz-gNP">
                                         <rect key="frame" x="0.0" y="878" width="703.5" height="44"/>
