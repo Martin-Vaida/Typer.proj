@@ -12,10 +12,14 @@ import UIKit
 class DetailViewController:UIViewController {
     
     @IBOutlet weak var colorMixView: UIStackView!
-    
     @IBOutlet weak var colorMixImageView: UIImageView!
     
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var studentsModeNotification: UILabel!
+    @IBOutlet weak var studentsModeBakcground: UIImageView!
+    @IBOutlet weak var studentsModeLabel: UIButton!
+    @IBOutlet weak var studentsModeSwitch: UISwitch!
+    
     
     static var target:Target = .currentLabel
     
@@ -28,6 +32,7 @@ class DetailViewController:UIViewController {
         
         enableTableView()
         toStatistics()
+        
     }
     
     var enableColorMix = false {
@@ -46,6 +51,19 @@ class DetailViewController:UIViewController {
         if let labelß = label {
             labelß.isHidden = !enableColorMix
         }
+        if let label = studentsModeNotification {
+            label.isHidden = !enableColorMix
+            label.text = "Notice: This is a mode designed for students in NFLSXL."
+        }
+        if let bg = studentsModeBakcground {
+            bg.isHidden = !enableColorMix
+        }
+        if let label = studentsModeLabel {
+            label.isHidden = !enableColorMix
+        }
+        if let switchß = studentsModeSwitch {
+            switchß.isHidden = !enableColorMix
+        }
     }
     
     var toStatisticsBool:Bool = false {
@@ -60,6 +78,11 @@ class DetailViewController:UIViewController {
         viewController.navigationItem.title = "Statistics"
         self.navigationController!.pushViewController(viewController, animated: false)
     }
+    
+    @IBAction func studentsModeSwitch(_ sender: Any) {
+        MenuViewController.studentsMode = studentsModeSwitch.isOn
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToCurrentLabelColorMixView" {

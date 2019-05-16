@@ -14,4 +14,6 @@ class MenuViewController:UIViewController {
     @IBAction func unwindToMenu(segue:UIStoryboardSegue) {
         
     }
+    
+    static var studentsMode = false
 }
