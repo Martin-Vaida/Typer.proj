@@ -53,11 +53,14 @@ class StatisticsViewController:UITableViewController {
     }
     
     func setup() {
-        
         scoreCollectionß = scoresView.scoreCollection
+        
+        scoreCollectionß.append(Score(100,100,"10",true, .maryHadALittleLamb))
+        scoreCollectionß.append(Score(50,100,"10",false, .maryHadALittleLamb))
+        scoreCollectionß.append(Score(100,100,"10",false, .maryHadALittleLamb))
+        
         guard scoreCollectionß.count >= 2 else { return }
         scoreCollectionß.remove(at: 0)
-        print(scoreCollectionß)
     }
     
     //Make Cahrts
@@ -111,7 +114,32 @@ class StatisticsViewController:UITableViewController {
                 yAxisLine.backgroundColor = .lightGray
             }
             averageAccuracyView.addSubview(yAxisLine)
+            
         }
+        
+        //Set X-Axis Layer
+        let xlayer = CAShapeLayer()
+        xlayer.fillColor = UIColor.clear.cgColor
+        xlayer.lineWidth = 1.0
+        xlayer.strokeColor = UIColor.black.cgColor
+        averageAccuracyView.layer.addSublayer(xlayer)
+        
+        let pathß = UIBezierPath()
+        pathß.move(to: CGPoint(x: 30, y: 195))
+        pathß.addLine(to: CGPoint(x: 630, y: 195))
+        xlayer.path = pathß.cgPath
+        
+        //Set Y-Axis Layer
+        let ylayer = CAShapeLayer()
+        ylayer.fillColor = UIColor.clear.cgColor
+        ylayer.lineWidth = 1.0
+        ylayer.strokeColor = UIColor.black.cgColor
+        averageAccuracyView.layer.addSublayer(ylayer)
+        
+        let pathå = UIBezierPath()
+        pathå.move(to: CGPoint(x: 30, y: 30))
+        pathå.addLine(to: CGPoint(x: 30, y: 195))
+        ylayer.path = pathå.cgPath
         
         // X-Axis Name Labels
         let xAxisNameLabel = UILabel(frame: CGRect(x: 600, y: 200, width: 60, height: 30))
@@ -127,6 +155,7 @@ class StatisticsViewController:UITableViewController {
         for i in 0...scoreCollectionß.count {
             xAxisArray.append("\(i)")
         }
+        
         
         for i in 0 ..< xAxisArray.count {
             // X-Axis value
@@ -165,8 +194,6 @@ class StatisticsViewController:UITableViewController {
         
         for i in scoreCollectionß {
             yArray.append(45.0+150.0 - ((Double(i.correctLetters)/Double(i.tappedLatters)*150.0)))
-            print(i.correctLetters)
-            print(i.tappedLatters)
         }
         
         path.move(to: CGPoint(x: xArray[0] , y: Int(yArray[0])))
