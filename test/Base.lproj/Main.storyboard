@@ -543,6 +543,7 @@
                     <connections>
                         <outlet property="averageAccuracyRateView" destination="zJM-fu-wN8" id="4ve-U5-gSc"/>
                         <outlet property="averageAccuracyView" destination="zJM-fu-wN8" id="6QI-SD-7eV"/>
+                        <outlet property="averayAccuracyLabel" destination="jub-ly-8y2" id="ZN8-lD-htE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXm-NB-PFX" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -63,8 +63,25 @@ class StatisticsViewController:UITableViewController {
     //Make Cahrts
         //Average Accurcy Charts
     @IBOutlet weak var averageAccuracyView: UIView!
+    @IBOutlet weak var averayAccuracyLabel: UILabel!
     
     func makeAverageAccuracyChart() {
+        var average = 0
+        var correct = 0
+        var tapped = 0
+        for i in scoreCollectionß {
+            correct += i.correctLetters
+            tapped += i.tappedLatters
+        }
+        average = correct*100/tapped
+        
+        
+        let title = NSAttributedString(string: "Average Accuracy Rate: ", attributes:  [NSAttributedString.Key.foregroundColor: UIColor.black])
+        let contents = NSAttributedString(string: "\(average)%", attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue])
+        let message = NSMutableAttributedString(attributedString: title)
+        message.append(contents)
+        averayAccuracyLabel.attributedText = message
+        
         
         // Y-Axis Name Labels
         let yAxisNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 30))
