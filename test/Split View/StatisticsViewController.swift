@@ -16,6 +16,7 @@ class StatisticsViewController:UITableViewController {
     var scoreCollectionß = scoresView.scoreCollection
     
     var isViewHiddenå = [Bool](repeating: true, count: 4)
+    var isViewHiddenß = [Bool](repeating: true, count: 4)
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         if MenuViewController.studentsMode {
@@ -32,6 +33,8 @@ class StatisticsViewController:UITableViewController {
         let largeCellHeihgt = CGFloat(274)
         if indexPath.section == 0 {
             return isViewHiddenå[indexPath.row] ? normalCellHeight : largeCellHeihgt
+        } else if indexPath.section == 1 {
+            return isViewHiddenß[indexPath.row] ? normalCellHeight : largeCellHeihgt
         } else {
             return normalCellHeight
         }
@@ -41,7 +44,10 @@ class StatisticsViewController:UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             isViewHiddenå[indexPath.row] = !isViewHiddenå[indexPath.row]
-            }
+        }
+        if indexPath.section == 1 {
+            isViewHiddenß[indexPath.row] = !isViewHiddenß[indexPath.row]
+        }
     
         tableView.beginUpdates()
         tableView.endUpdates()
@@ -56,6 +62,13 @@ class StatisticsViewController:UITableViewController {
                 makeAverageAccuracyChart(from: .HighestRate)
             case 2:
                 makeAverageAccuracyChart(from: .LowistRate)
+            default:
+                break
+            }
+        case 1:
+            switch indexPath.row {
+            case 0:
+                makeAverageAccuracyChart(from: .averageScore)
             default:
                 break
             }
@@ -112,14 +125,32 @@ class StatisticsViewController:UITableViewController {
         let messageå = NSMutableAttributedString(attributedString: titleå)
         messageå.append(contentså)
         lowestAccuracyLabel.attributedText = messageå
+        
+        var tempCorrect = 0
+        var temptapped = 0
+        var tempTime = 0
+        var score = 0
+        for i in scoreCollectionß {
+            guard Double(i.timePassed)! > 60 else { continue }
+            tempCorrect += i.correctLetters
+            temptapped += i.tappedLatters
+            tempTime += Int(Double(i.timePassed)!)
+        }
+        score = tempCorrect*6000/temptapped/tempTime
+        
+        let titleœ = NSAttributedString(string: "Average Score: ", attributes:  [NSAttributedString.Key.foregroundColor: UIColor.black])
+        let contentsœ = NSAttributedString(string: "\(score)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        let messageœ = NSMutableAttributedString(attributedString: titleœ)
+        messageœ.append(contentsœ)
+        averageScoreLabel.attributedText = messageœ
     }
     
     func setup() {
         scoreCollectionß = scoresView.scoreCollection
         
-        scoreCollectionß.append(Score(100,100,"10",true, .maryHadALittleLamb))
-        scoreCollectionß.append(Score(50,100,"10",false, .maryHadALittleLamb))
-        scoreCollectionß.append(Score(100,100,"10",false, .maryHadALittleLamb))
+        scoreCollectionß.append(Score(100,100,"100",true, .maryHadALittleLamb))
+        scoreCollectionß.append(Score(50,100,"100",false, .maryHadALittleLamb))
+        scoreCollectionß.append(Score(100,100,"100",false, .maryHadALittleLamb))
         
         guard scoreCollectionß.count >= 2 else { return }
         scoreCollectionß.remove(at: 0)
@@ -133,16 +164,19 @@ class StatisticsViewController:UITableViewController {
     @IBOutlet weak var heighestAccuracyLabel: UILabel!
     @IBOutlet weak var lowestAccuracyView: UIView!
     @IBOutlet weak var lowestAccuracyLabel: UILabel!
+    @IBOutlet weak var averageScoreLabel: UILabel!
+    @IBOutlet weak var averageScoreView: UIView!
     
     
     enum rowName {
         case averageAccuracyRate
         case HighestRate
         case LowistRate
+        case averageScore
     }
     
     func makeAverageAccuracyChart(from: rowName) {
-        let viewArray = [averageAccuracyView, highestAccuracyView, lowestAccuracyView]
+        let viewArray = [averageAccuracyView, highestAccuracyView, lowestAccuracyView, averageScoreView]
         var viewInt = 0
         
         switch from {
@@ -152,6 +186,8 @@ class StatisticsViewController:UITableViewController {
             viewInt = 1
         case .LowistRate:
             viewInt = 2
+        case .averageScore:
+            viewInt = 3
         }
         
         var average = 0
@@ -159,6 +195,7 @@ class StatisticsViewController:UITableViewController {
         var tapped = 0
         var heighest = 0
         var lowest = 100
+        var score = 0
         
         if from == .averageAccuracyRate {
             for i in scoreCollectionß {
@@ -180,6 +217,17 @@ class StatisticsViewController:UITableViewController {
                     lowest = average
                 }
             }
+        } else if from == .averageScore {
+            var tempCorrect = 0
+            var temptapped = 0
+            var tempTime = 0
+            for i in scoreCollectionß {
+                guard Double(i.timePassed)! > 60 else { continue }
+                tempCorrect += i.correctLetters
+                temptapped += i.tappedLatters
+                tempTime += Int(Double(i.timePassed)!)
+            }
+            score = tempCorrect*100/temptapped/tempTime*60
         }
         
         
@@ -321,6 +369,17 @@ class StatisticsViewController:UITableViewController {
             let pathƒ = UIBezierPath()
             pathƒ.move(to: CGPoint(x: 30, y: 45+150-lowest*3/2))
             pathƒ.addLine(to: CGPoint(x: 630, y: 45+150-lowest*3/2))
+            layer.path = pathƒ.cgPath
+        } else if from == .averageScore {
+            let layer = CAShapeLayer()
+            layer.fillColor = UIColor.clear.cgColor
+            layer.lineWidth = 0.5
+            layer.strokeColor = UIColor.red.cgColor
+            viewArray[viewInt]!.layer.addSublayer(layer)
+            
+            let pathƒ = UIBezierPath()
+            pathƒ.move(to: CGPoint(x: 30, y: 45+150-score*3/2))
+            pathƒ.addLine(to: CGPoint(x: 630, y: 45+150-score*3/2))
             layer.path = pathƒ.cgPath
         }
     }

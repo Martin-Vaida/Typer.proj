@@ -18,7 +18,7 @@ class Score {
     var firstRow:Bool
     var passageChoice:PassageChoice
     var dateInt = 0
-    var score = 0
+    var score = 0  //change to 0
     
     enum PassageChoice {
         case maryHadALittleLamb
@@ -182,7 +182,7 @@ class Score {
                 score = 0
                 return "Incompleted"
             }
-            score = correctLetters
+            score = correctLetters/Int(Double(timePassed)!)*60
             return "\(score)"
         }
     }

@@ -526,30 +526,39 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Score" id="4FU-Da-Urw" userLabel="Accuracy">
+                            <tableViewSection headerTitle="Score" id="ECZ-s1-GEc" userLabel="Average Accuracy">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eNx-Qz-gNP">
-                                        <rect key="frame" x="0.0" y="878" width="703.5" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="274" id="Zv3-Lg-Sz4">
+                                        <rect key="frame" x="0.0" y="878" width="703.5" height="274"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eNx-Qz-gNP" id="3Vs-GF-Msx">
-                                            <rect key="frame" x="0.0" y="0.0" width="703.5" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zv3-Lg-Sz4" id="qla-re-wMP">
+                                            <rect key="frame" x="0.0" y="0.0" width="703.5" height="273.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JO5-qo-uKc">
-                                        <rect key="frame" x="0.0" y="922" width="703.5" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JO5-qo-uKc" id="Qc5-fH-bdI">
-                                            <rect key="frame" x="0.0" y="0.0" width="703.5" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yUB-8I-ZzG">
-                                        <rect key="frame" x="0.0" y="966" width="703.5" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yUB-8I-ZzG" id="pFX-Vj-a3x">
-                                            <rect key="frame" x="0.0" y="0.0" width="703.5" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="all-nF-ceS">
+                                                    <rect key="frame" x="7" y="0.0" width="689.5" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="gBD-nL-0f1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j19-XM-QCr">
+                                                    <rect key="frame" x="7" y="44" width="689.5" height="229.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="all-nF-ceS" firstAttribute="top" secondItem="qla-re-wMP" secondAttribute="top" id="08m-ph-bZI"/>
+                                                <constraint firstItem="j19-XM-QCr" firstAttribute="top" secondItem="all-nF-ceS" secondAttribute="bottom" id="5Yw-oa-Job"/>
+                                                <constraint firstAttribute="trailing" secondItem="all-nF-ceS" secondAttribute="trailing" constant="7" id="Nsq-h3-hVS"/>
+                                                <constraint firstAttribute="trailing" secondItem="j19-XM-QCr" secondAttribute="trailing" constant="7" id="STE-cV-iiY"/>
+                                                <constraint firstItem="all-nF-ceS" firstAttribute="leading" secondItem="qla-re-wMP" secondAttribute="leading" constant="7" id="gyo-Y9-7BS"/>
+                                                <constraint firstItem="j19-XM-QCr" firstAttribute="leading" secondItem="qla-re-wMP" secondAttribute="leading" constant="7" id="xCW-Wh-AZv"/>
+                                                <constraint firstAttribute="bottom" secondItem="j19-XM-QCr" secondAttribute="bottom" id="xYc-yS-4Vh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -563,6 +572,8 @@
                     <connections>
                         <outlet property="averageAccuracyRateView" destination="zJM-fu-wN8" id="4ve-U5-gSc"/>
                         <outlet property="averageAccuracyView" destination="zJM-fu-wN8" id="6QI-SD-7eV"/>
+                        <outlet property="averageScoreLabel" destination="all-nF-ceS" id="1Oy-4F-hAv"/>
+                        <outlet property="averageScoreView" destination="j19-XM-QCr" id="h0t-k9-DM4"/>
                         <outlet property="averayAccuracyLabel" destination="jub-ly-8y2" id="ZN8-lD-htE"/>
                         <outlet property="heighestAccuracyLabel" destination="Ty1-Mw-j5F" id="CaW-5S-y1P"/>
                         <outlet property="highestAccuracyView" destination="D7f-O1-PNI" id="Mwv-xf-X8q"/>
