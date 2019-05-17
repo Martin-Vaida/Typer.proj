@@ -19,6 +19,9 @@ class DetailViewController:UIViewController {
     @IBOutlet weak var studentsModeBakcground: UIImageView!
     @IBOutlet weak var studentsModeLabel: UIButton!
     @IBOutlet weak var studentsModeSwitch: UISwitch!
+    @IBOutlet weak var forceQuiteBackground: UIImageView!
+    @IBOutlet weak var forceQuiteLabel: UIButton!
+    @IBOutlet weak var forceQuiteSwitch: UISwitch!
     
     
     static var target:Target = .currentLabel
@@ -34,6 +37,7 @@ class DetailViewController:UIViewController {
         toStatistics()
         
         studentsModeSwitch.isOn = MenuViewController.studentsMode
+        forceQuiteSwitch.isOn = MenuViewController.forceQuite
     }
     
     var enableColorMix = false {
@@ -65,6 +69,27 @@ class DetailViewController:UIViewController {
         if let switchß = studentsModeSwitch {
             switchß.isHidden = !enableColorMix
         }
+        if let bg = forceQuiteBackground {
+            if enableColorMix {
+                bg.isHidden = !MenuViewController.studentsMode
+            } else {
+                bg.isHidden = true
+            }
+        }
+        if let label = forceQuiteLabel {
+            if enableColorMix {
+                label.isHidden = !MenuViewController.studentsMode
+            } else {
+                label.isHidden = true
+            }
+        }
+        if let switchß = forceQuiteSwitch {
+            if enableColorMix {
+                switchß.isHidden = !MenuViewController.studentsMode
+            } else {
+                switchß.isHidden = true
+            }
+        }
     }
     
     var toStatisticsBool:Bool = false {
@@ -82,6 +107,23 @@ class DetailViewController:UIViewController {
     
     @IBAction func studentsModeSwitch(_ sender: Any) {
         MenuViewController.studentsMode = studentsModeSwitch.isOn
+        
+        if let bg = forceQuiteBackground {
+            bg.isHidden = !MenuViewController.studentsMode
+        }
+        if let label = forceQuiteLabel {
+            label.isHidden = !MenuViewController.studentsMode
+        }
+        if let switchß = forceQuiteSwitch {
+            switchß.isHidden = !MenuViewController.studentsMode
+        }
+        
+        forceQuiteSwitch.isOn = false
+        MenuViewController.forceQuite = false
+    }
+    
+    @IBAction func forceQuiteButton(_ sender: Any) {
+        MenuViewController.forceQuite = forceQuiteSwitch.isOn
     }
     
     

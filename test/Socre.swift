@@ -178,11 +178,12 @@ class Score {
         if firstRow {
             return "Score"
         } else {
+            guard Double(timePassed) != nil else { return "Incompleted" }
             guard Double(timePassed)! >= 60.0 else {
                 score = 0
                 return "Incompleted"
             }
-            score = correctLetters/Int(Double(timePassed)!)*60
+            score = 60*correctLetters/Int(Double(timePassed)!)
             return "\(score)"
         }
     }

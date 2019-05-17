@@ -374,20 +374,53 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultBackground" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8zZ-DN-24q">
+                                <rect key="frame" x="7" y="434.5" width="703.5" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="EVY-OZ-aQN"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHZ-ve-x4U">
+                                <rect key="frame" x="14" y="434.5" width="682.5" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="p14-bT-8jU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Force Quite At One Minute's Time">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="29G-e4-edo">
+                                <rect key="frame" x="634" y="441" width="49" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="ehL-bN-Rrs"/>
+                                    <constraint firstAttribute="width" constant="47" id="yat-Fc-qem"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="forceQuiteButton:" destination="yWk-M7-2Fe" eventType="valueChanged" id="eac-UL-ZEs"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="PeB-kp-Zdw" firstAttribute="top" secondItem="TCN-Ri-Pb3" secondAttribute="bottom" constant="47" id="1UY-4T-l26"/>
+                            <constraint firstItem="cHZ-ve-x4U" firstAttribute="leading" secondItem="be2-v7-2q6" secondAttribute="leading" constant="14" id="2Jb-pQ-SFs"/>
                             <constraint firstItem="be2-v7-2q6" firstAttribute="trailing" secondItem="cn2-PJ-26R" secondAttribute="trailing" constant="7" id="3KF-4j-RFX"/>
                             <constraint firstItem="TCN-Ri-Pb3" firstAttribute="top" secondItem="be2-v7-2q6" secondAttribute="top" constant="30" id="3q0-Nj-bZO"/>
+                            <constraint firstItem="8zZ-DN-24q" firstAttribute="leading" secondItem="be2-v7-2q6" secondAttribute="leading" constant="7" id="3tz-pK-ktU"/>
                             <constraint firstItem="XOS-Yk-MTO" firstAttribute="top" secondItem="TCN-Ri-Pb3" secondAttribute="bottom" constant="40" id="4jl-CS-pQ7"/>
                             <constraint firstItem="be2-v7-2q6" firstAttribute="trailing" secondItem="TCN-Ri-Pb3" secondAttribute="trailing" constant="7" id="5wX-Xm-LmJ"/>
                             <constraint firstItem="be2-v7-2q6" firstAttribute="trailing" secondItem="PeB-kp-Zdw" secondAttribute="trailing" constant="22.5" id="CB3-Ys-AVL"/>
                             <constraint firstItem="XOS-Yk-MTO" firstAttribute="leading" secondItem="be2-v7-2q6" secondAttribute="leading" constant="14" id="FDv-3t-2EG"/>
+                            <constraint firstItem="cHZ-ve-x4U" firstAttribute="top" secondItem="KrN-Vh-eWh" secondAttribute="bottom" constant="30" id="K2P-Kp-zKq"/>
+                            <constraint firstItem="8zZ-DN-24q" firstAttribute="top" secondItem="KrN-Vh-eWh" secondAttribute="bottom" constant="30" id="KQH-Sc-xNL"/>
                             <constraint firstItem="KrN-Vh-eWh" firstAttribute="leading" secondItem="be2-v7-2q6" secondAttribute="leading" constant="14" id="SMt-AK-lYn"/>
+                            <constraint firstItem="be2-v7-2q6" firstAttribute="trailing" secondItem="29G-e4-edo" secondAttribute="trailing" constant="22.5" id="TLh-aN-SPi"/>
                             <constraint firstItem="be2-v7-2q6" firstAttribute="trailing" secondItem="jon-mk-5US" secondAttribute="trailing" constant="7" id="Tr7-jF-1pq"/>
+                            <constraint firstItem="be2-v7-2q6" firstAttribute="trailing" secondItem="cHZ-ve-x4U" secondAttribute="trailing" constant="7" id="UAR-fJ-ZKj"/>
                             <constraint firstItem="jon-mk-5US" firstAttribute="top" secondItem="be2-v7-2q6" secondAttribute="top" constant="30" id="VhV-vQ-UWy"/>
                             <constraint firstItem="KrN-Vh-eWh" firstAttribute="top" secondItem="cn2-PJ-26R" secondAttribute="bottom" id="VwF-t5-fd6"/>
+                            <constraint firstItem="29G-e4-edo" firstAttribute="top" secondItem="KrN-Vh-eWh" secondAttribute="bottom" constant="36.5" id="XIk-uj-brf"/>
                             <constraint firstItem="TCN-Ri-Pb3" firstAttribute="leading" secondItem="be2-v7-2q6" secondAttribute="leading" constant="7" id="b0s-3r-tlB"/>
                             <constraint firstItem="be2-v7-2q6" firstAttribute="trailing" secondItem="XOS-Yk-MTO" secondAttribute="trailing" constant="7" id="bdl-4P-PTm"/>
                             <constraint firstItem="TCN-Ri-Pb3" firstAttribute="top" secondItem="lRj-ec-g9c" secondAttribute="bottom" id="cT5-lL-aWj"/>
@@ -396,6 +429,7 @@
                             <constraint firstItem="be2-v7-2q6" firstAttribute="trailing" secondItem="KrN-Vh-eWh" secondAttribute="trailing" constant="7" id="k8e-yS-CUG"/>
                             <constraint firstItem="lRj-ec-g9c" firstAttribute="leading" secondItem="be2-v7-2q6" secondAttribute="leading" constant="14" id="rSh-Vd-Zq4"/>
                             <constraint firstItem="cn2-PJ-26R" firstAttribute="top" secondItem="TCN-Ri-Pb3" secondAttribute="bottom" constant="40" id="uAL-bV-663"/>
+                            <constraint firstItem="8zZ-DN-24q" firstAttribute="trailing" secondItem="be2-v7-2q6" secondAttribute="trailing" constant="7" id="zAO-Jv-ajh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="be2-v7-2q6"/>
                     </view>
@@ -403,6 +437,9 @@
                     <connections>
                         <outlet property="colorMixImageView" destination="TCN-Ri-Pb3" id="QIU-go-JEK"/>
                         <outlet property="colorMixView" destination="jon-mk-5US" id="qhX-aA-ah4"/>
+                        <outlet property="forceQuiteBackground" destination="8zZ-DN-24q" id="qLx-qm-qq7"/>
+                        <outlet property="forceQuiteLabel" destination="cHZ-ve-x4U" id="St1-eW-sZY"/>
+                        <outlet property="forceQuiteSwitch" destination="29G-e4-edo" id="veT-H8-t1q"/>
                         <outlet property="label" destination="lRj-ec-g9c" id="CKu-pd-GZG"/>
                         <outlet property="studentsModeBakcground" destination="cn2-PJ-26R" id="xC0-jl-21X"/>
                         <outlet property="studentsModeLabel" destination="XOS-Yk-MTO" id="09t-ig-dXE"/>
@@ -1774,7 +1811,7 @@
             </objects>
             <point key="canvasLocation" x="1073" y="-48"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Results-->
         <scene sceneID="SlS-Ed-y0h">
             <objects>
                 <tableViewController storyboardIdentifier="Score_View_Single" id="UjT-VS-csq" customClass="ScoreViewController" customModule="Typer_proj" customModuleProvider="target" sceneMemberID="viewController">
@@ -1884,7 +1921,7 @@
                             <outlet property="delegate" destination="UjT-VS-csq" id="Zev-HG-8uZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Gtm-FH-6SP">
+                    <navigationItem key="navigationItem" title="Results" id="Gtm-FH-6SP">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="oEn-LE-5kJ">
                             <connections>
                                 <segue destination="7oG-DO-cIz" kind="show" id="uYq-6w-bvu"/>

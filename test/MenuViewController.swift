@@ -16,4 +16,5 @@ class MenuViewController:UIViewController {
     }
     
     static var studentsMode = false
+    static var forceQuite = false
 }

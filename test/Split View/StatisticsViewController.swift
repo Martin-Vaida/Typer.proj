@@ -126,17 +126,13 @@ class StatisticsViewController:UITableViewController {
         messageå.append(contentså)
         lowestAccuracyLabel.attributedText = messageå
         
-        var tempCorrect = 0
-        var temptapped = 0
-        var tempTime = 0
         var score = 0
+        
         for i in scoreCollectionß {
-            guard Double(i.timePassed)! > 60 else { continue }
-            tempCorrect += i.correctLetters
-            temptapped += i.tappedLatters
-            tempTime += Int(Double(i.timePassed)!)
+            let scoreß = i.correctLetters*60/Int(Double(i.timePassed)!)
+            score += scoreß
         }
-        score = tempCorrect*6000/temptapped/tempTime
+        score /= scoreCollectionß.count
         
         let titleœ = NSAttributedString(string: "Average Score: ", attributes:  [NSAttributedString.Key.foregroundColor: UIColor.black])
         let contentsœ = NSAttributedString(string: "\(score)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
@@ -372,14 +368,14 @@ class StatisticsViewController:UITableViewController {
         var score = 0
         
         for i in scoreCollectionß {
-            let scoreß = i.correctLetters*6000/i.tappedLatters/Int(Double(i.timePassed)!)
+            let scoreß = i.correctLetters*60/Int(Double(i.timePassed)!)
             score += scoreß
         }
         score /= scoreCollectionß.count
         
         // Y-Axis Name Labels
         let yAxisNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 30))
-        yAxisNameLabel.text = "Percentage"
+        yAxisNameLabel.text = "Score"
         yAxisNameLabel.textColor = .lightGray
         yAxisNameLabel.font = .systemFont(ofSize: 12)
         yAxisNameLabel.textAlignment = .center
@@ -468,7 +464,7 @@ class StatisticsViewController:UITableViewController {
         }
         
         for i in scoreCollectionß {
-            let score = i.correctLetters*6000/i.tappedLatters/Int(Double(i.timePassed)!)
+            let score = i.correctLetters*60/Int(Double(i.timePassed)!)
             yArray.append(45.0+150.0 - Double(score)*150.0/250.0)
         }
         
@@ -488,13 +484,23 @@ class StatisticsViewController:UITableViewController {
             let layer = CAShapeLayer()
             layer.fillColor = UIColor.clear.cgColor
             layer.lineWidth = 0.5
-            layer.strokeColor = UIColor.red.cgColor
+            layer.strokeColor = UIColor.green.cgColor
             averageScoreView.layer.addSublayer(layer)
             
             let pathƒ = UIBezierPath()
-            pathƒ.move(to: CGPoint(x: 30, y: 45+150-score*3/2))
-            pathƒ.addLine(to: CGPoint(x: 630, y: 45+150-score*3/2))
+            let scoreß = 170
+            let coordinate = 45.0+150.0 - Double(scoreß)*150.0/250.0
+            pathƒ.move(to: CGPoint(x: 30, y: coordinate))
+            pathƒ.addLine(to: CGPoint(x: 630, y: coordinate))
             layer.path = pathƒ.cgPath
+            
+            let nameLabel = UILabel(frame: CGRect(x: 600, y: coordinate-5, width: 60, height: 30))
+            nameLabel.text = "170"
+            nameLabel.textColor = .green
+            nameLabel.font = .systemFont(ofSize: 12)
+            nameLabel.textAlignment = .center
+            nameLabel.adjustsFontSizeToFitWidth = true
+            averageScoreView.addSubview(nameLabel)
         }
     }
     

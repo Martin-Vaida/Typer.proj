@@ -186,6 +186,18 @@ class MarryHadALittleLambController:UITableViewController {
             if !self.timeTappedBool && !self.accuracyTappedBool {
                 self.navigationItem.title = "Mary Had A Little Lamb"
             }
+            
+            if MenuViewController.forceQuite {
+                if self.timeCounter >= 60.0 {
+                    let correctLetters = self.correctLettersInAll
+                    let tappedLetters = self.tappedLetersInAll
+                    
+                    ScoreViewController.score = Score(correctLetters, tappedLetters, self.timePassed, false, .maryHadALittleLamb)
+                    
+                    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
+                    self.navigationController!.pushViewController(viewController, animated: true)
+                }
+            }
         })
     }
     
