@@ -1229,7 +1229,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Story View Controllers" id="3Tj-Bq-PKd">
+                            <tableViewSection headerTitle="Storyboard" id="3Tj-Bq-PKd">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0Vf-pl-jEs">
                                         <rect key="frame" x="0.0" y="568" width="703.5" height="44"/>
@@ -1244,11 +1244,11 @@
                                                         <constraint firstAttribute="height" constant="44" id="7cj-NE-edS"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <state key="normal" title="MarryHadALittleLambController.swift">
+                                                    <state key="normal" title="Main.storyboard">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="Jh3-EG-NEU" kind="show" identifier="MarryHadALittleLambController.swift" id="wgP-ff-u17"/>
+                                                        <segue destination="tef-3X-yvJ" kind="show" id="tyv-kp-SgL"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1284,7 +1284,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GrT-4l-CN4">
                                 <rect key="frame" x="0.0" y="70" width="703.5" height="698"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">//
+                                <string key="text">//
 //  masterViewController.swift
 //  Typer.proj
 //
@@ -1369,7 +1369,7 @@ class MasterViewController: UITableViewController {
     
 }
 
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1390,6 +1390,76 @@ class MasterViewController: UITableViewController {
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YxU-vX-XKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1776.5624999999998" y="2989.84375"/>
+        </scene>
+        <!--Story Board View Controller-->
+        <scene sceneID="z9e-4c-6kq">
+            <objects>
+                <viewController id="tef-3X-yvJ" customClass="storyBoardViewController" customModule="Typer_proj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BaU-xM-oGA">
+                        <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCr-ab-Yxl">
+                                <rect key="frame" x="0.0" y="70" width="703.5" height="473.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WCr-ab-Yxl" secondAttribute="height" multiplier="352:237" id="I7h-Wt-B3s"/>
+                                </constraints>
+                                <state key="normal" image="Main.storyboard"/>
+                                <connections>
+                                    <segue destination="8R9-xO-ShF" kind="presentation" id="2bQ-5J-wWE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WCr-ab-Yxl" firstAttribute="top" secondItem="Vl3-lv-ume" secondAttribute="top" id="P2y-AS-X5O"/>
+                            <constraint firstItem="WCr-ab-Yxl" firstAttribute="leading" secondItem="BaU-xM-oGA" secondAttribute="leading" id="d2X-VI-PCM"/>
+                            <constraint firstAttribute="trailing" secondItem="WCr-ab-Yxl" secondAttribute="trailing" id="peM-he-Yyu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vl3-lv-ume"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jQt-6G-um5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1776.5624999999998" y="3736.71875"/>
+        </scene>
+        <!--Storyboard Pic-->
+        <scene sceneID="JAa-hK-lPv">
+            <objects>
+                <viewController id="8R9-xO-ShF" customClass="storyboardPic" customModule="Typer_proj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cpa-D5-7N9">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Main.storyboard" translatesAutoresizingMaskIntoConstraints="NO" id="CXi-vu-Km2">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ydj-IY-7AO">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                                <connections>
+                                    <segue destination="jMY-oK-Fqd" kind="unwind" unwindAction="uniwndToStoryboardViewControllerWithSegue:" id="8FQ-JM-nhg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rtI-7S-zet" firstAttribute="trailing" secondItem="Ydj-IY-7AO" secondAttribute="trailing" id="EEL-CU-r08"/>
+                            <constraint firstItem="CXi-vu-Km2" firstAttribute="top" secondItem="rtI-7S-zet" secondAttribute="top" id="MSf-IJ-o5i"/>
+                            <constraint firstItem="CXi-vu-Km2" firstAttribute="leading" secondItem="rtI-7S-zet" secondAttribute="leading" id="P8G-p0-xFC"/>
+                            <constraint firstItem="rtI-7S-zet" firstAttribute="bottom" secondItem="CXi-vu-Km2" secondAttribute="bottom" id="RxP-g0-rTa"/>
+                            <constraint firstItem="Ydj-IY-7AO" firstAttribute="top" secondItem="rtI-7S-zet" secondAttribute="top" id="Xh1-SG-fXT"/>
+                            <constraint firstItem="rtI-7S-zet" firstAttribute="trailing" secondItem="CXi-vu-Km2" secondAttribute="trailing" id="ovC-ZL-FIE"/>
+                            <constraint firstItem="rtI-7S-zet" firstAttribute="bottom" secondItem="Ydj-IY-7AO" secondAttribute="bottom" id="owL-CE-wQ0"/>
+                            <constraint firstItem="Ydj-IY-7AO" firstAttribute="leading" secondItem="rtI-7S-zet" secondAttribute="leading" id="wWd-pD-TnT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rtI-7S-zet"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bN9-Of-aF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jMY-oK-Fqd" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2528" y="3737"/>
         </scene>
         <!--Settings-->
         <scene sceneID="g7R-Ds-Ev6">
@@ -2570,6 +2640,7 @@ class MasterViewController: UITableViewController {
     </scenes>
     <resources>
         <image name="DefaultBackground" width="1219" height="178"/>
+        <image name="Main.storyboard" width="2880" height="1800"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IOX-s6-hXO"/>

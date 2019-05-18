@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B41D5676228FB77B006574F2 /* storyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D5675228FB77B006574F2 /* storyboardViewController.swift */; };
+		B41D5678228FB825006574F2 /* storyboardPic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D5677228FB825006574F2 /* storyboardPic.swift */; };
 		B4504FF0228FA87B002EE0D1 /* SourceTabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4504FEF228FA87B002EE0D1 /* SourceTabelViewController.swift */; };
 		B4504FF2228FA95D002EE0D1 /* SourceCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4504FF1228FA95D002EE0D1 /* SourceCode.swift */; };
 		B4667FEF228AE29B00EC329F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4667FEE228AE29B00EC329F /* MasterViewController.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B41D5675228FB77B006574F2 /* storyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storyboardViewController.swift; sourceTree = "<group>"; };
+		B41D5677228FB825006574F2 /* storyboardPic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storyboardPic.swift; sourceTree = "<group>"; };
 		B4504FEF228FA87B002EE0D1 /* SourceTabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTabelViewController.swift; sourceTree = "<group>"; };
 		B4504FF1228FA95D002EE0D1 /* SourceCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCode.swift; sourceTree = "<group>"; };
 		B4667FEE228AE29B00EC329F /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				B4504FEF228FA87B002EE0D1 /* SourceTabelViewController.swift */,
 				B4F568F0228FA53B00265167 /* SourceCodeViewController.swift */,
 				B4504FF1228FA95D002EE0D1 /* SourceCode.swift */,
+				B41D5675228FB77B006574F2 /* storyboardViewController.swift */,
+				B41D5677228FB825006574F2 /* storyboardPic.swift */,
 			);
 			path = DeveloperControllers;
 			sourceTree = "<group>";
@@ -210,10 +216,12 @@
 				B4E281C82286B2D00065D480 /* Socre.swift in Sources */,
 				B4504FF2228FA95D002EE0D1 /* SourceCode.swift in Sources */,
 				B47B2D912283EA4300CB0911 /* ChoosePassageController.swift in Sources */,
+				B41D5678228FB825006574F2 /* storyboardPic.swift in Sources */,
 				B4667FF6228AE2EC00EC329F /* ColorMixViewController.swift in Sources */,
 				B4667FEF228AE29B00EC329F /* MasterViewController.swift in Sources */,
 				B4E281CA2286B6DA0065D480 /* ScoreViewController.swift in Sources */,
 				B48E2D662284195700E4066C /* scoresView.swift in Sources */,
+				B41D5676228FB77B006574F2 /* storyboardViewController.swift in Sources */,
 				B4D682C92283E1F0006FBC3C /* MarryHadALittleLambController.swift in Sources */,
 				B4F568F1228FA53B00265167 /* SourceCodeViewController.swift in Sources */,
 				B4CB31B2228AFA9D00DC305C /* StatisticsViewController.swift in Sources */,
