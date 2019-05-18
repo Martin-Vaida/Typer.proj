@@ -1,5 +1,5 @@
 //
-//  ScoreView.swift
+//  ScoreViewController.swift
 //  Typer.proj
 //
 //  Created by Vaida on 2019/5/11.

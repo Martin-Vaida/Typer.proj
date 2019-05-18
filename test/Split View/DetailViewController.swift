@@ -22,6 +22,10 @@ class DetailViewController:UIViewController {
     @IBOutlet weak var forceQuiteBackground: UIImageView!
     @IBOutlet weak var forceQuiteLabel: UIButton!
     @IBOutlet weak var forceQuiteSwitch: UISwitch!
+    @IBOutlet weak var developerLabel: UIButton!
+    @IBOutlet weak var showSourceCodeLabel: UIButton!
+    @IBOutlet weak var showSourceCodeBackground: UIImageView!
+    
     
     
     static var target:Target = .currentLabel
@@ -34,6 +38,7 @@ class DetailViewController:UIViewController {
         super.viewDidLoad()
         
         enableTableView()
+        enableSourceCodeß()
         toStatistics()
         
         studentsModeSwitch.isOn = MenuViewController.studentsMode
@@ -43,6 +48,12 @@ class DetailViewController:UIViewController {
     var enableColorMix = false {
         didSet {
             enableTableView()
+        }
+    }
+    
+    var enableSourceCode = false {
+        didSet {
+            enableSourceCodeß()
         }
     }
     
@@ -89,6 +100,18 @@ class DetailViewController:UIViewController {
             } else {
                 switchß.isHidden = true
             }
+        }
+    }
+    
+    func enableSourceCodeß() {
+        if let label = developerLabel {
+            label.isHidden = !enableSourceCode
+        }
+        if let bg = showSourceCodeBackground {
+            bg.isHidden = !enableSourceCode
+        }
+        if let label = showSourceCodeLabel {
+            label.isHidden = !enableSourceCode
         }
     }
     

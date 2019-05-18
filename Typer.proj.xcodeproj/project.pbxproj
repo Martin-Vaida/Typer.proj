@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4504FF0228FA87B002EE0D1 /* SourceTabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4504FEF228FA87B002EE0D1 /* SourceTabelViewController.swift */; };
+		B4504FF2228FA95D002EE0D1 /* SourceCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4504FF1228FA95D002EE0D1 /* SourceCode.swift */; };
 		B4667FEF228AE29B00EC329F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4667FEE228AE29B00EC329F /* MasterViewController.swift */; };
 		B4667FF2228AE2C200EC329F /* MasterViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4667FF1228AE2C200EC329F /* MasterViewControllerCell.swift */; };
 		B4667FF4228AE2D600EC329F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4667FF3228AE2D600EC329F /* DetailViewController.swift */; };
@@ -23,9 +25,12 @@
 		B4E281C82286B2D00065D480 /* Socre.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E281C72286B2D00065D480 /* Socre.swift */; };
 		B4E281CA2286B6DA0065D480 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E281C92286B6DA0065D480 /* ScoreViewController.swift */; };
 		B4E870502286CBF900A30DD3 /* scoresViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8704F2286CBF900A30DD3 /* scoresViewCell.swift */; };
+		B4F568F1228FA53B00265167 /* SourceCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F568F0228FA53B00265167 /* SourceCodeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B4504FEF228FA87B002EE0D1 /* SourceTabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTabelViewController.swift; sourceTree = "<group>"; };
+		B4504FF1228FA95D002EE0D1 /* SourceCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCode.swift; sourceTree = "<group>"; };
 		B4667FEE228AE29B00EC329F /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		B4667FF1228AE2C200EC329F /* MasterViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewControllerCell.swift; sourceTree = "<group>"; };
 		B4667FF3228AE2D600EC329F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +49,7 @@
 		B4E281C72286B2D00065D480 /* Socre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socre.swift; sourceTree = "<group>"; };
 		B4E281C92286B6DA0065D480 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		B4E8704F2286CBF900A30DD3 /* scoresViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresViewCell.swift; sourceTree = "<group>"; };
+		B4F568F0228FA53B00265167 /* SourceCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCodeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +111,23 @@
 				B47B2D902283EA4300CB0911 /* ChoosePassageController.swift */,
 				B45F963D228533EE00ACD289 /* StoryViewControlloers */,
 				B4E281C92286B6DA0065D480 /* ScoreViewController.swift */,
+				B4F568EF228FA52500265167 /* DeveloperControllers */,
 				B4D682B72283E06E006FBC3C /* Main.storyboard */,
 				B4D682BD2283E06F006FBC3C /* Assets.xcassets */,
 				B4D682BF2283E06F006FBC3C /* LaunchScreen.storyboard */,
 				B4D682C22283E06F006FBC3C /* Info.plist */,
 			);
 			path = test;
+			sourceTree = "<group>";
+		};
+		B4F568EF228FA52500265167 /* DeveloperControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B4504FEF228FA87B002EE0D1 /* SourceTabelViewController.swift */,
+				B4F568F0228FA53B00265167 /* SourceCodeViewController.swift */,
+				B4504FF1228FA95D002EE0D1 /* SourceCode.swift */,
+			);
+			path = DeveloperControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,13 +206,16 @@
 				B4E870502286CBF900A30DD3 /* scoresViewCell.swift in Sources */,
 				B4667FF2228AE2C200EC329F /* MasterViewControllerCell.swift in Sources */,
 				B47B2D932283EC0300CB0911 /* MenuViewController.swift in Sources */,
+				B4504FF0228FA87B002EE0D1 /* SourceTabelViewController.swift in Sources */,
 				B4E281C82286B2D00065D480 /* Socre.swift in Sources */,
+				B4504FF2228FA95D002EE0D1 /* SourceCode.swift in Sources */,
 				B47B2D912283EA4300CB0911 /* ChoosePassageController.swift in Sources */,
 				B4667FF6228AE2EC00EC329F /* ColorMixViewController.swift in Sources */,
 				B4667FEF228AE29B00EC329F /* MasterViewController.swift in Sources */,
 				B4E281CA2286B6DA0065D480 /* ScoreViewController.swift in Sources */,
 				B48E2D662284195700E4066C /* scoresView.swift in Sources */,
 				B4D682C92283E1F0006FBC3C /* MarryHadALittleLambController.swift in Sources */,
+				B4F568F1228FA53B00265167 /* SourceCodeViewController.swift in Sources */,
 				B4CB31B2228AFA9D00DC305C /* StatisticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,7 +374,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -374,7 +394,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

@@ -1,5 +1,5 @@
 //
-//  TableViewController.swift
+//  ColorMixViewController.swift.swift
 //  test
 //
 //  Created by Vaida on 2019/5/9.

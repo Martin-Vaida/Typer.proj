@@ -71,6 +71,10 @@ class MasterViewController: UITableViewController {
                     controller.toStatisticsBool = true
                 }
                 
+                if indexPath.section == 2 {
+                    controller.enableSourceCode = true
+                }
+                
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
