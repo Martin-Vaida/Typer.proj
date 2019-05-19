@@ -81,7 +81,7 @@ class StatisticsViewController:UITableViewController {
         super.viewDidLoad()
         setup()
         
-        
+        guard scoreCollectionß.count >= 2 else { return }
         var average = 0
         var correct = 0
         var tapped = 0
@@ -144,15 +144,12 @@ class StatisticsViewController:UITableViewController {
     func setup() {
         scoreCollectionß = scoresView.scoreCollection
         
-        scoreCollectionß.append(Score(100,100,"100",true, .maryHadALittleLamb))
-        scoreCollectionß.append(Score(50,100,"100",false, .maryHadALittleLamb))
-        scoreCollectionß.append(Score(100,100,"100",false, .maryHadALittleLamb))
-        scoreCollectionß.append(Score(100,100,"10",false, .maryHadALittleLamb))
-        
         guard scoreCollectionß.count >= 2 else { return }
         scoreCollectionß.remove(at: 0)
         
-        for i in 0...scoreCollectionß.count-1 {
+        guard MenuViewController.studentsMode else { return }
+        
+        for i in 0...scoreCollectionß.count-2 {
             if Double(scoreCollectionß[i].timePassed)! < 60.0 {
                 scoreCollectionß.remove(at: i)
             }

@@ -131,6 +131,13 @@ class DetailViewController:UIViewController {
     @IBAction func studentsModeSwitch(_ sender: Any) {
         MenuViewController.studentsMode = studentsModeSwitch.isOn
         
+        if studentsModeSwitch.isOn {
+            let alert = UIAlertController(title: "Notice", message: "Your incompleted tasks will no longer be shown in statistics.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+            alert.addAction(confirmAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
         if let bg = forceQuiteBackground {
             bg.isHidden = !MenuViewController.studentsMode
         }

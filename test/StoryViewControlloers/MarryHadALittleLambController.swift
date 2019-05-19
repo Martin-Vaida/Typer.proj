@@ -31,6 +31,8 @@ class MarryHadALittleLambController:UITableViewController {
     
     var correctLettersArray = [Int](repeatElement(0, count: 15))
     var tappedLettersArray = [Int](repeatElement(0, count: 15))
+    var tempCorrectLetters = [Character]()
+    var tempTappedLetter = [Character]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -228,25 +230,10 @@ class MarryHadALittleLambController:UITableViewController {
         lineOne.textColor = MarryHadALittleLambController.currentLineColor
     }
     
+    var tempCorrectLetterCount = 0
+    
     //When User changed Valve...
     func updateValue(line:Int) {
-        
-        if lineArray[line-1].text?.count == labelArray[line-1].text!.count+1 {
-            guard line != 15 else {
-                stopTimer()
-                return
-            }
-            
-            lineArray[line-1].resignFirstResponder()
-            lineArray[line].text = " "
-            lineArray[line].becomeFirstResponder()
-            
-            labelArray[line-1].textColor = MarryHadALittleLambController.unusedLabelColor
-            labelArray[line].textColor = MarryHadALittleLambController.currentLabelColor
-            
-            lineArray[line-1].textColor = MarryHadALittleLambController.unusedLineColor
-            lineArray[line].textColor = MarryHadALittleLambController.currentLineColor
-        }
         
         guard lineArray[line-1].text != nil else { return }
         
@@ -262,6 +249,22 @@ class MarryHadALittleLambController:UITableViewController {
                 
                 lineArray[line-1].textColor = MarryHadALittleLambController.unusedLineColor
                 lineArray[line-2].textColor = MarryHadALittleLambController.currentLineColor
+                
+                tempCorrectLetters = []
+                tempTappedLetter = []
+                tempCorrectLetterCount = 0
+                
+                for i in lineArray[line-2].text! {
+                    tempTappedLetter.append(i)
+                }
+                for i in labelArray[line-2].text! {
+                    tempCorrectLetters.append(i)
+                }
+                for i in 0...tempTappedLetter.count-2 {
+                    if tempCorrectLetters[i] == tempTappedLetter[i+1] {
+                        tempCorrectLetterCount += 1
+                    }
+                }
             }
         }
         
@@ -269,19 +272,26 @@ class MarryHadALittleLambController:UITableViewController {
         guard lineArray[line-1].text!.count >= 2 else { return }
         tappedLetersInAll = lineArray[line-1].text!.count
         
-        var tempCorrectLetterCount = 0
-        tempCorrectLetterCount = 0
         
-        for i in 1...lineArray[line-1].text!.count-1 {
-            let inputLetter = lineArray[line-1].text![lineArray[line-1].text!.index(lineArray[line-1].text!.startIndex, offsetBy: i)]
-            let origenalLetter = labelArray[line-1].text![labelArray[line-1].text!.index(labelArray[line-1].text!.startIndex, offsetBy: i-1)]
+        
+        if lineArray[line-1].text!.count > tempCorrectLetters.count {
+            tempCorrectLetters.append(labelArray[line-1].text![(labelArray[line-1].text?.index(labelArray[line-1].text!.startIndex, offsetBy: tempCorrectLetters.count))!])
+            tempTappedLetter.append(lineArray[line-1].text![lineArray[line-1].text!.index(before: lineArray[line-1].text!.endIndex)])
             
-            if inputLetter == origenalLetter {
+            if tempTappedLetter[tempTappedLetter.count-1] == tempCorrectLetters[tempCorrectLetters.count-1] {
                 tempCorrectLetterCount += 1
             } else {
-                lineArray[line-1].text!.remove(at: lineArray[line-1].text!.index(lineArray[line-1].text!.startIndex, offsetBy: i))
-                lineArray[line-1].text!.insert("_", at: lineArray[line-1].text!.index(lineArray[line-1].text!.startIndex, offsetBy: i))
+                lineArray[line-1].text!.removeLast()
+                lineArray[line-1].text!.append("_")
             }
+            
+        } else {
+            if tempCorrectLetters[tempCorrectLetters.count-1] == tempTappedLetter[tempTappedLetter.count-1] {
+                tempCorrectLetterCount -= 1
+            }
+            
+            tempCorrectLetters.remove(at: tempCorrectLetters.count-1)
+            tempTappedLetter.remove(at: tempTappedLetter.count-1)
         }
         
         correctLettersArray[line-1] = tempCorrectLetterCount
@@ -298,6 +308,27 @@ class MarryHadALittleLambController:UITableViewController {
         }
         
         updateAccuracyLabel()
+        
+        if lineArray[line-1].text!.count == labelArray[line-1].text!.count+1 {
+            guard line != 15 else {
+                stopTimer()
+                return
+            }
+            
+            lineArray[line-1].resignFirstResponder()
+            lineArray[line].text = " "
+            lineArray[line].becomeFirstResponder()
+            
+            labelArray[line-1].textColor = MarryHadALittleLambController.unusedLabelColor
+            labelArray[line].textColor = MarryHadALittleLambController.currentLabelColor
+            
+            lineArray[line-1].textColor = MarryHadALittleLambController.unusedLineColor
+            lineArray[line].textColor = MarryHadALittleLambController.currentLineColor
+            tempCorrectLetters = []
+            tempTappedLetter = []
+            tempCorrectLetterCount = 0
+            return
+        }
     }
     
     //User is editing lineOne
