@@ -25,6 +25,8 @@ class MenuViewController:UIViewController {
         scoresView.scoreCollection = Score.load()!
         scoresViewHasSet = true
         
+        guard UIColorß.load() != nil else { return }
+        colorMixViewController.colorArray = UIColorß.load()!
         
     }
 }

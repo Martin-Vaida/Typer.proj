@@ -11,6 +11,8 @@ import UIKit
 
 class colorMixViewController:UITableViewController {
     
+    static var colorArray:[UIColorß] = []
+    
     var red:CGFloat = 0.5
     var yellow:CGFloat = 0.5
     var blue:CGFloat = 0.5
@@ -23,6 +25,13 @@ class colorMixViewController:UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if colorMixViewController.colorArray.count == 0 {
+            colorMixViewController.colorArray.append(UIColorß("0.5", "0.5", "0.5", "1"))
+            colorMixViewController.colorArray.append(UIColorß("0", "0", "0", "1"))
+            colorMixViewController.colorArray.append(UIColorß("0", "0", "0", "0.2"))
+            colorMixViewController.colorArray.append(UIColorß("0", "0", "0", "0.2"))
+        }
         
         switch DetailViewController.target {
         case .currentLabel:
@@ -93,14 +102,25 @@ class colorMixViewController:UITableViewController {
         switch DetailViewController.target {
         case .currentLabel:
             MarryHadALittleLambController.currentLabelColor = UIColor(red: red, green: yellow, blue: blue, alpha: black)
+            let color = UIColorß(String(Double(red)), String(Double(yellow)), String(Double(blue)), String(Double(black)))
+            colorMixViewController.colorArray[0] = color
+            
         case .currentLine:
             MarryHadALittleLambController.currentLineColor = UIColor(red: red, green: yellow, blue: blue, alpha: black)
+            let color = UIColorß(String(Double(red)), String(Double(yellow)), String(Double(blue)), String(Double(black)))
+            colorMixViewController.colorArray[1] = color
         case .unusedLabel:
             MarryHadALittleLambController.unusedLabelColor = UIColor(red: red, green: yellow, blue: blue, alpha: black)
+            let color = UIColorß(String(Double(red)), String(Double(yellow)), String(Double(blue)), String(Double(black)))
+            colorMixViewController.colorArray[2] = color
         case .unusedLine:
             MarryHadALittleLambController.unusedLineColor = UIColor(red: red, green: yellow, blue: blue, alpha: black)
+            let color = UIColorß(String(Double(red)), String(Double(yellow)), String(Double(blue)), String(Double(black)))
+            colorMixViewController.colorArray[3] = color
             
         }
+        
+        UIColorß.save(colorMixViewController.colorArray)
     }
     
     @IBAction func resetTapped(_ sender: Any) {
