@@ -9,14 +9,24 @@
 import Foundation
 import UIKit
 
-class Score {
-    let correctLetters:Int
-    let tappedLatters:Int
+class Score:NSObject, NSCoding{
+    var correctLetters:Int
+    var tappedLatters:Int
+    var correctLettersß:String {
+        didSet {
+            correctLetters = Int(correctLettersß)!
+        }
+    }
+    var tappedLattersß:String {
+        didSet {
+            tappedLatters = Int(tappedLattersß)!
+        }
+    }
     let timePassed:String
     let dateFomatter = DateFormatter()
     var index = ""
     var firstRow:Bool
-    var passageChoice:PassageChoice
+    var passageChoice:String
     var dateInt = 0
     var score = 0  //change to 0
     
@@ -24,9 +34,13 @@ class Score {
         case maryHadALittleLamb
     }
     
-    init(_ correctLetters:Int, _ tappedLetters:Int, _ timePassed:String, _ firstRow:Bool, _ passageChoice:PassageChoice) {
-        self.correctLetters = correctLetters
-        self.tappedLatters = tappedLetters
+    init(_ correctLetters:String, _ tappedLetters:String, _ timePassed:String, _ firstRow:Bool, _ passageChoice:String) {
+        self.correctLettersß = correctLetters
+        self.tappedLattersß = tappedLetters
+        self.correctLetters = Int(correctLetters)!
+        print("Correct:", self.correctLetters)
+        self.tappedLatters = Int(tappedLetters)!
+        print("tapped:", tappedLatters)
         self.timePassed = timePassed
         self.firstRow = firstRow
         self.passageChoice = passageChoice
@@ -38,6 +52,11 @@ class Score {
     
     func accuracyRateDescreption() -> String {
         return "Accuracy Rate: \(correctLetters*100/tappedLatters)%"
+    }
+    
+    func setupß() {
+        correctLetters = Int(correctLettersß)!
+        tappedLatters = Int(tappedLattersß)!
     }
     
     func accuracyDescription() -> String {
@@ -139,6 +158,7 @@ class Score {
             return " "
         }
         
+        guard tappedLatters != 0 else { return "Accuracy Rate" }
         if !firstRow {
             return "\(correctLetters*100/tappedLatters)%"
         } else {
@@ -169,8 +189,10 @@ class Score {
     
     func getPassageName() -> String {
         switch passageChoice {
-        case .maryHadALittleLamb:
+        case "Mary Had A Little lamb":
             return "Passage: Mary Had A Little lamb"
+        default:
+            return ""
         }
     }
     
@@ -188,4 +210,56 @@ class Score {
         }
     }
     
+    
+    
+    //saving Data
+    
+    struct PropertyKey {
+        static let correctLetters = "correctLetters"
+        static let tappedLetters = "tappedletters"
+        static let timePassed = "timePassed"
+        static let firstRow = "forstRow"
+        static let passageChoice = "passageChoice"
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let timepassed = aDecoder.decodeObject(forKey: PropertyKey.timePassed) as? String,
+            let passageChoice = aDecoder.decodeObject(forKey: PropertyKey.passageChoice) as? String,
+            let correctLetters = aDecoder.decodeObject(forKey: PropertyKey.correctLetters) as? String,
+            let tappedLetters = aDecoder.decodeObject(forKey: PropertyKey.tappedLetters) as? String else {
+                print("error:nil")
+                return nil
+        }
+        
+        print("decode")
+        let firstRow = aDecoder.decodeObject(forKey: PropertyKey.firstRow)
+        
+        self.init(correctLetters , tappedLetters , timepassed, (firstRow != nil), passageChoice)
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        print(correctLettersß)
+        aCoder.encode(correctLettersß, forKey: PropertyKey.correctLetters)
+        print(tappedLattersß)
+        aCoder.encode(tappedLattersß, forKey: PropertyKey.tappedLetters)
+        print(timePassed)
+        aCoder.encode(timePassed, forKey: PropertyKey.timePassed)
+        print(firstRow)
+        aCoder.encode(firstRow, forKey: PropertyKey.firstRow)
+        print(passageChoice)
+        aCoder.encode(passageChoice, forKey: PropertyKey.passageChoice)
+        print("Completed")
+    }
+    
+    static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("save")
+    
+    static func load() -> [Score]? {
+        print(Score.ArchiveURL.path)
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Score.ArchiveURL.path) as? [Score]
+    }
+    
+    static func save(_ score: [Score]) {
+        NSKeyedArchiver.archiveRootObject(score, toFile: Score.ArchiveURL.path)
+    }
 }

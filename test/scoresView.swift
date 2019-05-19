@@ -18,7 +18,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         
         //define the first row
         if !scoresViewHasSet {
-            let rowFirstCell = Score.init(0, 0, "0", true, .maryHadALittleLamb)
+            let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb")
             scoresView.scoreCollection.insert(rowFirstCell, at: 0)
             scoresViewHasSet = true
         }
@@ -30,6 +30,15 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         for i in 0...scoresView.scoreCollection.count-1{
             scoresView.scoreCollection[i].index = String(i)
         }
+        
+        
+        guard scoresView.scoreCollection.count != 0 else { return }
+        Score.save(scoresView.scoreCollection)
+        
+        scoresView.scoreCollection.remove(at: 0)
+        
+        let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb")
+        scoresView.scoreCollection.insert(rowFirstCell, at: 0)
     }
     
     static var scoreCollection:[Score] = []
@@ -148,7 +157,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
             scoresView.scoreCollection = sortedItems
         }
         
-        let rowFirstCell = Score.init(0, 0, "0", true, .maryHadALittleLamb)
+        let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb")
         scoresView.scoreCollection.insert(rowFirstCell, at: 0)
         
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View") as! scoresView

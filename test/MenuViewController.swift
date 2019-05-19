@@ -17,4 +17,14 @@ class MenuViewController:UIViewController {
     
     static var studentsMode = false
     static var forceQuite = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        guard Score.load() != nil else { return }
+        scoresView.scoreCollection = Score.load()!
+        scoresViewHasSet = true
+        
+        
+    }
 }
