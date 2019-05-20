@@ -227,28 +227,20 @@ class Score:NSObject, NSCoding{
             let passageChoice = aDecoder.decodeObject(forKey: PropertyKey.passageChoice) as? String,
             let correctLetters = aDecoder.decodeObject(forKey: PropertyKey.correctLetters) as? String,
             let tappedLetters = aDecoder.decodeObject(forKey: PropertyKey.tappedLetters) as? String else {
-                print("error:nil")
                 return nil
         }
         
-        print("decode")
         let firstRow = aDecoder.decodeObject(forKey: PropertyKey.firstRow)
         
         self.init(correctLetters , tappedLetters , timepassed, (firstRow != nil), passageChoice)
     }
     
     func encode(with aCoder: NSCoder) {
-        print(correctLettersß)
         aCoder.encode(correctLettersß, forKey: PropertyKey.correctLetters)
-        print(tappedLattersß)
         aCoder.encode(tappedLattersß, forKey: PropertyKey.tappedLetters)
-        print(timePassed)
         aCoder.encode(timePassed, forKey: PropertyKey.timePassed)
-        print(firstRow)
         aCoder.encode(firstRow, forKey: PropertyKey.firstRow)
-        print(passageChoice)
         aCoder.encode(passageChoice, forKey: PropertyKey.passageChoice)
-        print("Completed")
     }
     
     static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!

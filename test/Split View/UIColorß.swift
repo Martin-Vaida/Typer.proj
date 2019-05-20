@@ -37,7 +37,6 @@ class UIColorß: NSObject, NSCoding {
                 return nil
         }
         
-        print("succeed")
         self.init(red, green, blue, alpha)
     }
     

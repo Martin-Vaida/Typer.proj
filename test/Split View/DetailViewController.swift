@@ -27,7 +27,6 @@ class DetailViewController:UIViewController {
     @IBOutlet weak var showSourceCodeBackground: UIImageView!
     
     
-    
     static var target:Target = .currentLabel
     
     enum Target {
@@ -131,6 +130,11 @@ class DetailViewController:UIViewController {
     @IBAction func studentsModeSwitch(_ sender: Any) {
         MenuViewController.studentsMode = studentsModeSwitch.isOn
         
+        let studentMode = StudentsMode(isOn: MenuViewController.studentsMode, autoStop: MenuViewController.forceQuite)
+        print(studentMode)
+        StudentsMode.save(studentMode)
+        print(StudentsMode.load()!)
+        
         if studentsModeSwitch.isOn {
             let alert = UIAlertController(title: "Notice", message: "Your incompleted tasks will no longer be shown in statistics.", preferredStyle: .alert)
             let confirmAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
@@ -154,6 +158,9 @@ class DetailViewController:UIViewController {
     
     @IBAction func forceQuiteButton(_ sender: Any) {
         MenuViewController.forceQuite = forceQuiteSwitch.isOn
+        let studentMode = StudentsMode(isOn: studentsModeSwitch.isOn, autoStop: forceQuiteSwitch.isOn)
+        print(studentMode)
+        StudentsMode.save(studentMode)
     }
     
     

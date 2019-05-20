@@ -21,12 +21,20 @@ class MenuViewController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard Score.load() != nil else { return }
-        scoresView.scoreCollection = Score.load()!
-        scoresViewHasSet = true
+        if Score.load() != nil {
+            scoresView.scoreCollection = Score.load()!
+            scoresViewHasSet = true
+        }
         
-        guard UIColorß.load() != nil else { return }
-        colorMixViewController.colorArray = UIColorß.load()!
+        if UIColorß.load() != nil {
+            colorMixViewController.colorArray = UIColorß.load()!
+        }
+        
+        if StudentsMode.load() != nil {
+            MenuViewController.studentsMode = StudentsMode.load()!.isOn
+            MenuViewController.forceQuite = StudentsMode.load()!.autoStop
+            print(StudentsMode.load()!)
+        }
         
     }
 }
