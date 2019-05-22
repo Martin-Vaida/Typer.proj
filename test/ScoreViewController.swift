@@ -15,6 +15,7 @@ class ScoreViewController:UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateScore()
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
     @IBOutlet weak var timeLabel: UILabel!

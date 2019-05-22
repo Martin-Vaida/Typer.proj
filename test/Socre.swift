@@ -38,9 +38,7 @@ class Score:NSObject, NSCoding{
         self.correctLettersß = correctLetters
         self.tappedLattersß = tappedLetters
         self.correctLetters = Int(correctLetters)!
-        print("Correct:", self.correctLetters)
         self.tappedLatters = Int(tappedLetters)!
-        print("tapped:", tappedLatters)
         self.timePassed = timePassed
         self.firstRow = firstRow
         self.passageChoice = passageChoice
@@ -188,12 +186,7 @@ class Score:NSObject, NSCoding{
     }
     
     func getPassageName() -> String {
-        switch passageChoice {
-        case "Mary Had A Little lamb":
-            return "Passage: Mary Had A Little lamb"
-        default:
-            return ""
-        }
+        return "Passage: \(passageChoice)"
     }
     
     func calculateScore() -> String {
@@ -247,7 +240,6 @@ class Score:NSObject, NSCoding{
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("save")
     
     static func load() -> [Score]? {
-        print(Score.ArchiveURL.path)
         return NSKeyedUnarchiver.unarchiveObject(withFile: Score.ArchiveURL.path) as? [Score]
     }
     

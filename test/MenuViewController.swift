@@ -33,8 +33,8 @@ class MenuViewController:UIViewController {
         if StudentsMode.load() != nil {
             MenuViewController.studentsMode = StudentsMode.load()!.isOn
             MenuViewController.forceQuite = StudentsMode.load()!.autoStop
-            print(StudentsMode.load()!)
         }
         
     }
+    
 }

@@ -149,9 +149,17 @@ class StatisticsViewController:UITableViewController {
         
         guard MenuViewController.studentsMode else { return }
         
-        for i in 0...scoreCollectionß.count-2 {
-            if Double(scoreCollectionß[i].timePassed)! < 60.0 {
-                scoreCollectionß.remove(at: i)
+        var a = -1
+        for _ in 0...scoreCollectionß.count-1 {
+            a += 1
+            if Double(scoreCollectionß[a].timePassed) == nil {
+                scoreCollectionß.remove(at: a)
+                a -= 1
+                continue
+            }
+            if Double(scoreCollectionß[a].timePassed)! < 60.0 {
+                scoreCollectionß.remove(at: a)
+                a -= 1
             }
         }
     }

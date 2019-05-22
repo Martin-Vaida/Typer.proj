@@ -17,7 +17,6 @@ class scoresViewCell:UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
-    
     @IBOutlet weak var passageLabel: UILabel!
     @IBOutlet weak var accuracyNumberLabel: UILabel!
 }

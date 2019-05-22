@@ -11,6 +11,8 @@ import UIKit
 
 class MarryHadALittleLambController:UITableViewController {
     
+    var lineCount = 15
+    
     static var currentLabelColor:UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
     static var currentLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
     static var unusedLabelColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
@@ -314,8 +316,15 @@ class MarryHadALittleLambController:UITableViewController {
         updateAccuracyLabel()
         
         if lineArray[line-1].text!.count == labelArray[line-1].text!.count+1 {
-            guard line != 15 else {
+            guard line != lineCount else {
                 stopTimer()
+                let correctLetters = self.correctLettersInAll
+                let tappedLetters = self.tappedLetersInAll
+                
+                ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Mary Had A Little lamb")
+                
+                let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
+                self.navigationController!.pushViewController(viewController, animated: true)
                 return
             }
             
