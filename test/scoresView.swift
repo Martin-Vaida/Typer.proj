@@ -67,7 +67,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
             cell.scoreLabel.isHidden = true
         }
         
-        if score.score >= 180 {
+        if score.score >= 170 {
             cell.contentView.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.1)
         }
         

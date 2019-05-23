@@ -19,7 +19,10 @@
 		B47B2D912283EA4300CB0911 /* ChoosePassageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B2D902283EA4300CB0911 /* ChoosePassageController.swift */; };
 		B47B2D932283EC0300CB0911 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B2D922283EC0300CB0911 /* MenuViewController.swift */; };
 		B48E2D662284195700E4066C /* scoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E2D652284195700E4066C /* scoresView.swift */; };
-		B4C079D122955BD1005514C8 /* KingsmanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C079D022955BD1005514C8 /* KingsmanViewController.swift */; };
+		B4A0930E22968B2A004470F7 /* KingsmanIIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A0930D22968B2A004470F7 /* KingsmanIIViewController.swift */; };
+		B4A0931022968F8A004470F7 /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A0930F22968F8A004470F7 /* RandomViewController.swift */; };
+		B4A0931422969470004470F7 /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A0931322969470004470F7 /* Support.swift */; };
+		B4C079D122955BD1005514C8 /* KingsmanIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C079D022955BD1005514C8 /* KingsmanIViewController.swift */; };
 		B4C78BBE2291516F002EE8DF /* UIColorß.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C78BBD2291516F002EE8DF /* UIColorß.swift */; };
 		B4CB31B2228AFA9D00DC305C /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB31B1228AFA9D00DC305C /* StatisticsViewController.swift */; };
 		B4D682B42283E06E006FBC3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D682B32283E06E006FBC3C /* AppDelegate.swift */; };
@@ -46,7 +49,10 @@
 		B47B2D902283EA4300CB0911 /* ChoosePassageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePassageController.swift; sourceTree = "<group>"; };
 		B47B2D922283EC0300CB0911 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B48E2D652284195700E4066C /* scoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresView.swift; sourceTree = "<group>"; };
-		B4C079D022955BD1005514C8 /* KingsmanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingsmanViewController.swift; sourceTree = "<group>"; };
+		B4A0930D22968B2A004470F7 /* KingsmanIIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingsmanIIViewController.swift; sourceTree = "<group>"; };
+		B4A0930F22968F8A004470F7 /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
+		B4A0931322969470004470F7 /* Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Support.swift; sourceTree = "<group>"; };
+		B4C079D022955BD1005514C8 /* KingsmanIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingsmanIViewController.swift; sourceTree = "<group>"; };
 		B4C78BBD2291516F002EE8DF /* UIColorß.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColorß.swift"; sourceTree = "<group>"; };
 		B4CB31B1228AFA9D00DC305C /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		B4D682B02283E06E006FBC3C /* Typer.proj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Typer.proj.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,7 +83,9 @@
 			isa = PBXGroup;
 			children = (
 				B4D682C82283E1F0006FBC3C /* MarryHadALittleLambController.swift */,
-				B4C079D022955BD1005514C8 /* KingsmanViewController.swift */,
+				B4C079D022955BD1005514C8 /* KingsmanIViewController.swift */,
+				B4A0930D22968B2A004470F7 /* KingsmanIIViewController.swift */,
+				B4A0930F22968F8A004470F7 /* RandomViewController.swift */,
 			);
 			path = StoryViewControlloers;
 			sourceTree = "<group>";
@@ -124,6 +132,7 @@
 				B47B2D902283EA4300CB0911 /* ChoosePassageController.swift */,
 				B45F963D228533EE00ACD289 /* StoryViewControlloers */,
 				B4E281C92286B6DA0065D480 /* ScoreViewController.swift */,
+				B4A0931322969470004470F7 /* Support.swift */,
 				B4F568EF228FA52500265167 /* DeveloperControllers */,
 				B4D682B72283E06E006FBC3C /* Main.storyboard */,
 				B4D682BD2283E06F006FBC3C /* Assets.xcassets */,
@@ -216,10 +225,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4A0930E22968B2A004470F7 /* KingsmanIIViewController.swift in Sources */,
 				B4667FF4228AE2D600EC329F /* DetailViewController.swift in Sources */,
 				B4D682B42283E06E006FBC3C /* AppDelegate.swift in Sources */,
 				B4E870502286CBF900A30DD3 /* scoresViewCell.swift in Sources */,
 				B4667FF2228AE2C200EC329F /* MasterViewControllerCell.swift in Sources */,
+				B4A0931422969470004470F7 /* Support.swift in Sources */,
 				B427A33E22926211009FC6BC /* StudentsMode.swift in Sources */,
 				B47B2D932283EC0300CB0911 /* MenuViewController.swift in Sources */,
 				B4504FF0228FA87B002EE0D1 /* SourceTabelViewController.swift in Sources */,
@@ -227,8 +238,9 @@
 				B4504FF2228FA95D002EE0D1 /* SourceCode.swift in Sources */,
 				B4C78BBE2291516F002EE8DF /* UIColorß.swift in Sources */,
 				B47B2D912283EA4300CB0911 /* ChoosePassageController.swift in Sources */,
+				B4A0931022968F8A004470F7 /* RandomViewController.swift in Sources */,
 				B41D5678228FB825006574F2 /* storyboardPic.swift in Sources */,
-				B4C079D122955BD1005514C8 /* KingsmanViewController.swift in Sources */,
+				B4C079D122955BD1005514C8 /* KingsmanIViewController.swift in Sources */,
 				B4667FF6228AE2EC00EC329F /* ColorMixViewController.swift in Sources */,
 				B4667FEF228AE29B00EC329F /* MasterViewController.swift in Sources */,
 				B4E281CA2286B6DA0065D480 /* ScoreViewController.swift in Sources */,
