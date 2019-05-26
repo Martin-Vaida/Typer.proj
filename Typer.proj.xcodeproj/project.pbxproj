@@ -32,6 +32,7 @@
 		B4D682C92283E1F0006FBC3C /* MarryHadALittleLambController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D682C82283E1F0006FBC3C /* MarryHadALittleLambController.swift */; };
 		B4E281C82286B2D00065D480 /* Socre.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E281C72286B2D00065D480 /* Socre.swift */; };
 		B4E281CA2286B6DA0065D480 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E281C92286B6DA0065D480 /* ScoreViewController.swift */; };
+		B4E737CA2296C41900072131 /* gameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E737C92296C41900072131 /* gameViewController.swift */; };
 		B4E870502286CBF900A30DD3 /* scoresViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8704F2286CBF900A30DD3 /* scoresViewCell.swift */; };
 		B4F568F1228FA53B00265167 /* SourceCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F568F0228FA53B00265167 /* SourceCodeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		B4D682C82283E1F0006FBC3C /* MarryHadALittleLambController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarryHadALittleLambController.swift; sourceTree = "<group>"; };
 		B4E281C72286B2D00065D480 /* Socre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socre.swift; sourceTree = "<group>"; };
 		B4E281C92286B6DA0065D480 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		B4E737C92296C41900072131 /* gameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameViewController.swift; sourceTree = "<group>"; };
 		B4E8704F2286CBF900A30DD3 /* scoresViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresViewCell.swift; sourceTree = "<group>"; };
 		B4F568F0228FA53B00265167 /* SourceCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCodeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +88,7 @@
 				B4C079D022955BD1005514C8 /* KingsmanIViewController.swift */,
 				B4A0930D22968B2A004470F7 /* KingsmanIIViewController.swift */,
 				B4A0930F22968F8A004470F7 /* RandomViewController.swift */,
+				B4E737C92296C41900072131 /* gameViewController.swift */,
 			);
 			path = StoryViewControlloers;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				B4A0930E22968B2A004470F7 /* KingsmanIIViewController.swift in Sources */,
 				B4667FF4228AE2D600EC329F /* DetailViewController.swift in Sources */,
 				B4D682B42283E06E006FBC3C /* AppDelegate.swift in Sources */,
+				B4E737CA2296C41900072131 /* gameViewController.swift in Sources */,
 				B4E870502286CBF900A30DD3 /* scoresViewCell.swift in Sources */,
 				B4667FF2228AE2C200EC329F /* MasterViewControllerCell.swift in Sources */,
 				B4A0931422969470004470F7 /* Support.swift in Sources */,

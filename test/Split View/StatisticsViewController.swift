@@ -81,6 +81,8 @@ class StatisticsViewController:UITableViewController {
         super.viewDidLoad()
         setup()
         
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
         guard scoreCollectionß.count >= 2 else { return }
         var average = 0
         var correct = 0

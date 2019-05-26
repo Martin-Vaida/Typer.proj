@@ -177,6 +177,7 @@ class KingsmanIIViewController:UITableViewController {
     func updateValue(line:Int) {
         
         guard lineArrayß[line-1].text != nil else { return }
+        guard lineArray[line-1].text!.count < labelArray[line-1].text!.count+2 else { return }
         
         if lineArrayß[line-1].text!.count == 0 {
             if line == 1 {

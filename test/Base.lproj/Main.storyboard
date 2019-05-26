@@ -156,6 +156,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="label" destination="KtH-Ie-hpo" id="U3L-LS-QUH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZ4-MO-V1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mi2-Kt-yUr" userLabel="Exit" sceneMemberID="exit"/>
@@ -4256,6 +4259,50 @@ class MasterViewController: UITableViewController {
             </objects>
             <point key="canvasLocation" x="1073" y="1480"/>
         </scene>
+        <!--Game View Controller-->
+        <scene sceneID="42i-cN-8cQ">
+            <objects>
+                <viewController id="XHV-M4-hmG" customClass="gameViewController" customModule="Typer_proj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wrF-zo-q0V">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5DH-za-9SF">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldChanged:" destination="XHV-M4-hmG" eventType="editingChanged" id="B2w-jk-gKj"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKe-EK-lG9">
+                                <rect key="frame" x="397" y="324.5" width="230" height="119.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NKe-EK-lG9" firstAttribute="centerX" secondItem="wrF-zo-q0V" secondAttribute="centerX" id="OHV-UN-k7p"/>
+                            <constraint firstItem="5DH-za-9SF" firstAttribute="leading" secondItem="v9J-IR-aXz" secondAttribute="leading" id="SI7-mp-9N4"/>
+                            <constraint firstItem="NKe-EK-lG9" firstAttribute="centerY" secondItem="wrF-zo-q0V" secondAttribute="centerY" id="ac3-Nb-glL"/>
+                            <constraint firstItem="v9J-IR-aXz" firstAttribute="trailing" secondItem="5DH-za-9SF" secondAttribute="trailing" id="e7F-Ii-fG4"/>
+                            <constraint firstItem="v9J-IR-aXz" firstAttribute="bottom" secondItem="5DH-za-9SF" secondAttribute="bottom" id="ktA-Ub-Uks"/>
+                            <constraint firstItem="5DH-za-9SF" firstAttribute="top" secondItem="v9J-IR-aXz" secondAttribute="top" id="vnD-QS-93t"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="v9J-IR-aXz"/>
+                    </view>
+                    <connections>
+                        <outlet property="centerLabel" destination="NKe-EK-lG9" id="J2G-L0-Md6"/>
+                        <outlet property="textField" destination="5DH-za-9SF" id="prW-ca-8CJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rxr-V8-CmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1073" y="-1599"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="MfS-DS-lNo">
             <objects>
@@ -4801,7 +4848,7 @@ class MasterViewController: UITableViewController {
         <image name="Main.storyboard" width="2880" height="1800"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MJy-RJ-LlT"/>
+        <segue reference="bw9-2R-GI3"/>
         <segue reference="IOX-s6-hXO"/>
         <segue reference="LU0-PT-4xf"/>
         <segue reference="sbH-8g-80O"/>

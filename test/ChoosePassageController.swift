@@ -11,7 +11,15 @@ import UIKit
 
 class ChoosePassageController:UITableViewController {
     
+    @IBOutlet weak var label: UIButton!
+    
     @IBAction func unwindToChoosePassage(segue:UIStoryboardSegue) {
         guard segue.identifier == "MarryHadALittleLambReturn" else { return }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        Support.width = Int(view.frame.width)
     }
 }
