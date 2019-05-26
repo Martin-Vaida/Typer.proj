@@ -37,6 +37,7 @@ class ScoreViewController:UITableViewController {
         accuracyLabelTwo.text = ScoreViewController.score!.accuracyDescription()
         takenTimeLabel.text = ScoreViewController.score!.dateDescription()
         ScoreViewController.score!.getDateInt()
+        ScoreViewController.score!.dateDescriptionShort()
         
         scoresView.scoreCollection.append(ScoreViewController.score!)
     }

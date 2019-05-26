@@ -1,15 +1,19 @@
 //
-//  RandomViewController.swift
+//  StoryViewController.swift
 //  Typer.proj
 //
-//  Created by Vaida on 2019/5/23.
+//  Created by Vaida on 2019/5/26.
 //  Copyright © 2019 Martin_Vaida. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class RandomViewController:UITableViewController {
+class storyViewController:UITableViewController {
+    
+    static var scrips:[String] = []
+    static var passageName = ""
+    
     var lineCount = 0
     
     @IBOutlet var labelArray: [UILabel]!
@@ -17,7 +21,6 @@ class RandomViewController:UITableViewController {
     
     var labelArrayß:[UILabel] = []
     var lineArrayß:[UITextField] = []
-    var labelUsed = [Bool](repeatElement(false, count: 10))
     
     @IBOutlet weak var timeLabel: UIBarButtonItem!
     @IBOutlet weak var accuracylabel: UIBarButtonItem!
@@ -42,19 +45,15 @@ class RandomViewController:UITableViewController {
     var tempCorrectLetters = [Character]()
     var tempTappedLetter = [Character]()
     
-    let letters:[String] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"," "," ", " ", " "]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        self.navigationItem.title = "Random Mode"
+        self.navigationItem.title = storyViewController.passageName
         
         currentLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[0].red)!), green: CGFloat(Double(colorMixViewController.colorArray[0].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[0].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[0].alpha)!))
         currentLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[1].red)!), green: CGFloat(Double(colorMixViewController.colorArray[1].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[1].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[1].alpha)!))
         unusedLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[2].red)!), green: CGFloat(Double(colorMixViewController.colorArray[2].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[2].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[2].alpha)!))
         unusedLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[3].red)!), green: CGFloat(Double(colorMixViewController.colorArray[3].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[3].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[3].alpha)!))
-        
-        startTimerß()
     }
     
     func setup() {
@@ -74,19 +73,27 @@ class RandomViewController:UITableViewController {
             i.textColor = unusedLabelColor
             i.text = ""
         }
-        lineCount = 10
+        
+        for i in 0...storyViewController.scrips.count-1 {
+            labelArrayß[i].text = storyViewController.scrips[i]
+        }
+        
+        lineCount = storyViewController.scrips.count
         
         lineArrayß[0].text = " "
         
-        let alertController = UIAlertController(title: "Notice", message: "This is a mode designed for the masters in typing. \n All the letters will be chosen randomly.", preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "Got it!", style: .default, handler: nil)
-        let cancelAction = UIAlertAction(title: "Next time maybe", style: .cancel) { (_) in
-            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Choose_Passage_View") as! ChoosePassageController
-            self.navigationController!.pushViewController(viewController, animated: true)
+        var i = -1
+        for int in 0...storyViewController.scrips.count-1 {
+            i += 1
+            if labelArrayß[i].text! == "" {
+                labelArrayß.remove(at: i)
+                lineArrayß.remove(at: i)
+                i -= 1
+                
+                labelArray[int].isHidden = true
+                lineArray[int].isHidden = true
+            }
         }
-        alertController.addAction(confirmAction)
-        alertController.addAction(cancelAction)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     //Timer
@@ -120,35 +127,22 @@ class RandomViewController:UITableViewController {
                 self.timeLabel.title = "Time"
             }
             if !self.timeTappedBool && !self.accuracyTappedBool {
-                self.navigationItem.title = "Random Mode"
+                self.navigationItem.title = storyViewController.passageName
             }
             
             if MenuViewController.forceQuite {
                 if self.timeCounter >= 60.0 {
                     let correctLetters = self.correctLettersInAll
                     let tappedLetters = self.tappedLetersInAll
+                    storyViewController.scrips.removeAll()
                     
-                    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Random Mode", "")
+                    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, storyViewController.passageName, "")
                     
                     let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
                     self.navigationController!.pushViewController(viewController, animated: true)
                 }
             }
         })
-    }
-    
-    func startTimerß() {
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (_) in
-            for i in 0...self.labelArray.count-1 {
-                guard !self.labelUsed[i] else { continue }
-                //make text
-                self.labelArrayß[i].text = ""
-                for _ in 0...25 {
-                    let int = arc4random_uniform(28)
-                    self.labelArrayß[i].text! += self.letters[Int(int)]
-                }
-            }
-        }
     }
     
     func stopTimer() {
@@ -170,14 +164,6 @@ class RandomViewController:UITableViewController {
     
     @IBAction func LineOneBegin(_ sender: Any) {
         startTimer()
-        
-        //make text
-        labelUsed[0] = true
-        labelArrayß[0].text = ""
-        for _ in 0...25 {
-            let int = arc4random_uniform(28)
-            labelArrayß[0].text! += letters[Int(int)]
-        }
         
         labelArrayß[0].textColor = currentLabelColor
         lineArrayß[0].textColor = currentLineColor
@@ -269,8 +255,9 @@ class RandomViewController:UITableViewController {
                 stopTimer()
                 let correctLetters = self.correctLettersInAll
                 let tappedLetters = self.tappedLetersInAll
+                storyViewController.scrips.removeAll()
                 
-                ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Random Mode", "")
+                ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, storyViewController.passageName, "")
                 
                 let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
                 self.navigationController!.pushViewController(viewController, animated: true)
@@ -281,13 +268,6 @@ class RandomViewController:UITableViewController {
             lineArrayß[line-1].resignFirstResponder()
             lineArrayß[line].text = " "
             lineArrayß[line].becomeFirstResponder()
-            
-            labelUsed[line] = true
-            labelArrayß[line].text = ""
-            for _ in 0...25 {
-                let int = arc4random_uniform(28)
-                labelArrayß[line].text! += letters[Int(int)]
-            }
             
             labelArrayß[line-1].textColor = unusedLabelColor
             labelArrayß[line].textColor = currentLabelColor
@@ -367,11 +347,11 @@ class RandomViewController:UITableViewController {
         super.prepare(for: segue, sender: sender)
         
         guard segue.identifier == "ResultsSegue" else { return }
+        storyViewController.scrips.removeAll()
         
         let correctLetters = correctLettersInAll
         let tappedLetters = tappedLetersInAll
         
-        ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, "Random Mode", "")
+        ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, storyViewController.passageName, "")
     }
-    
 }

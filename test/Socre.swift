@@ -29,12 +29,13 @@ class Score:NSObject, NSCoding{
     var passageChoice:String
     var dateInt = 0
     var score = 0  //change to 0
+    var takenDate = "?"
     
     enum PassageChoice {
         case maryHadALittleLamb
     }
     
-    init(_ correctLetters:String, _ tappedLetters:String, _ timePassed:String, _ firstRow:Bool, _ passageChoice:String) {
+    init(_ correctLetters:String, _ tappedLetters:String, _ timePassed:String, _ firstRow:Bool, _ passageChoice:String, _ takenDate: String) {
         self.correctLettersß = correctLetters
         self.tappedLattersß = tappedLetters
         self.correctLetters = Int(correctLetters)!
@@ -42,6 +43,7 @@ class Score:NSObject, NSCoding{
         self.timePassed = timePassed
         self.firstRow = firstRow
         self.passageChoice = passageChoice
+        self.takenDate = takenDate
     }
     
     func timeDescription() -> String {
@@ -164,16 +166,16 @@ class Score:NSObject, NSCoding{
         }
     }
     
-    func dateDescriptionShort() -> String {
+    func dateDescriptionShort() {
         if !firstRow {
             dateFomatter.dateStyle = .short
             dateFomatter.timeStyle = .none
             
             dateFomatter.locale = Locale(identifier: "zh_CN")
             
-            return String(dateFomatter.string(from: Date()))
+            takenDate = String(dateFomatter.string(from: Date()))
         } else {
-            return "Date"
+            takenDate = "Date"
         }
     }
     
@@ -213,19 +215,21 @@ class Score:NSObject, NSCoding{
         static let timePassed = "timePassed"
         static let firstRow = "forstRow"
         static let passageChoice = "passageChoice"
+        static let takenDate = "takenDate"
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         guard let timepassed = aDecoder.decodeObject(forKey: PropertyKey.timePassed) as? String,
             let passageChoice = aDecoder.decodeObject(forKey: PropertyKey.passageChoice) as? String,
             let correctLetters = aDecoder.decodeObject(forKey: PropertyKey.correctLetters) as? String,
-            let tappedLetters = aDecoder.decodeObject(forKey: PropertyKey.tappedLetters) as? String else {
+            let tappedLetters = aDecoder.decodeObject(forKey: PropertyKey.tappedLetters) as? String,
+            let takenDate = aDecoder.decodeObject(forKey: PropertyKey.takenDate) as? String else {
                 return nil
         }
         
         let firstRow = aDecoder.decodeObject(forKey: PropertyKey.firstRow)
         
-        self.init(correctLetters , tappedLetters , timepassed, (firstRow != nil), passageChoice)
+        self.init(correctLetters , tappedLetters , timepassed, (firstRow != nil), passageChoice, takenDate)
     }
     
     func encode(with aCoder: NSCoder) {
@@ -234,12 +238,14 @@ class Score:NSObject, NSCoding{
         aCoder.encode(timePassed, forKey: PropertyKey.timePassed)
         aCoder.encode(firstRow, forKey: PropertyKey.firstRow)
         aCoder.encode(passageChoice, forKey: PropertyKey.passageChoice)
+        aCoder.encode(takenDate, forKey: PropertyKey.takenDate)
     }
     
     static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("save")
     
     static func load() -> [Score]? {
+        print(Score.ArchiveURL.path)
         return NSKeyedUnarchiver.unarchiveObject(withFile: Score.ArchiveURL.path) as? [Score]
     }
     

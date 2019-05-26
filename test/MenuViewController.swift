@@ -21,6 +21,11 @@ class MenuViewController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        colorMixViewController.colorArray.append(UIColorß("0.5", "0.5", "0.5", "1"))
+        colorMixViewController.colorArray.append(UIColorß("0", "0", "0", "1"))
+        colorMixViewController.colorArray.append(UIColorß("0", "0", "0", "0.2"))
+        colorMixViewController.colorArray.append(UIColorß("0", "0", "0", "0.2"))
+        
         if Score.load() != nil {
             scoresView.scoreCollection = Score.load()!
             scoresViewHasSet = true

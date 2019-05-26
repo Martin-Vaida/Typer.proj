@@ -19,6 +19,7 @@
 		B47B2D912283EA4300CB0911 /* ChoosePassageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B2D902283EA4300CB0911 /* ChoosePassageController.swift */; };
 		B47B2D932283EC0300CB0911 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B2D922283EC0300CB0911 /* MenuViewController.swift */; };
 		B48E2D662284195700E4066C /* scoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E2D652284195700E4066C /* scoresView.swift */; };
+		B4955BB7229A7EFE001390A4 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4955BB6229A7EFE001390A4 /* StoryViewController.swift */; };
 		B4A0930E22968B2A004470F7 /* KingsmanIIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A0930D22968B2A004470F7 /* KingsmanIIViewController.swift */; };
 		B4A0931022968F8A004470F7 /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A0930F22968F8A004470F7 /* RandomViewController.swift */; };
 		B4A0931422969470004470F7 /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A0931322969470004470F7 /* Support.swift */; };
@@ -50,6 +51,7 @@
 		B47B2D902283EA4300CB0911 /* ChoosePassageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePassageController.swift; sourceTree = "<group>"; };
 		B47B2D922283EC0300CB0911 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B48E2D652284195700E4066C /* scoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresView.swift; sourceTree = "<group>"; };
+		B4955BB6229A7EFE001390A4 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		B4A0930D22968B2A004470F7 /* KingsmanIIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingsmanIIViewController.swift; sourceTree = "<group>"; };
 		B4A0930F22968F8A004470F7 /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
 		B4A0931322969470004470F7 /* Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Support.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				B4D682C82283E1F0006FBC3C /* MarryHadALittleLambController.swift */,
 				B4C079D022955BD1005514C8 /* KingsmanIViewController.swift */,
 				B4A0930D22968B2A004470F7 /* KingsmanIIViewController.swift */,
+				B4955BB6229A7EFE001390A4 /* StoryViewController.swift */,
 				B4A0930F22968F8A004470F7 /* RandomViewController.swift */,
 				B4E737C92296C41900072131 /* gameViewController.swift */,
 			);
@@ -248,6 +251,7 @@
 				B4667FF6228AE2EC00EC329F /* ColorMixViewController.swift in Sources */,
 				B4667FEF228AE29B00EC329F /* MasterViewController.swift in Sources */,
 				B4E281CA2286B6DA0065D480 /* ScoreViewController.swift in Sources */,
+				B4955BB7229A7EFE001390A4 /* StoryViewController.swift in Sources */,
 				B48E2D662284195700E4066C /* scoresView.swift in Sources */,
 				B41D5676228FB77B006574F2 /* storyboardViewController.swift in Sources */,
 				B4D682C92283E1F0006FBC3C /* MarryHadALittleLambController.swift in Sources */,

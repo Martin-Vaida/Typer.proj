@@ -18,7 +18,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         
         //define the first row
         if !scoresViewHasSet {
-            let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb")
+            let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb", "Taken Date")
             scoresView.scoreCollection.insert(rowFirstCell, at: 0)
             scoresViewHasSet = true
         }
@@ -37,7 +37,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         
         scoresView.scoreCollection.remove(at: 0)
         
-        let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb")
+        let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb", "Taken Date")
         scoresView.scoreCollection.insert(rowFirstCell, at: 0)
     }
     
@@ -55,7 +55,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         let score = scoresView.scoreCollection[indexPath.row]
         cell.indexLabel.text = score.indexDescription(indexPath.row)
         cell.accuracyLabel.text = score.accuracyRateDescriptionShort(!isPickerHidden[indexPath.row])
-        cell.dateLabel.text = score.dateDescriptionShort()
+        cell.dateLabel.text = score.takenDate
         cell.durationlabel.text = score.timeDescriptionShort()
         cell.accuracyNumberLabel.text = score.accuracyDescription()
         cell.passageLabel.text = score.getPassageName()
@@ -161,7 +161,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
             scoresView.scoreCollection = sortedItems
         }
         
-        let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb")
+        let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb", "Taken Date")
         scoresView.scoreCollection.insert(rowFirstCell, at: 0)
         
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View") as! scoresView
