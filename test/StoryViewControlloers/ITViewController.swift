@@ -13,6 +13,7 @@ class ITViewController:UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard !MenuViewController.developerMode else { return }
         let alertController = UIAlertController(title: "Notice", message: "In this mode, \n we will build apps together. \n Try to type in the code, \n and some easy apps will be built.", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Got it!", style: .default, handler: nil)
         let cancelAction = UIAlertAction(title: "Next time maybe", style: .cancel) { (_) in

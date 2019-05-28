@@ -11,22 +11,27 @@ import UIKit
 
 class Account:NSObject, NSCoding {
     var name:String
+    var developerMode:String
     
-    init(name:String) {
+    init(name:String, developer:Bool) {
         self.name = name
+        self.developerMode = String(developer)
     }
     
     struct propertyKey {
         static let name = "name"
+        static let developerMode = "developerMode"
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        guard let string = aDecoder.decodeObject(forKey: propertyKey.name) as? String else { return nil }
-        self.init(name:string)
+        guard let string = aDecoder.decodeObject(forKey: propertyKey.name) as? String,
+        let developerMode = aDecoder.decodeObject(forKey: propertyKey.developerMode) as? String else { return nil }
+        self.init(name:string, developer: Bool(developerMode)!)
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: propertyKey.name)
+        aCoder.encode(developerMode, forKey: propertyKey.developerMode)
     }
     
     static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!

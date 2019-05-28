@@ -18,6 +18,7 @@ class MenuViewController:UIViewController {
     static var studentsMode = false
     static var forceQuite = false
     static var userName = "user"
+    static var developerMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,7 @@ class MenuViewController:UIViewController {
         
         if Account.load() != nil {
             MenuViewController.userName = Account.load()!.name
+            MenuViewController.developerMode = Bool(Account.load()!.developerMode)!
         }
         
     }
