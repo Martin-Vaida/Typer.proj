@@ -30,7 +30,7 @@ class MasterViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,8 +50,12 @@ class MasterViewController: UITableViewController {
             cell.label.text = "Statistics"
             cell.leftImage.image = UIImage(named: "Statistics")
         case 2:
+            cell.label.text = "Account"
+            cell.leftImage.image = UIImage(named: "Account")
+        case 3:
             cell.label.text = "About Developers"
             cell.leftImage.image = UIImage(named: "Developers")
+        
         default:
             break
         }
@@ -72,6 +76,11 @@ class MasterViewController: UITableViewController {
                 }
                 
                 if indexPath.section == 2 {
+                    controller.toAccount = true
+                }
+                
+                
+                if indexPath.section == 3 {
                     controller.enableSourceCode = true
                 }
                 

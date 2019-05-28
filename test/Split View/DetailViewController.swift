@@ -127,6 +127,19 @@ class DetailViewController:UIViewController {
         self.navigationController!.pushViewController(viewController, animated: false)
     }
     
+    var toAccount = false {
+        didSet {
+            toAccountView()
+        }
+    }
+    
+    func toAccountView() {
+        guard toAccount else { return }
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Account_View") as! AccountViewController
+        viewController.navigationItem.title = "Account"
+        self.navigationController!.pushViewController(viewController, animated: false)
+    }
+    
     @IBAction func studentsModeSwitch(_ sender: Any) {
         MenuViewController.studentsMode = studentsModeSwitch.isOn
         

@@ -19,6 +19,11 @@
 		B47B2D912283EA4300CB0911 /* ChoosePassageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B2D902283EA4300CB0911 /* ChoosePassageController.swift */; };
 		B47B2D932283EC0300CB0911 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B2D922283EC0300CB0911 /* MenuViewController.swift */; };
 		B48E2D662284195700E4066C /* scoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E2D652284195700E4066C /* scoresView.swift */; };
+		B494E3C5229D277F00764308 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B494E3C4229D277F00764308 /* AccountViewController.swift */; };
+		B494E3C7229D2A9E00764308 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B494E3C6229D2A9E00764308 /* Account.swift */; };
+		B494E3C9229D2D2600764308 /* ITViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B494E3C8229D2D2600764308 /* ITViewController.swift */; };
+		B494E3CC229D398000764308 /* LightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B494E3CB229D398000764308 /* LightViewController.swift */; };
+		B494E3CE229D3E6100764308 /* LightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B494E3CD229D3E6100764308 /* LightController.swift */; };
 		B4955BB7229A7EFE001390A4 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4955BB6229A7EFE001390A4 /* StoryViewController.swift */; };
 		B4A0930E22968B2A004470F7 /* KingsmanIIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A0930D22968B2A004470F7 /* KingsmanIIViewController.swift */; };
 		B4A0931022968F8A004470F7 /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A0930F22968F8A004470F7 /* RandomViewController.swift */; };
@@ -51,6 +56,11 @@
 		B47B2D902283EA4300CB0911 /* ChoosePassageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePassageController.swift; sourceTree = "<group>"; };
 		B47B2D922283EC0300CB0911 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B48E2D652284195700E4066C /* scoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoresView.swift; sourceTree = "<group>"; };
+		B494E3C4229D277F00764308 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		B494E3C6229D2A9E00764308 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		B494E3C8229D2D2600764308 /* ITViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITViewController.swift; sourceTree = "<group>"; };
+		B494E3CB229D398000764308 /* LightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightViewController.swift; sourceTree = "<group>"; };
+		B494E3CD229D3E6100764308 /* LightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightController.swift; sourceTree = "<group>"; };
 		B4955BB6229A7EFE001390A4 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		B4A0930D22968B2A004470F7 /* KingsmanIIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingsmanIIViewController.swift; sourceTree = "<group>"; };
 		B4A0930F22968F8A004470F7 /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +102,8 @@
 				B4955BB6229A7EFE001390A4 /* StoryViewController.swift */,
 				B4A0930F22968F8A004470F7 /* RandomViewController.swift */,
 				B4E737C92296C41900072131 /* gameViewController.swift */,
+				B494E3C8229D2D2600764308 /* ITViewController.swift */,
+				B494E3CA229D396C00764308 /* ITViews */,
 			);
 			path = StoryViewControlloers;
 			sourceTree = "<group>";
@@ -106,8 +118,19 @@
 				B4C78BBD2291516F002EE8DF /* UIColorß.swift */,
 				B4667FF5228AE2EC00EC329F /* ColorMixViewController.swift */,
 				B4CB31B1228AFA9D00DC305C /* StatisticsViewController.swift */,
+				B494E3C4229D277F00764308 /* AccountViewController.swift */,
+				B494E3C6229D2A9E00764308 /* Account.swift */,
 			);
 			path = "Split View";
+			sourceTree = "<group>";
+		};
+		B494E3CA229D396C00764308 /* ITViews */ = {
+			isa = PBXGroup;
+			children = (
+				B494E3CB229D398000764308 /* LightViewController.swift */,
+				B494E3CD229D3E6100764308 /* LightController.swift */,
+			);
+			path = ITViews;
 			sourceTree = "<group>";
 		};
 		B4D682A72283E06E006FBC3C = {
@@ -236,18 +259,23 @@
 				B4D682B42283E06E006FBC3C /* AppDelegate.swift in Sources */,
 				B4E737CA2296C41900072131 /* gameViewController.swift in Sources */,
 				B4E870502286CBF900A30DD3 /* scoresViewCell.swift in Sources */,
+				B494E3C9229D2D2600764308 /* ITViewController.swift in Sources */,
 				B4667FF2228AE2C200EC329F /* MasterViewControllerCell.swift in Sources */,
 				B4A0931422969470004470F7 /* Support.swift in Sources */,
 				B427A33E22926211009FC6BC /* StudentsMode.swift in Sources */,
+				B494E3C5229D277F00764308 /* AccountViewController.swift in Sources */,
 				B47B2D932283EC0300CB0911 /* MenuViewController.swift in Sources */,
 				B4504FF0228FA87B002EE0D1 /* SourceTabelViewController.swift in Sources */,
 				B4E281C82286B2D00065D480 /* Socre.swift in Sources */,
 				B4504FF2228FA95D002EE0D1 /* SourceCode.swift in Sources */,
+				B494E3C7229D2A9E00764308 /* Account.swift in Sources */,
 				B4C78BBE2291516F002EE8DF /* UIColorß.swift in Sources */,
 				B47B2D912283EA4300CB0911 /* ChoosePassageController.swift in Sources */,
 				B4A0931022968F8A004470F7 /* RandomViewController.swift in Sources */,
 				B41D5678228FB825006574F2 /* storyboardPic.swift in Sources */,
+				B494E3CC229D398000764308 /* LightViewController.swift in Sources */,
 				B4C079D122955BD1005514C8 /* KingsmanIViewController.swift in Sources */,
+				B494E3CE229D3E6100764308 /* LightController.swift in Sources */,
 				B4667FF6228AE2EC00EC329F /* ColorMixViewController.swift in Sources */,
 				B4667FEF228AE29B00EC329F /* MasterViewController.swift in Sources */,
 				B4E281CA2286B6DA0065D480 /* ScoreViewController.swift in Sources */,
