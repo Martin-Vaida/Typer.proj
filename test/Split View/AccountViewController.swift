@@ -15,6 +15,7 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         botton.isOn = MenuViewController.developerMode
+        nameTextField.text = MenuViewController.userName
         
         nameTextField.text = MenuViewController.userName
     }

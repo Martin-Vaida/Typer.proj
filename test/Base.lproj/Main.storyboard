@@ -145,10 +145,101 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="New Concept English Three" id="G02-Ja-SPZ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Wyj-vk-Dej">
+                                        <rect key="frame" x="0.0" y="288" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wyj-vk-Dej" id="6zn-PF-zsn">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jC5-Ed-Tz4">
+                                                    <rect key="frame" x="10" y="0.0" width="1007" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="QLV-IG-ULP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <state key="normal" title="A Puma At Large">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="tappedTwo:" destination="vLl-IU-vCp" eventType="touchUpInside" id="pMP-wn-Vkg"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="jC5-Ed-Tz4" secondAttribute="trailing" constant="7" id="2bU-wo-IMv"/>
+                                                <constraint firstItem="jC5-Ed-Tz4" firstAttribute="leading" secondItem="6zn-PF-zsn" secondAttribute="leading" constant="10" id="5DR-G3-SAX"/>
+                                                <constraint firstItem="jC5-Ed-Tz4" firstAttribute="top" secondItem="6zn-PF-zsn" secondAttribute="top" id="B55-ri-kM4"/>
+                                                <constraint firstAttribute="bottom" secondItem="jC5-Ed-Tz4" secondAttribute="bottom" id="SZL-NS-Uyx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4C5-Ms-qnu">
+                                        <rect key="frame" x="0.0" y="332" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4C5-Ms-qnu" id="D4o-1D-k25">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gt-hx-Idz">
+                                                    <rect key="frame" x="10" y="0.0" width="1007" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="3ED-1t-NzU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <state key="normal" title="Thirteen Equals One">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="tappedThree:" destination="vLl-IU-vCp" eventType="touchUpInside" id="1lO-8G-HN5"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="4gt-hx-Idz" secondAttribute="bottom" id="5V3-BC-AQI"/>
+                                                <constraint firstItem="4gt-hx-Idz" firstAttribute="leading" secondItem="D4o-1D-k25" secondAttribute="leading" constant="10" id="8AO-Vl-riR"/>
+                                                <constraint firstItem="4gt-hx-Idz" firstAttribute="top" secondItem="D4o-1D-k25" secondAttribute="top" id="E5v-KH-Ki5"/>
+                                                <constraint firstAttribute="trailing" secondItem="4gt-hx-Idz" secondAttribute="trailing" constant="7" id="GFb-Cz-FEF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="1Fb-HP-GIs">
+                                        <rect key="frame" x="0.0" y="376" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Fb-HP-GIs" id="ehs-j7-1jr">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdh-e5-9p0">
+                                                    <rect key="frame" x="10" y="0.0" width="1007" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="rdj-Xv-c0D"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <state key="normal" title="An Unknown Goddess">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="tappedFour:" destination="vLl-IU-vCp" eventType="touchUpInside" id="gfK-rI-HVK"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="fdh-e5-9p0" secondAttribute="trailing" constant="7" id="22q-s0-bvQ"/>
+                                                <constraint firstItem="fdh-e5-9p0" firstAttribute="leading" secondItem="ehs-j7-1jr" secondAttribute="leading" constant="10" id="3iq-so-24d"/>
+                                                <constraint firstItem="fdh-e5-9p0" firstAttribute="top" secondItem="ehs-j7-1jr" secondAttribute="top" id="5jA-EO-FNn"/>
+                                                <constraint firstAttribute="bottom" secondItem="fdh-e5-9p0" secondAttribute="bottom" id="Z7L-th-2UP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="Special Modes" id="bmD-UX-MrQ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Itc-uK-ztJ">
-                                        <rect key="frame" x="0.0" y="288" width="1024" height="44"/>
+                                        <rect key="frame" x="0.0" y="448" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Itc-uK-ztJ" id="PDd-Kk-rNh">
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
@@ -175,7 +266,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IFC-J0-Uv0">
-                                        <rect key="frame" x="0.0" y="332" width="1024" height="44"/>
+                                        <rect key="frame" x="0.0" y="492" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IFC-J0-Uv0" id="gXZ-Hj-oR2">
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
@@ -519,7 +610,7 @@
                                     <constraint firstAttribute="height" constant="44" id="p14-bT-8jU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Force Quite At One Minute's Time">
+                                <state key="normal" title="Quit At One Minute's Time">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -2811,7 +2902,7 @@ class MasterViewController: UITableViewController {
         <!--Menu View Controller-->
         <scene sceneID="xzD-tg-DSo">
             <objects>
-                <viewController id="q05-rL-uS8" customClass="MenuViewController" customModule="Typer_proj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Menu_View" id="q05-rL-uS8" customClass="MenuViewController" customModule="Typer_proj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iO8-1o-fOz">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

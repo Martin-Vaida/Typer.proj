@@ -86,6 +86,15 @@ class LightViewController:UITableViewController {
         botton.setTitle("OFF", for: .normal)
         self.view.addSubview(botton)
         botton.addTarget(self, action: #selector(bottonPressed), for: .touchUpInside)
+        
+        UIView.animate(withDuration: 2) {
+            self.navigationItem.rightBarButtonItems?.append(UIBarButtonItem(barButtonSystemItem: .pause, target: self, action: #selector(self.done)))
+        }
+    }
+    
+    @objc func done() {
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Menu_View") as! MenuViewController
+        self.present(viewController, animated: true, completion: nil)
     }
     
     func jumpToNextLine(line: Int) {
