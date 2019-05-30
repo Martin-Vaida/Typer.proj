@@ -15,6 +15,7 @@ class MenuViewController:UIViewController {
         
     }
     
+    @IBOutlet weak var nameLabel: UIButton!
     static var studentsMode = false
     static var forceQuite = false
     static var userName = "user"
@@ -47,6 +48,13 @@ class MenuViewController:UIViewController {
             MenuViewController.developerMode = Bool(Account.load()!.developerMode)!
         }
         
+        nameLabel.setTitle(MenuViewController.userName, for: .normal)
+        
+    }
+    
+    @objc func back() {
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Menu_View") as! MenuViewController
+        self.present(viewController, animated: true, completion: nil)
     }
     
 }

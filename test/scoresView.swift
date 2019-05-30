@@ -18,7 +18,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         
         //define the first row
         if !scoresViewHasSet {
-            let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb", "Taken Date")
+            let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb", "Taken Date", MenuViewController.userName)
             scoresView.scoreCollection.insert(rowFirstCell, at: 0)
             scoresViewHasSet = true
         }
@@ -37,7 +37,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         
         scoresView.scoreCollection.remove(at: 0)
         
-        let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb", "Taken Date")
+        let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb", "Taken Date", MenuViewController.userName)
         scoresView.scoreCollection.insert(rowFirstCell, at: 0)
     }
     
@@ -59,6 +59,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         cell.durationlabel.text = score.timeDescriptionShort()
         cell.accuracyNumberLabel.text = score.accuracyDescription()
         cell.passageLabel.text = score.getPassageName()
+        cell.nameLabel.text = score.getUserName()
         
         if MenuViewController.studentsMode {
             cell.isHidden = false
@@ -78,7 +79,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let normalCellHeight = CGFloat(44)
-        let largeCellHeihgt = CGFloat(142)
+        let largeCellHeihgt = CGFloat(176)
         
         switch indexPath {
         case [0,0]:
@@ -127,12 +128,17 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
         }
         alartController.addAction(sortByScoreAction)
         
+        let sortByNameAction = UIAlertAction(title: "By Name", style: .default) { (_) in
+            self.sortItems(by: .name)
+        }
+        alartController.addAction(sortByNameAction)
+        
         alartController.popoverPresentationController?.sourceView = sender as? UIView
         present(alartController, animated: true, completion: nil)
     }
     
     enum SortItemsWays {
-        case time, accuracy, date, score
+        case time, accuracy, date, score, name
     }
     
     func sortItems(by: SortItemsWays) {
@@ -159,9 +165,14 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
                 return firstItem.score > secondItem.score
             }
             scoresView.scoreCollection = sortedItems
+        case .name:
+            let sortedItems = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
+                return firstItem.userName > secondItem.userName
+            }
+            scoresView.scoreCollection = sortedItems
         }
         
-        let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb", "Taken Date")
+        let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb", "Taken Date", MenuViewController.userName)
         scoresView.scoreCollection.insert(rowFirstCell, at: 0)
         
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View") as! scoresView

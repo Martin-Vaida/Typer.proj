@@ -136,7 +136,7 @@ class storyViewController:UITableViewController {
                     let tappedLetters = self.tappedLetersInAll
                     storyViewController.scrips.removeAll()
                     
-                    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, storyViewController.passageName, "")
+                    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, storyViewController.passageName, "", MenuViewController.userName)
                     
                     let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
                     self.navigationController!.pushViewController(viewController, animated: true)
@@ -257,7 +257,7 @@ class storyViewController:UITableViewController {
                 let tappedLetters = self.tappedLetersInAll
                 storyViewController.scrips.removeAll()
                 
-                ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, storyViewController.passageName, "")
+                ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, storyViewController.passageName, "", MenuViewController.userName)
                 
                 let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
                 self.navigationController!.pushViewController(viewController, animated: true)
@@ -352,6 +352,6 @@ class storyViewController:UITableViewController {
         let correctLetters = correctLettersInAll
         let tappedLetters = tappedLetersInAll
         
-        ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, storyViewController.passageName, "")
+        ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, storyViewController.passageName, "", MenuViewController.userName)
     }
 }

@@ -100,6 +100,8 @@ class ChoosePassageController:UITableViewController {
         storyViewController.scrips.append("She stood three feet high and her hands rested on her hip.")
         
         storyViewController.passageName = "An Unknown Goddess"
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Story_View") as! storyViewController
+        self.navigationController!.pushViewController(viewController, animated: true)
     }
     
     

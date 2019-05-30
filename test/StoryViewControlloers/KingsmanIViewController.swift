@@ -137,7 +137,7 @@ class KingsmanIViewController:UITableViewController {
                     let correctLetters = self.correctLettersInAll
                     let tappedLetters = self.tappedLetersInAll
                     
-                    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Kingsman Collection I","")
+                    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Kingsman Collection I","", MenuViewController.userName)
                     
                     let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
                     self.navigationController!.pushViewController(viewController, animated: true)
@@ -257,7 +257,7 @@ class KingsmanIViewController:UITableViewController {
                 let correctLetters = self.correctLettersInAll
                 let tappedLetters = self.tappedLetersInAll
                 
-                ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Kingsman Collection I", "")
+                ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Kingsman Collection I", "", MenuViewController.userName)
                 
                 let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
                 self.navigationController!.pushViewController(viewController, animated: true)
@@ -351,7 +351,7 @@ class KingsmanIViewController:UITableViewController {
         let correctLetters = correctLettersInAll
         let tappedLetters = tappedLetersInAll
         
-        ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, "Kingsman Collection I", "")
+        ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, "Kingsman Collection I", "", MenuViewController.userName)
     }
     
     

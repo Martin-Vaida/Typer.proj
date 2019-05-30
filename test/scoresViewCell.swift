@@ -19,4 +19,6 @@ class scoresViewCell:UITableViewCell {
     
     @IBOutlet weak var passageLabel: UILabel!
     @IBOutlet weak var accuracyNumberLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
 }

@@ -128,7 +128,7 @@ class RandomViewController:UITableViewController {
                     let correctLetters = self.correctLettersInAll
                     let tappedLetters = self.tappedLetersInAll
                     
-                    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Random Mode", "")
+                    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Random Mode", "", MenuViewController.userName)
                     
                     let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
                     self.navigationController!.pushViewController(viewController, animated: true)
@@ -270,7 +270,7 @@ class RandomViewController:UITableViewController {
                 let correctLetters = self.correctLettersInAll
                 let tappedLetters = self.tappedLetersInAll
                 
-                ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Random Mode", "")
+                ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Random Mode", "", MenuViewController.userName)
                 
                 let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
                 self.navigationController!.pushViewController(viewController, animated: true)
@@ -371,7 +371,7 @@ class RandomViewController:UITableViewController {
         let correctLetters = correctLettersInAll
         let tappedLetters = tappedLetersInAll
         
-        ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, "Random Mode", "")
+        ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, "Random Mode", "", MenuViewController.userName)
     }
     
 }
