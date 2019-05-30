@@ -10,6 +10,8 @@
 		B41D5676228FB77B006574F2 /* storyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D5675228FB77B006574F2 /* storyboardViewController.swift */; };
 		B41D5678228FB825006574F2 /* storyboardPic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D5677228FB825006574F2 /* storyboardPic.swift */; };
 		B427A33E22926211009FC6BC /* StudentsMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B427A33D22926211009FC6BC /* StudentsMode.swift */; };
+		B441D092229FFB3B00E0578C /* PassedStudentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B441D091229FFB3B00E0578C /* PassedStudentsViewController.swift */; };
+		B441D094229FFC4800E0578C /* PassedStudentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B441D093229FFC4800E0578C /* PassedStudentsCell.swift */; };
 		B4504FF0228FA87B002EE0D1 /* SourceTabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4504FEF228FA87B002EE0D1 /* SourceTabelViewController.swift */; };
 		B4504FF2228FA95D002EE0D1 /* SourceCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4504FF1228FA95D002EE0D1 /* SourceCode.swift */; };
 		B4667FEF228AE29B00EC329F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4667FEE228AE29B00EC329F /* MasterViewController.swift */; };
@@ -47,6 +49,8 @@
 		B41D5675228FB77B006574F2 /* storyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storyboardViewController.swift; sourceTree = "<group>"; };
 		B41D5677228FB825006574F2 /* storyboardPic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storyboardPic.swift; sourceTree = "<group>"; };
 		B427A33D22926211009FC6BC /* StudentsMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsMode.swift; sourceTree = "<group>"; };
+		B441D091229FFB3B00E0578C /* PassedStudentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassedStudentsViewController.swift; sourceTree = "<group>"; };
+		B441D093229FFC4800E0578C /* PassedStudentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassedStudentsCell.swift; sourceTree = "<group>"; };
 		B4504FEF228FA87B002EE0D1 /* SourceTabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTabelViewController.swift; sourceTree = "<group>"; };
 		B4504FF1228FA95D002EE0D1 /* SourceCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCode.swift; sourceTree = "<group>"; };
 		B4667FEE228AE29B00EC329F /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				B4CB31B1228AFA9D00DC305C /* StatisticsViewController.swift */,
 				B494E3C4229D277F00764308 /* AccountViewController.swift */,
 				B494E3C6229D2A9E00764308 /* Account.swift */,
+				B441D091229FFB3B00E0578C /* PassedStudentsViewController.swift */,
+				B441D093229FFC4800E0578C /* PassedStudentsCell.swift */,
 			);
 			path = "Split View";
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 				B4504FF0228FA87B002EE0D1 /* SourceTabelViewController.swift in Sources */,
 				B4E281C82286B2D00065D480 /* Socre.swift in Sources */,
 				B4504FF2228FA95D002EE0D1 /* SourceCode.swift in Sources */,
+				B441D092229FFB3B00E0578C /* PassedStudentsViewController.swift in Sources */,
 				B494E3C7229D2A9E00764308 /* Account.swift in Sources */,
 				B4C78BBE2291516F002EE8DF /* UIColorß.swift in Sources */,
 				B47B2D912283EA4300CB0911 /* ChoosePassageController.swift in Sources */,
@@ -278,6 +285,7 @@
 				B494E3CE229D3E6100764308 /* LightController.swift in Sources */,
 				B4667FF6228AE2EC00EC329F /* ColorMixViewController.swift in Sources */,
 				B4667FEF228AE29B00EC329F /* MasterViewController.swift in Sources */,
+				B441D094229FFC4800E0578C /* PassedStudentsCell.swift in Sources */,
 				B4E281CA2286B6DA0065D480 /* ScoreViewController.swift in Sources */,
 				B4955BB7229A7EFE001390A4 /* StoryViewController.swift in Sources */,
 				B48E2D662284195700E4066C /* scoresView.swift in Sources */,

@@ -878,6 +878,34 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="gdt-FE-Cfg">
+                                        <rect key="frame" x="0.0" y="1152" width="703.5" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gdt-FE-Cfg" id="Gbt-Sd-l6G">
+                                            <rect key="frame" x="0.0" y="0.0" width="703.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="210-Ha-yYX">
+                                                    <rect key="frame" x="7" y="0.0" width="689.5" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="6MD-dP-GWB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <state key="normal" title="Passed Students"/>
+                                                    <connections>
+                                                        <segue destination="5qg-4a-X7o" kind="show" id="qh6-8w-f0m"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="210-Ha-yYX" secondAttribute="trailing" constant="7" id="CcT-Ai-Gvg"/>
+                                                <constraint firstItem="210-Ha-yYX" firstAttribute="top" secondItem="Gbt-Sd-l6G" secondAttribute="top" id="iiP-ya-EVp"/>
+                                                <constraint firstItem="210-Ha-yYX" firstAttribute="leading" secondItem="Gbt-Sd-l6G" secondAttribute="leading" constant="7" id="vah-xs-JHl"/>
+                                                <constraint firstAttribute="bottom" secondItem="210-Ha-yYX" secondAttribute="bottom" id="x5e-nc-7VO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -905,7 +933,6 @@
         <!--Navigation Controller-->
         <scene sceneID="b0x-0K-8QH">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RmQ-6S-TXU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="9Vo-gM-Ilc" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XQh-Fb-Gtj">
                         <rect key="frame" x="0.0" y="20" width="1024" height="50"/>
@@ -915,6 +942,7 @@
                         <segue destination="Zgf-e8-Uhs" kind="relationship" relationship="rootViewController" id="3J0-LT-mTh"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RmQ-6S-TXU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-336" y="3737"/>
         </scene>
@@ -1751,6 +1779,55 @@ class MasterViewController: UITableViewController {
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YxU-vX-XKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1776.5624999999998" y="2989.84375"/>
+        </scene>
+        <!--Passed Students View Controller-->
+        <scene sceneID="sEQ-p0-qCk">
+            <objects>
+                <tableViewController id="5qg-4a-X7o" customClass="PassedStudentsViewController" customModule="Typer_proj" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VNx-VQ-gFa">
+                        <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Passed_Students_Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Passed_Students_Cell" rowHeight="33" id="AIF-rv-oXe" customClass="PassedStudentsCell" customModule="Typer_proj" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="703.5" height="33"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AIF-rv-oXe" id="Wrt-3W-vUL">
+                                    <rect key="frame" x="0.0" y="0.0" width="703.5" height="32.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvR-0r-gEi">
+                                            <rect key="frame" x="7" y="0.0" width="689.5" height="33.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="33" id="NDC-kX-bfS"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="VO1-Ye-49R"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="NvR-0r-gEi" secondAttribute="trailing" constant="7" id="DfV-dT-2Jr"/>
+                                        <constraint firstAttribute="bottom" secondItem="NvR-0r-gEi" secondAttribute="bottom" id="HDG-zv-1Kh"/>
+                                        <constraint firstItem="NvR-0r-gEi" firstAttribute="top" secondItem="Wrt-3W-vUL" secondAttribute="top" id="RSe-Rx-v2P"/>
+                                        <constraint firstItem="NvR-0r-gEi" firstAttribute="leading" secondItem="Wrt-3W-vUL" secondAttribute="leading" constant="7" id="vA7-hv-E6d"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label" destination="NvR-0r-gEi" id="H7j-TN-FDi"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5qg-4a-X7o" id="XNH-h0-IdN"/>
+                            <outlet property="delegate" destination="5qg-4a-X7o" id="rSo-jE-Lob"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GrF-rz-BmA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1072.8515625" y="3736.71875"/>
         </scene>
         <!--Story Board View Controller-->
         <scene sceneID="z9e-4c-6kq">
