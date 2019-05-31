@@ -221,6 +221,11 @@
 				TargetAttributes = {
 					B4D682AF2283E06E006FBC3C = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
