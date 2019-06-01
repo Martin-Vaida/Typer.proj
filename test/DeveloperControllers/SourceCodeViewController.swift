@@ -43,6 +43,36 @@ class SourceCodeViewController:UIViewController {
             textField.text = SourceCode.ScoreViewController
         case .StatisticsViewController:
             textField.text = SourceCode.StatisticsViewController
+        case .KingsmanIViewController:
+            textField.text = SourceCode.KingsmanIViewContrioller
+        case .KingsmanIIViewController:
+            textField.text = SourceCode.KingsmanIIViewController
+        case .StoryViewController:
+            textField.text = SourceCode.StoryViewContrioller
+        case .RandomViewController:
+            textField.text = SourceCode.RandomViewController
+        case .gameViewController:
+            textField.text = SourceCode.gameViewController
+        case .ITViewController:
+            textField.text = SourceCode.ITViewController
+        case .LightViewController:
+            textField.text = SourceCode.LightViewController
+        case .LightController:
+            textField.text = SourceCode.LightController
+        case .Support:
+            textField.text = SourceCode.support
+        case .StudentsMode:
+            textField.text = SourceCode.StudentsMode
+        case .UIColorß:
+            textField.text = SourceCode.UIColorß
+        case .AccountViewController:
+            textField.text = SourceCode.AccountViewController
+        case .Account:
+            textField.text = SourceCode.Account
+        case .PassedStudentsViewController:
+            textField.text = SourceCode.PassedStudentsViewController
+        case .PassedStudentsCell:
+            textField.text = SourceCode.passedStudentsCell
         }
     }
 }
