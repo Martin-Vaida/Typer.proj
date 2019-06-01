@@ -50,3 +50,4 @@ class ScoreViewController:UITableViewController {
     }
 }
 
+//All rights reserved.

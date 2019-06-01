@@ -16,3 +16,4 @@ class MasterViewControllerCell:UITableViewCell {
     
 }
 
+//All rights reserved.

@@ -187,3 +187,5 @@ class colorMixViewController:UITableViewController {
     }
     
 }
+
+//All rights reserved.

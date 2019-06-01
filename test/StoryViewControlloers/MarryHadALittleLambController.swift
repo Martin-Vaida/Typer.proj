@@ -1,5 +1,5 @@
 //
-//  ColorMixViewController.swift.swift
+//  MaryHadALittleLambViewController.swift
 //  test
 //
 //  Created by Vaida on 2019/5/9.
@@ -441,3 +441,5 @@ class MarryHadALittleLambController:UITableViewController {
         ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, "Mary Had A Little lamb", "", MenuViewController.userName)
     }
 }
+
+//All rights reserved.

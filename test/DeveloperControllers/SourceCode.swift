@@ -23,175 +23,56 @@ import UIKit
 
 class MenuViewController:UIViewController {
     
-@IBAction func unwindToMenu(segue:UIStoryboardSegue) {
+    @IBAction func unwindToMenu(segue:UIStoryboardSegue) {
         
-}
+    }
     
-static var studentsMode = false
-static var forceQuite = false
-}
-
-"""
-    
-    static let scoresView = """
-//
-//  scoreView.swift
-//  Typer.proj
-//
-//  Created by Vaida on 2019/5/9.
-//  Copyright © 2019 Vaida. All rights reserved.
-//
-
-import Foundation
-import UIKit
-
-var scoresViewHasSet = false
-class scoresView:UITableViewController, UINavigationControllerDelegate {
-    var isPickerHidden:[Bool] = []
+    @IBOutlet weak var nameLabel: UIButton!
+    static var studentsMode = false
+    static var forceQuite = false
+    static var userName = "user"
+    static var developerMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //define the first row
-        if !scoresViewHasSet {
-            let rowFirstCell = Score.init(0, 0, "0", true, .maryHadALittleLamb)
-            scoresView.scoreCollection.insert(rowFirstCell, at: 0)
+        colorMixViewController.colorArray.append(UIColorß("0.5", "0.5", "0.5", "1"))
+        colorMixViewController.colorArray.append(UIColorß("0", "0", "0", "1"))
+        colorMixViewController.colorArray.append(UIColorß("0", "0", "0", "0.2"))
+        colorMixViewController.colorArray.append(UIColorß("0", "0", "0", "0.2"))
+        
+        if Score.load() != nil {
+            scoresView.scoreCollection = Score.load()!
             scoresViewHasSet = true
         }
         
-        for _ in 1...scoresView.scoreCollection.count {
-            isPickerHidden.append(false)
+        if UIColorß.load() != nil {
+            colorMixViewController.colorArray = UIColorß.load()!
         }
         
-        for i in 0...scoresView.scoreCollection.count-1{
-            scoresView.scoreCollection[i].index = String(i)
+        if StudentsMode.load() != nil {
+            MenuViewController.studentsMode = StudentsMode.load()!.isOn
+            MenuViewController.forceQuite = StudentsMode.load()!.autoStop
         }
+        
+        if Account.load() != nil {
+            MenuViewController.userName = Account.load()!.name
+            MenuViewController.developerMode = Bool(Account.load()!.developerMode)!
+        }
+        
+        nameLabel.setTitle(MenuViewController.userName, for: .normal)
+        
     }
     
-    static var scoreCollection:[Score] = []
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return scoresView.scoreCollection.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "scoresViewCell") as? scoresViewCell else {
-            fatalError("Could not dequeue a cell")
-        }
-        
-        let score = scoresView.scoreCollection[indexPath.row]
-        cell.indexLabel.text = score.indexDescription(indexPath.row)
-        cell.accuracyLabel.text = score.accuracyRateDescriptionShort(!isPickerHidden[indexPath.row])
-        cell.dateLabel.text = score.dateDescriptionShort()
-        cell.durationlabel.text = score.timeDescriptionShort()
-        cell.accuracyNumberLabel.text = score.accuracyDescription()
-        cell.passageLabel.text = score.getPassageName()
-        
-        if MenuViewController.studentsMode {
-            cell.isHidden = false
-            cell.scoreLabel.text = score.calculateScore()
-        } else {
-            cell.scoreLabel.isHidden = true
-        }
-        
-       return cell
-    }
-    
-    //make the hight of each cell dynamic
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        let normalCellHeight = CGFloat(44)
-        let largeCellHeihgt = CGFloat(142)
-        
-        switch indexPath {
-        case [0,0]:
-            return normalCellHeight
-        default:
-            return isPickerHidden[indexPath.row] ? largeCellHeihgt : normalCellHeight
-        }
-    }
-    
-    //make the height of each cell dynamic when you tapped...
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath {
-        case [0,0]:
-            break
-        default:
-            isPickerHidden[indexPath.row] = !isPickerHidden[indexPath.row]
-            tableView.beginUpdates()
-            tableView.endUpdates()
-        }
-    }
-    
-    @IBAction func sortByTapped(_ sender: Any) {
-        
-        let alartController = UIAlertController(title: "Choose The Way To Sort These Items", message: nil, preferredStyle:.actionSheet)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alartController.addAction(cancelAction)
-        
-        let sortByTimeAction = UIAlertAction(title: "By Duration", style: .default) { (action) in
-            self.sortItems(by: .time)
-        }
-        alartController.addAction(sortByTimeAction)
-        
-        let sortByAccuracyAction = UIAlertAction(title: "By Accuracy", style: .default) { (action) in
-            self.sortItems(by: .accuracy)
-        }
-        alartController.addAction(sortByAccuracyAction)
-        
-        let sortBydateAction = UIAlertAction(title: "By Date", style: .default) { (action) in
-            self.sortItems(by: .date)
-        }
-        alartController.addAction(sortBydateAction)
-        
-        let sortByScoreAction = UIAlertAction(title: "By Score", style: .default) { (action) in
-            self.sortItems(by: .score)
-        }
-        alartController.addAction(sortByScoreAction)
-        
-        alartController.popoverPresentationController?.sourceView = sender as? UIView
-        present(alartController, animated: true, completion: nil)
-    }
-    
-    enum SortItemsWays {
-        case time, accuracy, date, score
-    }
-    
-    func sortItems(by: SortItemsWays) {
-        scoresView.scoreCollection.remove(at: 0)
-        
-        switch by {
-        case .time:
-            let sortedItmes = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
-                return Double(firstItem.timePassed)! > Double(secondItem.timePassed)!
-            }
-            scoresView.scoreCollection = sortedItmes
-        case .accuracy:
-            let sortedItmes = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
-                return firstItem.correctLetters*100/firstItem.tappedLatters > secondItem.correctLetters*100/secondItem.tappedLatters
-            }
-            scoresView.scoreCollection = sortedItmes
-        case .date:
-            let sortedItmes = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
-                return firstItem.dateInt < secondItem.dateInt
-            }
-            scoresView.scoreCollection = sortedItmes
-        case .score:
-            let sortedItems = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
-                return firstItem.score > secondItem.score
-            }
-            scoresView.scoreCollection = sortedItems
-        }
-        
-        let rowFirstCell = Score.init(0, 0, "0", true, .maryHadALittleLamb)
-        scoresView.scoreCollection.insert(rowFirstCell, at: 0)
-        
-        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View") as! scoresView
-        self.navigationController!.pushViewController(viewController, animated: false)
+    @objc func back() {
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Menu_View") as! MenuViewController
+        self.present(viewController, animated: true, completion: nil)
     }
     
 }
+
+//All rights reserved.
+
 
 """
     static let Score = """
@@ -206,27 +87,43 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
     import Foundation
     import UIKit
     
-    class Score {
-    let correctLetters:Int
-    let tappedLatters:Int
+    class Score:NSObject, NSCoding{
+    var correctLetters:Int
+    var tappedLatters:Int
+    var correctLettersß:String {
+    didSet {
+    correctLetters = Int(correctLettersß)!
+    }
+    }
+    var tappedLattersß:String {
+    didSet {
+    tappedLatters = Int(tappedLattersß)!
+    }
+    }
     let timePassed:String
     let dateFomatter = DateFormatter()
     var index = ""
     var firstRow:Bool
-    var passageChoice:PassageChoice
+    var passageChoice:String
     var dateInt = 0
     var score = 0  //change to 0
+    var takenDate = "?"
+    var userName = "nil"
     
     enum PassageChoice {
     case maryHadALittleLamb
     }
     
-    init(_ correctLetters:Int, _ tappedLetters:Int, _ timePassed:String, _ firstRow:Bool, _ passageChoice:PassageChoice) {
-    self.correctLetters = correctLetters
-    self.tappedLatters = tappedLetters
+    init(_ correctLetters:String, _ tappedLetters:String, _ timePassed:String, _ firstRow:Bool, _ passageChoice:String, _ takenDate: String, _ userName:String) {
+    self.correctLettersß = correctLetters
+    self.tappedLattersß = tappedLetters
+    self.correctLetters = Int(correctLetters)!
+    self.tappedLatters = Int(tappedLetters)!
     self.timePassed = timePassed
     self.firstRow = firstRow
     self.passageChoice = passageChoice
+    self.takenDate = takenDate
+    self.userName = userName
     }
     
     func timeDescription() -> String {
@@ -235,6 +132,11 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
     
     func accuracyRateDescreption() -> String {
     return "Accuracy Rate: \\(correctLetters*100/tappedLatters)%"
+    }
+    
+    func setupß() {
+    correctLetters = Int(correctLettersß)!
+    tappedLatters = Int(tappedLattersß)!
     }
     
     func accuracyDescription() -> String {
@@ -331,11 +233,20 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
     }
     }
     
+    func getUserName() -> String {
+    if !firstRow {
+    return "User Name: \\(userName)"
+    } else {
+    return "User Names"
+    }
+    }
+    
     func accuracyRateDescriptionShort(_ installed:Bool) -> String {
     guard installed else {
     return " "
     }
     
+    guard tappedLatters != 0 else { return "Accuracy Rate" }
     if !firstRow {
     return "\\(correctLetters*100/tappedLatters)%"
     } else {
@@ -343,16 +254,16 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
     }
     }
     
-    func dateDescriptionShort() -> String {
+    func dateDescriptionShort() {
     if !firstRow {
     dateFomatter.dateStyle = .short
     dateFomatter.timeStyle = .none
     
     dateFomatter.locale = Locale(identifier: "zh_CN")
     
-    return String(dateFomatter.string(from: Date()))
+    takenDate = String(dateFomatter.string(from: Date()))
     } else {
-    return "Date"
+    takenDate = "Date"
     }
     }
     
@@ -365,10 +276,7 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
     }
     
     func getPassageName() -> String {
-    switch passageChoice {
-    case .maryHadALittleLamb:
-    return "Passage: Mary Had A Little lamb"
-    }
+    return "Passage: \\(passageChoice)"
     }
     
     func calculateScore() -> String {
@@ -385,7 +293,59 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
     }
     }
     
+    
+    
+    //saving Data
+    
+    struct PropertyKey {
+    static let correctLetters = "correctLetters"
+    static let tappedLetters = "tappedletters"
+    static let timePassed = "timePassed"
+    static let firstRow = "forstRow"
+    static let passageChoice = "passageChoice"
+    static let takenDate = "takenDate"
+    static let userName = "userName"
     }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+    guard let timepassed = aDecoder.decodeObject(forKey: PropertyKey.timePassed) as? String,
+    let passageChoice = aDecoder.decodeObject(forKey: PropertyKey.passageChoice) as? String,
+    let correctLetters = aDecoder.decodeObject(forKey: PropertyKey.correctLetters) as? String,
+    let tappedLetters = aDecoder.decodeObject(forKey: PropertyKey.tappedLetters) as? String,
+    let takenDate = aDecoder.decodeObject(forKey: PropertyKey.takenDate) as? String,
+    let userName = aDecoder.decodeObject(forKey: PropertyKey.userName) as? String else {
+    return nil
+    }
+    
+    let firstRow = aDecoder.decodeObject(forKey: PropertyKey.firstRow)
+    
+    self.init(correctLetters , tappedLetters , timepassed, (firstRow != nil), passageChoice, takenDate, userName)
+    }
+    
+    func encode(with aCoder: NSCoder) {
+    aCoder.encode(correctLettersß, forKey: PropertyKey.correctLetters)
+    aCoder.encode(tappedLattersß, forKey: PropertyKey.tappedLetters)
+    aCoder.encode(timePassed, forKey: PropertyKey.timePassed)
+    aCoder.encode(firstRow, forKey: PropertyKey.firstRow)
+    aCoder.encode(passageChoice, forKey: PropertyKey.passageChoice)
+    aCoder.encode(takenDate, forKey: PropertyKey.takenDate)
+    aCoder.encode(userName, forKey: PropertyKey.userName)
+    }
+    
+    static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("save")
+    
+    static func load() -> [Score]? {
+    print(Score.ArchiveURL.path)
+    return NSKeyedUnarchiver.unarchiveObject(withFile: Score.ArchiveURL.path) as? [Score]
+    }
+    
+    static func save(_ score: [Score]) {
+    NSKeyedArchiver.archiveRootObject(score, toFile: Score.ArchiveURL.path)
+    }
+    }
+    
+    //All rights reserved.
 
 """
     static let scoresViewCell = """
@@ -408,10 +368,14 @@ class scoresViewCell:UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
-    
     @IBOutlet weak var passageLabel: UILabel!
     @IBOutlet weak var accuracyNumberLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
 }
+
+//All rights reserved.
+
 
 """
     static let ChoosePassageController = """
@@ -428,10 +392,125 @@ import UIKit
 
 class ChoosePassageController:UITableViewController {
     
+    @IBOutlet weak var label: UIButton!
+    
     @IBAction func unwindToChoosePassage(segue:UIStoryboardSegue) {
         guard segue.identifier == "MarryHadALittleLambReturn" else { return }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        Support.width = Int(view.frame.width)
+    }
+    
+    @IBAction func tappedOne(_ sender: Any) {
+        storyViewController.scrips.removeAll()
+        storyViewController.scrips.append("But why, some say, the moon, why choose this as our goal.")
+        storyViewController.scrips.append("And they may as well ask, why climb the highest mountain,")
+        storyViewController.scrips.append("why, 35 years ago, fly the Atlantic, why does Rice play Texas.")
+        storyViewController.scrips.append("We choose to go to the moon, we choose to go to the moon, we choose to go to the moon.")
+        storyViewController.scrips.append("In this decade and do the other things, not because they are easy, but because they are hard.")
+        storyViewController.scrips.append("Because that goal will serve to organize, and measure the best, of our energies and skills.")
+        storyViewController.scrips.append("Because that challenge is one, that we are willing to accept, one we are unwilling to postpone,")
+        storyViewController.scrips.append("and one which we intend to win,")
+        storyViewController.scrips.append("and the others, too.")
+        storyViewController.passageName = "We choose to go to the moon"
+        
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Story_View") as! storyViewController
+        self.navigationController!.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func tappedTwo(_ sender: Any) {
+        storyViewController.scrips.removeAll()
+        storyViewController.scrips.append("Pumas are large, cat-like animals which are found in America.")
+        storyViewController.scrips.append("When reports came into London Zoo that a wild puma had been spotted forty-five miles south of London, they were not taken seriously.")
+        storyViewController.scrips.append("However, as the evidence be began to accumulate, experts from the Zoo felt obliged to investigate,")
+        storyViewController.scrips.append("for the descriptions given by people who claimed to have seen the puma were extraordinarily similar.")
+        storyViewController.scrips.append("The hunt for the puma began in a small village where a woman picking blackberries saw 'a large cat' only five yards away from her.")
+        storyViewController.scrips.append("It immediately ran away when she saw it, and experts confirmed that a puma will not attack a human being unless it is cornered.")
+        storyViewController.scrips.append("The search  proved difficult, for the puma was often observed  at one place in the morning and at another place twenty miles away in the evening.")
+        storyViewController.scrips.append("Wherever it went, it left behind it a trail of dead deer and small animals like rabbits.")
+        storyViewController.scrips.append("Paw prints were seen in a number of places and puma fur was found clinging to bushes.")
+        storyViewController.scrips.append("Several people complained of 'cat-like noises' at night and a businessman on a fishing trip saw the puma up a tree.")
+        storyViewController.scrips.append("The experts were now fully convinced that the animal was a puma, but where had it come from?")
+        storyViewController.scrips.append("As no pumas had been reported missing from any zoo in the country, this one must have been in the possession of a private collector and some how managed to escape.")
+        storyViewController.scrips.append("The hunt went on for several weeks, but the puma was not caught.")
+        storyViewController.scrips.append("It is disturbing to think that a dangerous wild animal is still at large in the quiet countryside.")
+        storyViewController.passageName = "New Concept English"
+        
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Story_View") as! storyViewController
+        self.navigationController!.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func tappedThree(_ sender: Any) {
+        storyViewController.scrips.removeAll()
+        storyViewController.scrips.append("Our vicar is always raising money for one cause or another, but he has never managed to get enough money to have the church clock repaired.")
+        storyViewController.scrips.append("The big clock which used to strike the hours day and night was damaged many years ago and has been silent ever since.")
+        storyViewController.scrips.append("One night, however, our vicar woke up with a start: the clock was striking the hours!")
+        storyViewController.scrips.append("Looking at his watch, he saw that it was one o’clock, but the bell struck thirteen times before it stopped.")
+        storyViewController.scrips.append("Armed with a torch, the vicar went up into the clock tower to see what was going on.")
+        storyViewController.scrips.append("In the torchlight, he caught sight of a figure whom he immediately recognized as Bill Wilkins, our local grocer.")
+        storyViewController.scrips.append("'Whatever are you doing up here Bill ?' asked the vicar in surprise.")
+        storyViewController.scrips.append("' I'm trying to repair the bell,' answered Bill.' I've been coming up here night after night for weeks now. You see, I was hoping to give you a surprise.'")
+        storyViewController.scrips.append("'You certainly did give me a surprise!' said the vicar. 'You've probably woken up everyone in the village as well. Still, I'm glad the bell is working again.'")
+        storyViewController.scrips.append("'That's the trouble, vicar,' answered Bill. 'It's working all right, but I'm afraid that at one o'clock it will strike thirteen times and there's nothing I can do about it.'")
+        storyViewController.scrips.append("'We'll get used to that Bill,' said the vicar. 'Thirteen is not as good as one but it's better than nothing. Now let's go downstairs and have a cup of tea.'")
+        storyViewController.passageName = "Thirteen Equals One"
+        
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Story_View") as! storyViewController
+        self.navigationController!.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func tappedFour(_ sender: Any) {
+        storyViewController.scrips.removeAll()
+        storyViewController.scrips.append("Some time ago, an interesting discovery was made by archaeologists on the Aegean island of kea.")
+        storyViewController.scrips.append("An American team explored a temple which stands in an ancient city on the promontory of Ayia Irini.")
+        storyViewController.scrips.append("The city at one time must have been prosperous, for it enjoyed a high level of civilization.")
+        storyViewController.scrips.append("houses--often three storeys high--were built of stone.")
+        storyViewController.scrips.append("They had large rooms with beautifully decorated walls.")
+        storyViewController.scrips.append("The city was even equipped with a drainage system, for a great many clay pipes were found beneath the narrow streets.")
+        storyViewController.scrips.append("The temple which the archaeologists explored was used as a place of worship from the fifteenth century B.C. until Roman times.")
+        storyViewController.scrips.append("In the most sacred room of the temple, clay fragments of fifteen statues were found.")
+        storyViewController.scrips.append("Each of these represented a goddess and had, at one time, been painted.")
+        storyViewController.scrips.append("The body of one statue was found among remains dating from the fifteenth century B.C.")
+        storyViewController.scrips.append("Its missing head happened to be among remains of the fifth century B.C.")
+        storyViewController.scrips.append("This head must have been found in Classical times and carefully preserved.")
+        storyViewController.scrips.append("It was very old and precious even then.")
+        storyViewController.scrips.append("When the archaeologists reconstructed the fragments, they were amazed to find that the goddess turned out to be a very modern-looking woman.")
+        storyViewController.scrips.append("She stood three feet high and her hands rested on her hip.")
+        
+        storyViewController.passageName = "An Unknown Goddess"
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Story_View") as! storyViewController
+        self.navigationController!.pushViewController(viewController, animated: true)
+    }
+    
+    
+
 }
+
+/*
+ storyViewController.scrips.removeAll()
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.scrips.append("<#T##newElement: String##String#>")
+ storyViewController.passageName = ""
+ */
+
+//All rights reserved.
+
 
 """
     static let ScoreViewController = """
@@ -452,6 +531,7 @@ class ScoreViewController:UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateScore()
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
     @IBOutlet weak var timeLabel: UILabel!
@@ -473,6 +553,7 @@ class ScoreViewController:UITableViewController {
         accuracyLabelTwo.text = ScoreViewController.score!.accuracyDescription()
         takenTimeLabel.text = ScoreViewController.score!.dateDescription()
         ScoreViewController.score!.getDateInt()
+        ScoreViewController.score!.dateDescriptionShort()
         
         scoresView.scoreCollection.append(ScoreViewController.score!)
     }
@@ -484,6 +565,9 @@ class ScoreViewController:UITableViewController {
         takenTimeLabel.text = "nil"
     }
 }
+
+//All rights reserved.
+
 
 
 """
@@ -520,7 +604,7 @@ class MasterViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -540,8 +624,12 @@ class MasterViewController: UITableViewController {
             cell.label.text = "Statistics"
             cell.leftImage.image = UIImage(named: "Statistics")
         case 2:
+            cell.label.text = "Account"
+            cell.leftImage.image = UIImage(named: "Account")
+        case 3:
             cell.label.text = "About Developers"
             cell.leftImage.image = UIImage(named: "Developers")
+        
         default:
             break
         }
@@ -562,6 +650,11 @@ class MasterViewController: UITableViewController {
                 }
                 
                 if indexPath.section == 2 {
+                    controller.toAccount = true
+                }
+                
+                
+                if indexPath.section == 3 {
                     controller.enableSourceCode = true
                 }
                 
@@ -572,6 +665,9 @@ class MasterViewController: UITableViewController {
     }
     
 }
+
+//All rights reserved.
+
 """
     static let MasterViewControllerCell = """
 //
@@ -591,6 +687,8 @@ class MasterViewControllerCell:UITableViewCell {
     @IBOutlet weak var leftImage: UIImageView!
     
 }
+
+//All rights reserved.
 """
     static let DetailViewController = """
 //
@@ -620,7 +718,6 @@ class DetailViewController:UIViewController {
     @IBOutlet weak var developerLabel: UIButton!
     @IBOutlet weak var showSourceCodeLabel: UIButton!
     @IBOutlet weak var showSourceCodeBackground: UIImageView!
-    
     
     
     static var target:Target = .currentLabel
@@ -723,8 +820,33 @@ class DetailViewController:UIViewController {
         self.navigationController!.pushViewController(viewController, animated: false)
     }
     
+    var toAccount = false {
+        didSet {
+            toAccountView()
+        }
+    }
+    
+    func toAccountView() {
+        guard toAccount else { return }
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Account_View") as! AccountViewController
+        viewController.navigationItem.title = "Account"
+        self.navigationController!.pushViewController(viewController, animated: false)
+    }
+    
     @IBAction func studentsModeSwitch(_ sender: Any) {
         MenuViewController.studentsMode = studentsModeSwitch.isOn
+        
+        let studentMode = StudentsMode(isOn: MenuViewController.studentsMode, autoStop: MenuViewController.forceQuite)
+        print(studentMode)
+        StudentsMode.save(studentMode)
+        print(StudentsMode.load()!)
+        
+        if studentsModeSwitch.isOn {
+            let alert = UIAlertController(title: "Notice", message: "Your incompleted tasks will no longer be shown in statistics.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+            alert.addAction(confirmAction)
+            self.present(alert, animated: true, completion: nil)
+        }
         
         if let bg = forceQuiteBackground {
             bg.isHidden = !MenuViewController.studentsMode
@@ -742,6 +864,9 @@ class DetailViewController:UIViewController {
     
     @IBAction func forceQuiteButton(_ sender: Any) {
         MenuViewController.forceQuite = forceQuiteSwitch.isOn
+        let studentMode = StudentsMode(isOn: studentsModeSwitch.isOn, autoStop: forceQuiteSwitch.isOn)
+        print(studentMode)
+        StudentsMode.save(studentMode)
     }
     
     
@@ -759,6 +884,9 @@ class DetailViewController:UIViewController {
     }
 }
 
+
+//All rights reserved.
+
 """
     static let ColorMixViewController = """
 //
@@ -774,6 +902,8 @@ import UIKit
 
 class colorMixViewController:UITableViewController {
     
+    static var colorArray:[UIColorß] = []
+    
     var red:CGFloat = 0.5
     var yellow:CGFloat = 0.5
     var blue:CGFloat = 0.5
@@ -786,6 +916,13 @@ class colorMixViewController:UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if colorMixViewController.colorArray.count == 0 {
+            colorMixViewController.colorArray.append(UIColorß("0.5", "0.5", "0.5", "1"))
+            colorMixViewController.colorArray.append(UIColorß("0", "0", "0", "1"))
+            colorMixViewController.colorArray.append(UIColorß("0", "0", "0", "0.2"))
+            colorMixViewController.colorArray.append(UIColorß("0", "0", "0", "0.2"))
+        }
         
         switch DetailViewController.target {
         case .currentLabel:
@@ -856,14 +993,25 @@ class colorMixViewController:UITableViewController {
         switch DetailViewController.target {
         case .currentLabel:
             MarryHadALittleLambController.currentLabelColor = UIColor(red: red, green: yellow, blue: blue, alpha: black)
+            let color = UIColorß(String(Double(red)), String(Double(yellow)), String(Double(blue)), String(Double(black)))
+            colorMixViewController.colorArray[0] = color
+            
         case .currentLine:
             MarryHadALittleLambController.currentLineColor = UIColor(red: red, green: yellow, blue: blue, alpha: black)
+            let color = UIColorß(String(Double(red)), String(Double(yellow)), String(Double(blue)), String(Double(black)))
+            colorMixViewController.colorArray[1] = color
         case .unusedLabel:
             MarryHadALittleLambController.unusedLabelColor = UIColor(red: red, green: yellow, blue: blue, alpha: black)
+            let color = UIColorß(String(Double(red)), String(Double(yellow)), String(Double(blue)), String(Double(black)))
+            colorMixViewController.colorArray[2] = color
         case .unusedLine:
             MarryHadALittleLambController.unusedLineColor = UIColor(red: red, green: yellow, blue: blue, alpha: black)
+            let color = UIColorß(String(Double(red)), String(Double(yellow)), String(Double(blue)), String(Double(black)))
+            colorMixViewController.colorArray[3] = color
             
         }
+        
+        UIColorß.save(colorMixViewController.colorArray)
     }
     
     @IBAction func resetTapped(_ sender: Any) {
@@ -930,6 +1078,9 @@ class colorMixViewController:UITableViewController {
     }
     
 }
+
+//All rights reserved.
+
 
 """
     static let StatisticsViewController = """
@@ -1016,7 +1167,9 @@ class colorMixViewController:UITableViewController {
     super.viewDidLoad()
     setup()
     
+    self.navigationItem.setHidesBackButton(true, animated: false)
     
+    guard scoreCollectionß.count >= 2 else { return }
     var average = 0
     var correct = 0
     var tapped = 0
@@ -1079,17 +1232,22 @@ class colorMixViewController:UITableViewController {
     func setup() {
     scoreCollectionß = scoresView.scoreCollection
     
-    scoreCollectionß.append(Score(100,100,"100",true, .maryHadALittleLamb))
-    scoreCollectionß.append(Score(50,100,"100",false, .maryHadALittleLamb))
-    scoreCollectionß.append(Score(100,100,"100",false, .maryHadALittleLamb))
-    scoreCollectionß.append(Score(100,100,"10",false, .maryHadALittleLamb))
-    
     guard scoreCollectionß.count >= 2 else { return }
     scoreCollectionß.remove(at: 0)
     
-    for i in 0...scoreCollectionß.count-1 {
-    if Double(scoreCollectionß[i].timePassed)! < 60.0 {
-    scoreCollectionß.remove(at: i)
+    guard MenuViewController.studentsMode else { return }
+    
+    var a = -1
+    for _ in 0...scoreCollectionß.count-1 {
+    a += 1
+    if Double(scoreCollectionß[a].timePassed) == nil {
+    scoreCollectionß.remove(at: a)
+    a -= 1
+    continue
+    }
+    if Double(scoreCollectionß[a].timePassed)! < 60.0 {
+    scoreCollectionß.remove(at: a)
+    a -= 1
     }
     }
     }
@@ -1441,12 +1599,202 @@ class colorMixViewController:UITableViewController {
     
     
     }
+    
+    //All rights reserved.
+
 
 """
-    static let maryHadALittlelambController = """
+    static let scoresView = """
+//
+//  scoreView.swift
+//  Typer.proj
+//
+//  Created by Vaida on 2019/5/9.
+//  Copyright © 2019 Vaida. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+var scoresViewHasSet = false
+class scoresView:UITableViewController, UINavigationControllerDelegate {
+    var isPickerHidden:[Bool] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //define the first row
+        if !scoresViewHasSet {
+            let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb", "Taken Date", MenuViewController.userName)
+            scoresView.scoreCollection.insert(rowFirstCell, at: 0)
+            scoresViewHasSet = true
+        }
+        
+        for _ in 1...scoresView.scoreCollection.count {
+            isPickerHidden.append(false)
+        }
+        
+        for i in 0...scoresView.scoreCollection.count-1{
+            scoresView.scoreCollection[i].index = String(i)
+        }
+        
+        
+        guard scoresView.scoreCollection.count != 0 else { return }
+        Score.save(scoresView.scoreCollection)
+        
+        scoresView.scoreCollection.remove(at: 0)
+        
+        let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb", "Taken Date", MenuViewController.userName)
+        scoresView.scoreCollection.insert(rowFirstCell, at: 0)
+    }
+    
+    static var scoreCollection:[Score] = []
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return scoresView.scoreCollection.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "scoresViewCell") as? scoresViewCell else {
+            fatalError("Could not dequeue a cell")
+        }
+        
+        let score = scoresView.scoreCollection[indexPath.row]
+        cell.indexLabel.text = score.indexDescription(indexPath.row)
+        cell.accuracyLabel.text = score.accuracyRateDescriptionShort(!isPickerHidden[indexPath.row])
+        cell.dateLabel.text = score.takenDate
+        cell.durationlabel.text = score.timeDescriptionShort()
+        cell.accuracyNumberLabel.text = score.accuracyDescription()
+        cell.passageLabel.text = score.getPassageName()
+        cell.nameLabel.text = score.getUserName()
+        
+        if MenuViewController.studentsMode {
+            cell.isHidden = false
+            cell.scoreLabel.text = score.calculateScore()
+        } else {
+            cell.scoreLabel.isHidden = true
+        }
+        
+        if score.score >= 170 {
+            cell.contentView.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.1)
+        }
+        
+       return cell
+    }
+    
+    //make the hight of each cell dynamic
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let normalCellHeight = CGFloat(44)
+        let largeCellHeihgt = CGFloat(176)
+        
+        switch indexPath {
+        case [0,0]:
+            return normalCellHeight
+        default:
+            return isPickerHidden[indexPath.row] ? largeCellHeihgt : normalCellHeight
+        }
+    }
+    
+    //make the height of each cell dynamic when you tapped...
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath {
+        case [0,0]:
+            break
+        default:
+            isPickerHidden[indexPath.row] = !isPickerHidden[indexPath.row]
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
+    }
+    
+    @IBAction func sortByTapped(_ sender: Any) {
+        
+        let alartController = UIAlertController(title: "Choose The Way To Sort These Items", message: nil, preferredStyle:.actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alartController.addAction(cancelAction)
+        
+        let sortByTimeAction = UIAlertAction(title: "By Duration", style: .default) { (action) in
+            self.sortItems(by: .time)
+        }
+        alartController.addAction(sortByTimeAction)
+        
+        let sortByAccuracyAction = UIAlertAction(title: "By Accuracy", style: .default) { (action) in
+            self.sortItems(by: .accuracy)
+        }
+        alartController.addAction(sortByAccuracyAction)
+        
+        let sortBydateAction = UIAlertAction(title: "By Date", style: .default) { (action) in
+            self.sortItems(by: .date)
+        }
+        alartController.addAction(sortBydateAction)
+        
+        let sortByScoreAction = UIAlertAction(title: "By Score", style: .default) { (action) in
+            self.sortItems(by: .score)
+        }
+        alartController.addAction(sortByScoreAction)
+        
+        let sortByNameAction = UIAlertAction(title: "By Name", style: .default) { (_) in
+            self.sortItems(by: .name)
+        }
+        alartController.addAction(sortByNameAction)
+        
+        alartController.popoverPresentationController?.sourceView = sender as? UIView
+        present(alartController, animated: true, completion: nil)
+    }
+    
+    enum SortItemsWays {
+        case time, accuracy, date, score, name
+    }
+    
+    func sortItems(by: SortItemsWays) {
+        scoresView.scoreCollection.remove(at: 0)
+        
+        switch by {
+        case .time:
+            let sortedItmes = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
+                return Double(firstItem.timePassed)! > Double(secondItem.timePassed)!
+            }
+            scoresView.scoreCollection = sortedItmes
+        case .accuracy:
+            let sortedItmes = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
+                return firstItem.correctLetters*100/firstItem.tappedLatters > secondItem.correctLetters*100/secondItem.tappedLatters
+            }
+            scoresView.scoreCollection = sortedItmes
+        case .date:
+            let sortedItmes = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
+                return firstItem.dateInt < secondItem.dateInt
+            }
+            scoresView.scoreCollection = sortedItmes
+        case .score:
+            let sortedItems = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
+                return firstItem.score > secondItem.score
+            }
+            scoresView.scoreCollection = sortedItems
+        case .name:
+            let sortedItems = scoresView.scoreCollection.sorted { (firstItem, secondItem) -> Bool in
+                return firstItem.userName > secondItem.userName
+            }
+            scoresView.scoreCollection = sortedItems
+        }
+        
+        let rowFirstCell = Score.init("0", "0", "0", true, "Mary Had A Little lamb", "Taken Date", MenuViewController.userName)
+        scoresView.scoreCollection.insert(rowFirstCell, at: 0)
+        
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View") as! scoresView
+        self.navigationController!.pushViewController(viewController, animated: false)
+    }
+    
+}
+
+//All rights reserved.
+
+"""
+    static let maryHadALittlelambViewController = """
     //
-    //  MarryHadALittleLambController.swift
-    //  Typer.proj
+    //  MaryHadALittleLambViewController.swift
+    //  test
     //
     //  Created by Vaida on 2019/5/9.
     //  Copyright © 2019 Vaida. All rights reserved.
@@ -1456,6 +1804,8 @@ class colorMixViewController:UITableViewController {
     import UIKit
     
     class MarryHadALittleLambController:UITableViewController {
+    
+    var lineCount = 15
     
     static var currentLabelColor:UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
     static var currentLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -1477,12 +1827,18 @@ class colorMixViewController:UITableViewController {
     
     var correctLettersArray = [Int](repeatElement(0, count: 15))
     var tappedLettersArray = [Int](repeatElement(0, count: 15))
+    var tempCorrectLetters = [Character]()
+    var tempTappedLetter = [Character]()
     
     override func viewDidLoad() {
     super.viewDidLoad()
     setup()
     self.navigationItem.title = "Mary Had A Little Lamb"
     
+    MarryHadALittleLambController.currentLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[0].red)!), green: CGFloat(Double(colorMixViewController.colorArray[0].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[0].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[0].alpha)!))
+    MarryHadALittleLambController.currentLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[1].red)!), green: CGFloat(Double(colorMixViewController.colorArray[1].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[1].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[1].alpha)!))
+    MarryHadALittleLambController.unusedLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[2].red)!), green: CGFloat(Double(colorMixViewController.colorArray[2].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[2].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[2].alpha)!))
+    MarryHadALittleLambController.unusedLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[3].red)!), green: CGFloat(Double(colorMixViewController.colorArray[3].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[3].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[3].alpha)!))
     }
     
     @IBOutlet weak var labelOne: UILabel!
@@ -1638,7 +1994,7 @@ class colorMixViewController:UITableViewController {
     let correctLetters = self.correctLettersInAll
     let tappedLetters = self.tappedLetersInAll
     
-    ScoreViewController.score = Score(correctLetters, tappedLetters, self.timePassed, false, .maryHadALittleLamb)
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Mary Had A Little lamb", "", MenuViewController.userName)
     
     let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
     self.navigationController!.pushViewController(viewController, animated: true)
@@ -1674,27 +2030,13 @@ class colorMixViewController:UITableViewController {
     lineOne.textColor = MarryHadALittleLambController.currentLineColor
     }
     
+    var tempCorrectLetterCount = 0
+    
     //When User changed Valve...
     func updateValue(line:Int) {
     
-    if lineArray[line-1].text?.count == labelArray[line-1].text!.count+1 {
-    guard line != 15 else {
-    stopTimer()
-    return
-    }
-    
-    lineArray[line-1].resignFirstResponder()
-    lineArray[line].text = " "
-    lineArray[line].becomeFirstResponder()
-    
-    labelArray[line-1].textColor = MarryHadALittleLambController.unusedLabelColor
-    labelArray[line].textColor = MarryHadALittleLambController.currentLabelColor
-    
-    lineArray[line-1].textColor = MarryHadALittleLambController.unusedLineColor
-    lineArray[line].textColor = MarryHadALittleLambController.currentLineColor
-    }
-    
     guard lineArray[line-1].text != nil else { return }
+    guard lineArray[line-1].text!.count < labelArray[line-1].text!.count+2 else { return }
     
     if lineArray[line-1].text!.count == 0 {
     if line == 1 {
@@ -1708,6 +2050,22 @@ class colorMixViewController:UITableViewController {
     
     lineArray[line-1].textColor = MarryHadALittleLambController.unusedLineColor
     lineArray[line-2].textColor = MarryHadALittleLambController.currentLineColor
+    
+    tempCorrectLetters = []
+    tempTappedLetter = []
+    tempCorrectLetterCount = 0
+    
+    for i in lineArray[line-2].text! {
+    tempTappedLetter.append(i)
+    }
+    for i in labelArray[line-2].text! {
+    tempCorrectLetters.append(i)
+    }
+    for i in 0...tempTappedLetter.count-2 {
+    if tempCorrectLetters[i] == tempTappedLetter[i+1] {
+    tempCorrectLetterCount += 1
+    }
+    }
     }
     }
     
@@ -1715,19 +2073,26 @@ class colorMixViewController:UITableViewController {
     guard lineArray[line-1].text!.count >= 2 else { return }
     tappedLetersInAll = lineArray[line-1].text!.count
     
-    var tempCorrectLetterCount = 0
-    tempCorrectLetterCount = 0
     
-    for i in 1...lineArray[line-1].text!.count-1 {
-    let inputLetter = lineArray[line-1].text![lineArray[line-1].text!.index(lineArray[line-1].text!.startIndex, offsetBy: i)]
-    let origenalLetter = labelArray[line-1].text![labelArray[line-1].text!.index(labelArray[line-1].text!.startIndex, offsetBy: i-1)]
     
-    if inputLetter == origenalLetter {
+    if lineArray[line-1].text!.count > tempCorrectLetters.count {
+    tempCorrectLetters.append(labelArray[line-1].text![(labelArray[line-1].text?.index(labelArray[line-1].text!.startIndex, offsetBy: tempCorrectLetters.count))!])
+    tempTappedLetter.append(lineArray[line-1].text![lineArray[line-1].text!.index(before: lineArray[line-1].text!.endIndex)])
+    
+    if tempTappedLetter[tempTappedLetter.count-1] == tempCorrectLetters[tempCorrectLetters.count-1] {
     tempCorrectLetterCount += 1
     } else {
-    lineArray[line-1].text!.remove(at: lineArray[line-1].text!.index(lineArray[line-1].text!.startIndex, offsetBy: i))
-    lineArray[line-1].text!.insert("_", at: lineArray[line-1].text!.index(lineArray[line-1].text!.startIndex, offsetBy: i))
+    lineArray[line-1].text!.removeLast()
+    lineArray[line-1].text!.append("_")
     }
+    
+    } else {
+    if tempCorrectLetters[tempCorrectLetters.count-1] == tempTappedLetter[tempTappedLetter.count-1] {
+    tempCorrectLetterCount -= 1
+    }
+    
+    tempCorrectLetters.remove(at: tempCorrectLetters.count-1)
+    tempTappedLetter.remove(at: tempTappedLetter.count-1)
     }
     
     correctLettersArray[line-1] = tempCorrectLetterCount
@@ -1744,6 +2109,34 @@ class colorMixViewController:UITableViewController {
     }
     
     updateAccuracyLabel()
+    
+    if lineArray[line-1].text!.count == labelArray[line-1].text!.count+1 {
+    guard line != lineCount else {
+    stopTimer()
+    let correctLetters = self.correctLettersInAll
+    let tappedLetters = self.tappedLetersInAll
+    
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Mary Had A Little lamb", "", MenuViewController.userName)
+    
+    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
+    self.navigationController!.pushViewController(viewController, animated: true)
+    return
+    }
+    
+    lineArray[line-1].resignFirstResponder()
+    lineArray[line].text = " "
+    lineArray[line].becomeFirstResponder()
+    
+    labelArray[line-1].textColor = MarryHadALittleLambController.unusedLabelColor
+    labelArray[line].textColor = MarryHadALittleLambController.currentLabelColor
+    
+    lineArray[line-1].textColor = MarryHadALittleLambController.unusedLineColor
+    lineArray[line].textColor = MarryHadALittleLambController.currentLineColor
+    tempCorrectLetters = []
+    tempTappedLetter = []
+    tempCorrectLetterCount = 0
+    return
+    }
     }
     
     //User is editing lineOne
@@ -1839,11 +2232,2185 @@ class colorMixViewController:UITableViewController {
     let correctLetters = correctLettersInAll
     let tappedLetters = tappedLetersInAll
     
-    ScoreViewController.score = Score(correctLetters, tappedLetters, timePassed, false, .maryHadALittleLamb)
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, "Mary Had A Little lamb", "", MenuViewController.userName)
     }
     }
+    
+    //All rights reserved.
+
+"""
+    static let support = """
+//
+//  Support.swift
+//  Typer.proj
+//
+//  Created by Vaida on 2019/5/23.
+//  Copyright © 2019 Martin_Vaida. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class Support {
+    static var width:Int = 100
+    static var y:Int = 100
+    
+    static func setup() {
+        
+    }
+}
+
+extension CGRect {
+    struct Point {
+        var x:CGFloat = 0.0, y:CGFloat = 0.0
+    }
+    
+    init(center: Point, size: CGSize) {
+        let originX = center.x - (size.width / 2)
+        let originY = center.y - (size.height / 2)
+        self.init(origin: CGPoint(x: originX, y: originY), size: size)
+    }
+}
+
+extension UIView {
+    struct Content {
+        static var labelText = "labelText"
+    }
+    
+    static func makeView(x:Int, y:Int, labelText:String) -> UIView {
+        let view = UIView(frame: CGRect(x: x, y: Support.y+y, width: Support.width-17, height: 88))
+        let label = UILabel(frame: CGRect(x: 8, y: 0, width: Support.width-25, height: 44))
+        let text = UITextField(frame: CGRect(x: 0, y: 44, width: Support.width-17, height: 44))
+        label.text = labelText
+        text.borderStyle = .roundedRect
+        SetMutiBorderRoundingCorners(view, corner: 10)
+        view.addSubview(label)
+        view.addSubview(text)
+        view.isOpaque = true
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+        gameViewController.textArray.append(labelText)
+        gameViewController.showTextArray.append(text)
+        
+        return view
+    }
+}
+
+func SetMutiBorderRoundingCorners(_ view:UIView,corner:CGFloat) {
+    let maskPath = UIBezierPath.init(roundedRect: view.bounds, byRoundingCorners: [UIRectCorner.bottomLeft, UIRectCorner.topRight, UIRectCorner.bottomRight, UIRectCorner.topLeft], cornerRadii: CGSize(width: corner, height: corner))
+    let maskLayer = CAShapeLayer()
+    maskLayer.frame = view.bounds
+    maskLayer.path = maskPath.cgPath
+    view.layer.mask = maskLayer
+}
+
+//All rights reserved.
+
+"""
+    static let StudentsMode = """
+    //
+    //  studentsMode.swift
+    //  Typer.proj
+    //
+    //  Created by Vaida on 2019/5/20.
+    //  Copyright © 2019 Martin_Vaida. All rights reserved.
+    //
+    
+    import Foundation
+    import UIKit
+    
+    class StudentsMode:NSObject, NSCoding {
+    var isOn:Bool
+    var autoStop:Bool
+    var isOnß:String
+    var autoStopß:String
+    
+    init(isOn:Bool, autoStop:Bool) {
+    self.isOn = isOn
+    self.autoStop = autoStop
+    
+    self.isOnß = String(isOn)
+    self.autoStopß = String(autoStop)
+    }
+    
+    struct PropertyKey {
+    static let isOn = "isOn"
+    static let autoStop = "autoStop"
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+    guard let isOn = aDecoder.decodeObject(forKey: PropertyKey.isOn) as? String,
+    let autoStop = aDecoder.decodeObject(forKey: PropertyKey.autoStop) as?String else {
+    return nil
+    }
+    
+    self.init(isOn:Bool(isOn)!, autoStop:Bool(autoStop)!)
+    }
+    
+    func encode(with aCoder: NSCoder) {
+    aCoder.encode(isOnß, forKey: PropertyKey.isOn)
+    aCoder.encode(autoStopß, forKey: PropertyKey.autoStop)
+    }
+    
+    static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("StudentsMode")
+    
+    static func load() -> StudentsMode? {
+    return NSKeyedUnarchiver.unarchiveObject(withFile: StudentsMode.ArchiveURL.path) as? StudentsMode
+    }
+    
+    static func save(_ object: StudentsMode) {
+    NSKeyedArchiver.archiveRootObject(object, toFile: StudentsMode.ArchiveURL.path)
+    }
+    
+    override var description: String {
+    return "isOn:\\(isOnß), autoStop:\\(autoStopß)"
+    }
+    }
+    
+    //All rights reserved.
+
+"""
+    static let UIColorß = """
+//
+//  UIColor.swift
+//  Typer.proj
+//
+//  Created by Vaida on 2019/5/19.
+//  Copyright © 2019 Martin_Vaida. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class UIColorß: NSObject, NSCoding {
+    var red:String
+    var green:String
+    var blue:String
+    var alpha:String
+    
+    init(_ red:String, _ green:String, _ blue:String, _ alpha:String) {
+        self.red = red
+        self.green = green
+        self.blue = blue
+        self.alpha = alpha
+    }
+    
+    struct PropertyKey {
+        static let red = "red"
+        static let green = "green"
+        static let blue = "blue"
+        static let alpha = "alpha"
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let red = aDecoder.decodeObject(forKey: PropertyKey.red) as? String,
+        let green = aDecoder.decodeObject(forKey: PropertyKey.green) as? String,
+        let blue = aDecoder.decodeObject(forKey: PropertyKey.blue) as? String,
+            let alpha = aDecoder.decodeObject(forKey: PropertyKey.alpha) as? String else {
+                return nil
+        }
+        
+        self.init(red, green, blue, alpha)
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(red, forKey: PropertyKey.red)
+        aCoder.encode(green, forKey: PropertyKey.green)
+        aCoder.encode(blue, forKey: PropertyKey.blue)
+        aCoder.encode(alpha, forKey: PropertyKey.alpha)
+    }
+    
+    static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("Color")
+    
+    static func load() -> [UIColorß]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: UIColorß.ArchiveURL.path) as? [UIColorß]
+    }
+    
+    static func save(_ colors: [UIColorß]) {
+        NSKeyedArchiver.archiveRootObject(colors, toFile: UIColorß.ArchiveURL.path)
+    }
+}
+
+//All rights reserved.
+
+"""
+    static let AccountViewController = """
+    //
+    //  AccountViewController.swift
+    //  Typer.proj
+    //
+    //  Created by Vaida on 2019/5/28.
+    //  Copyright © 2019 Martin_Vaida. All rights reserved.
+    //
+
+    import Foundation
+    import UIKit
+
+    class AccountViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
+        botton.isOn = MenuViewController.developerMode
+        nameTextField.text = MenuViewController.userName
+        
+        nameTextField.text = MenuViewController.userName
+    }
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        MenuViewController.userName = nameTextField.text ?? "user"
+        let account = Account(name: MenuViewController.userName, developer:  MenuViewController.developerMode)
+        Account.save(account)
+    }
+    
+    @IBOutlet weak var botton: UISwitch!
+    @IBAction func bottonTapped(_ sender: Any) {
+        var correct = false
+        let alertController = UIAlertController(title: "Confirm Admin", message: nil, preferredStyle: .alert)
+        let adminName = "********"
+        let passcode = "********"
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Administrator Name"
+        }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Passcode"
+            textField.isSecureTextEntry = true
+        }
+        let confirmActoin = UIAlertAction(title: "Confirm", style: .cancel) { (_) in
+            if alertController.textFields!.first!.text! == adminName {
+                correct = true
+            } else {
+                correct = false
+            }
+            
+            if alertController.textFields!.last!.text! == passcode {
+                correct = true
+            } else {
+                correct = false
+            }
+            
+            if correct {
+                MenuViewController.developerMode = true
+            } else {
+                MenuViewController.developerMode = false
+                self.botton.isOn = false
+            }
+        }
+        alertController.addAction(confirmActoin)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    }
+
+    //All rights reserved.
+
+    """
+    
+    static let Account = """
+//
+//  Account.swift
+//  Typer.proj
+//
+//  Created by Vaida on 2019/5/28.
+//  Copyright © 2019 Martin_Vaida. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class Account:NSObject, NSCoding {
+    var name:String
+    var developerMode:String
+    
+    init(name:String, developer:Bool) {
+        self.name = name
+        self.developerMode = String(developer)
+    }
+    
+    struct propertyKey {
+        static let name = "name"
+        static let developerMode = "developerMode"
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let string = aDecoder.decodeObject(forKey: propertyKey.name) as? String,
+        let developerMode = aDecoder.decodeObject(forKey: propertyKey.developerMode) as? String else { return nil }
+        self.init(name:string, developer: Bool(developerMode)!)
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: propertyKey.name)
+        aCoder.encode(developerMode, forKey: propertyKey.developerMode)
+    }
+    
+    static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("Account")
+    
+    static func load() -> Account? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Account.ArchiveURL.path) as? Account
+    }
+    
+    static func save(_ account: Account) {
+        NSKeyedArchiver.archiveRootObject(account, toFile: Account.ArchiveURL.path)
+    }
+}
+
+//All rights reserved.
+
+"""
+    static let PassedStudentsViewController = """
+//
+//  PassedStudentsViewController.swift
+//  Typer.proj
+//
+//  Created by Vaida on 2019/5/30.
+//  Copyright © 2019 Martin_Vaida. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class PassedStudentsViewController:UITableViewController {
+    var passedStudents:[Score] = []
+    
+    override func viewDidLoad() {
+        for i in scoresView.scoreCollection {
+            i.calculateScore()
+            if i.score >= 170 {
+                passedStudents.append(i)
+                print(passedStudents)
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return passedStudents.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Passed_Students_Cell") as? PassedStudentsCell else {
+            fatalError("Could not dequeue a cell")
+        }
+        let score = passedStudents[indexPath.row]
+        cell.label.text = score.userName
+        return cell
+    }
+}
+
+//All rights reserved.
+
+"""
+    static let passedStudentsCell = """
+//
+//  PassedStudentsCell.swift
+//  Typer.proj
+//
+//  Created by Vaida on 2019/5/30.
+//  Copyright © 2019 Martin_Vaida. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class PassedStudentsCell:UITableViewCell {
+    @IBOutlet weak var label: UILabel!
+}
+
+//All rights reserved.
+
+"""
+    static let KingsmanIViewContrioller = """
+    //
+    //  KingsmanViewController.swift
+    //  Typer.proj
+    //
+    //  Created by Vaida on 2019/5/22.
+    //  Copyright © 2019 Martin_Vaida. All rights reserved.
+    //
+    
+    import Foundation
+    import UIKit
+    
+    class KingsmanIViewController:UITableViewController {
+    var lineCount = 0
+    
+    @IBOutlet var labelArray: [UILabel]!
+    @IBOutlet var lineArray: [UITextField]!
+    
+    var labelArrayß:[UILabel] = []
+    var lineArrayß:[UITextField] = []
+    
+    @IBOutlet weak var timeLabel: UIBarButtonItem!
+    @IBOutlet weak var accuracylabel: UIBarButtonItem!
+    
+    var currentLabelColor:UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
+    var currentLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    var unusedLabelColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    var unusedLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    
+    var timer:Timer?
+    var timeCounter = 0.0
+    var timePassed = ""
+    
+    var timeTappedBool = false
+    var accuracyTappedBool = false
+    
+    var tappedLetersInAll = -1
+    var correctLettersInAll = 0
+    
+    var correctLettersArray = [Int](repeatElement(0, count: 15))
+    var tappedLettersArray = [Int](repeatElement(0, count: 15))
+    var tempCorrectLetters = [Character]()
+    var tempTappedLetter = [Character]()
+    
+    override func viewDidLoad() {
+    super.viewDidLoad()
+    setup()
+    self.navigationItem.title = "Kingsman Collection I"
+    
+    currentLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[0].red)!), green: CGFloat(Double(colorMixViewController.colorArray[0].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[0].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[0].alpha)!))
+    currentLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[1].red)!), green: CGFloat(Double(colorMixViewController.colorArray[1].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[1].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[1].alpha)!))
+    unusedLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[2].red)!), green: CGFloat(Double(colorMixViewController.colorArray[2].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[2].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[2].alpha)!))
+    unusedLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[3].red)!), green: CGFloat(Double(colorMixViewController.colorArray[3].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[3].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[3].alpha)!))
+    }
+    
+    func setup() {
+    for i in labelArray {
+    labelArrayß.append(i)
+    }
+    for i in lineArray {
+    lineArrayß.append(i)
+    }
+    
+    for i in lineArrayß {
+    i.autocorrectionType = .no
+    i.placeholder = ""
+    }
+    
+    for i in labelArrayß {
+    i.textColor = unusedLabelColor
+    i.text = ""
+    }
+    
+    labelArrayß[0].text = "Front page news,"
+    labelArrayß[1].text = "and all the occasions were celebrity nonsense,"
+    labelArrayß[2].text = "because it’s the nature of kingsmen,"
+    labelArrayß[3].text = "that our achievements remain secret."
+    labelArrayß[4].text = "A gentleman’s name should appear in the newspaper only three times:"
+    labelArrayß[5].text = "when he’s born,"
+    labelArrayß[6].text = "when he marries and when he dies."
+    labelArrayß[7].text = "And we are,"
+    labelArrayß[8].text = "first and foremost,"
+    labelArrayß[9].text = "gentleman."
+    lineCount = 10
+    
+    lineArrayß[0].text = " "
+    
+    var i = -1
+    for int in 0...labelArrayß.count-1 {
+    i += 1
+    if labelArrayß[i].text! == "" {
+    labelArrayß.remove(at: i)
+    lineArrayß.remove(at: i)
+    i -= 1
+    
+    labelArray[int].isHidden = true
+    lineArray[int].isHidden = true
+    }
+    }
+    }
+    
+    //Timer
+    
+    func startTimer() {
+    timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+    self.timeCounter += 0.1
+    guard self.timer != nil else { return }
+    
+    let str = String(self.timeCounter)
+    var array:[String] = []
+    self.timePassed = ""
+    
+    for i in str {
+    array.append(String(i))
+    }
+    
+    for i in 0...array.count-1 {
+    self.timePassed += array[i]
+    
+    if array[i] == "." {
+    self.timePassed += array[i+1]
+    break
+    }
+    }
+    
+    self.timeLabel.title = "Time: \\(String(self.timePassed))"
+    
+    if self.timeTappedBool {
+    self.navigationItem.title = self.timeLabel.title
+    self.timeLabel.title = "Time"
+    }
+    if !self.timeTappedBool && !self.accuracyTappedBool {
+    self.navigationItem.title = "Kingsman Collection I"
+    }
+    
+    if MenuViewController.forceQuite {
+    if self.timeCounter >= 60.0 {
+    let correctLetters = self.correctLettersInAll
+    let tappedLetters = self.tappedLetersInAll
+    
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Kingsman Collection I","", MenuViewController.userName)
+    
+    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
+    self.navigationController!.pushViewController(viewController, animated: true)
+    }
+    }
+    })
+    }
+    
+    func stopTimer() {
+    if timer != nil {
+    timer!.invalidate() //销毁timer
+    timer = nil
+    }
+    }
+    
+    func updateAccuracyLabel() {
+    if accuracyTappedBool {
+    self.navigationItem.title = "Correct Letters: \\(correctLettersInAll), Tapped Letters: \\(tappedLetersInAll), Accuracy Rate: \\(correctLettersInAll*100/tappedLetersInAll)%"
+    self.accuracylabel.title = "Accuracy Rate"
+    } else {
+    self.accuracylabel.title = "Accuracy: \\(correctLettersInAll*100/tappedLetersInAll)%"
+    }
+    }
+    
+    
+    @IBAction func LineOneBegin(_ sender: Any) {
+    startTimer()
+    
+    labelArrayß[0].textColor = currentLabelColor
+    lineArrayß[0].textColor = currentLineColor
+    }
+    
+    
+    var tempCorrectLetterCount = 0
+    
+    //When User changed Valve...
+    func updateValue(line:Int) {
+    
+    guard lineArrayß[line-1].text != nil else { return }
+    guard lineArray[line-1].text!.count < labelArray[line-1].text!.count+2 else { return }
+    
+    if lineArrayß[line-1].text!.count == 0 {
+    if line == 1 {
+    lineArrayß[line-1].text = " "
+    } else {
+    lineArrayß[line-1].resignFirstResponder()
+    lineArrayß[line-2].becomeFirstResponder()
+    
+    labelArrayß[line-1].textColor = unusedLabelColor
+    labelArrayß[line-2].textColor = currentLabelColor
+    
+    lineArrayß[line-1].textColor = unusedLineColor
+    lineArrayß[line-2].textColor = currentLineColor
+    
+    tempCorrectLetters = []
+    tempTappedLetter = []
+    tempCorrectLetterCount = 0
+    
+    for i in lineArrayß[line-2].text! {
+    tempTappedLetter.append(i)
+    }
+    for i in labelArrayß[line-2].text! {
+    tempCorrectLetters.append(i)
+    }
+    for i in 0...tempTappedLetter.count-2 {
+    if tempCorrectLetters[i] == tempTappedLetter[i+1] {
+    tempCorrectLetterCount += 1
+    }
+    }
+    }
+    }
+    
+    guard labelArrayß[line-1].text != nil else { return }
+    guard lineArrayß[line-1].text!.count >= 2 else { return }
+    tappedLetersInAll = lineArrayß[line-1].text!.count
+    
+    
+    
+    if lineArrayß[line-1].text!.count > tempCorrectLetters.count {
+    tempCorrectLetters.append(labelArrayß[line-1].text![(labelArrayß[line-1].text?.index(labelArrayß[line-1].text!.startIndex, offsetBy: tempCorrectLetters.count))!])
+    tempTappedLetter.append(lineArrayß[line-1].text![lineArrayß[line-1].text!.index(before: lineArrayß[line-1].text!.endIndex)])
+    
+    if tempTappedLetter[tempTappedLetter.count-1] == tempCorrectLetters[tempCorrectLetters.count-1] {
+    tempCorrectLetterCount += 1
+    } else {
+    lineArrayß[line-1].text!.removeLast()
+    lineArrayß[line-1].text!.append("_")
+    }
+    
+    } else {
+    if tempCorrectLetters[tempCorrectLetters.count-1] == tempTappedLetter[tempTappedLetter.count-1] {
+    tempCorrectLetterCount -= 1
+    }
+    
+    tempCorrectLetters.remove(at: tempCorrectLetters.count-1)
+    tempTappedLetter.remove(at: tempTappedLetter.count-1)
+    }
+    
+    correctLettersArray[line-1] = tempCorrectLetterCount
+    tappedLettersArray[line-1] = lineArrayß[line-1].text!.count - 1
+    
+    correctLettersInAll = 0
+    for i in correctLettersArray {
+    correctLettersInAll += i
+    }
+    
+    tappedLetersInAll = 0
+    for i in tappedLettersArray {
+    tappedLetersInAll += i
+    }
+    
+    updateAccuracyLabel()
+    
+    if lineArrayß[line-1].text!.count == labelArrayß[line-1].text!.count+1 {
+    guard line != lineCount else {
+    stopTimer()
+    let correctLetters = self.correctLettersInAll
+    let tappedLetters = self.tappedLetersInAll
+    
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Kingsman Collection I", "", MenuViewController.userName)
+    
+    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
+    self.navigationController!.pushViewController(viewController, animated: true)
+    
+    return
+    }
+    
+    lineArrayß[line-1].resignFirstResponder()
+    lineArrayß[line].text = " "
+    lineArrayß[line].becomeFirstResponder()
+    
+    labelArrayß[line-1].textColor = unusedLabelColor
+    labelArrayß[line].textColor = currentLabelColor
+    
+    lineArrayß[line-1].textColor = unusedLineColor
+    lineArrayß[line].textColor = currentLineColor
+    tempCorrectLetters = []
+    tempTappedLetter = []
+    tempCorrectLetterCount = 0
+    return
+    }
+    }
+    
+    @IBAction func lineOneChanged(_ sender: Any) {
+    updateValue(line: 1)
+    }
+    
+    @IBAction func lineTwoChaged(_ sender: Any) {
+    updateValue(line: 2)
+    }
+    
+    @IBAction func lineThreeChanged(_ sender: Any) {
+    updateValue(line: 3)
+    }
+    
+    @IBAction func lineFourChanged(_ sender: Any) {
+    updateValue(line: 4)
+    }
+    
+    @IBAction func lineFiveChanged(_ sender: Any) {
+    updateValue(line: 5)
+    }
+    
+    @IBAction func lineSixChanged(_ sender: Any) {
+    updateValue(line: 6)
+    }
+    
+    @IBAction func lineSevenChanged(_ sender: Any) {
+    updateValue(line: 7)
+    }
+    
+    @IBAction func lineEightChanged(_ sender: Any) {
+    updateValue(line: 8)
+    }
+    
+    @IBAction func lineNineChanged(_ sender: Any) {
+    updateValue(line: 9)
+    }
+    
+    @IBAction func lineTenChanged(_ sender: Any) {
+    updateValue(line: 10)
+    }
+    
+    
+    @IBAction func timetapped(_ sender: Any) {
+    guard timeLabel.title != nil else { return }
+    timeTappedBool = !timeTappedBool
+    }
+    
+    @IBAction func accuracyTapped(_ sender: Any) {
+    guard accuracylabel.title != nil else { return }
+    accuracyTappedBool = !accuracyTappedBool
+    updateAccuracyLabel()
+    }
+    
+    
+    @IBAction func doneTapped(_ sender: Any) {
+    stopTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    stopTimer()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    super.prepare(for: segue, sender: sender)
+    
+    guard segue.identifier == "ResultsSegue" else { return }
+    
+    let correctLetters = correctLettersInAll
+    let tappedLetters = tappedLetersInAll
+    
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, "Kingsman Collection I", "", MenuViewController.userName)
+    }
+    
+    
+    }
+    
+    //All rights reserved.
+
+"""
+    static let KingsmanIIViewController = """
+    //
+    //  KingsmanViewController.swift
+    //  Typer.proj
+    //
+    //  Created by Vaida on 2019/5/22.
+    //  Copyright © 2019 Martin_Vaida. All rights reserved.
+    //
+    
+    import Foundation
+    import UIKit
+    
+    class KingsmanIIViewController:UITableViewController {
+    var lineCount = 0
+    
+    @IBOutlet var labelArray: [UILabel]!
+    @IBOutlet var lineArray: [UITextField]!
+    
+    var labelArrayß:[UILabel] = []
+    var lineArrayß:[UITextField] = []
+    
+    @IBOutlet weak var timeLabel: UIBarButtonItem!
+    @IBOutlet weak var accuracylabel: UIBarButtonItem!
+    
+    var currentLabelColor:UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
+    var currentLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    var unusedLabelColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    var unusedLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    
+    var timer:Timer?
+    var timeCounter = 0.0
+    var timePassed = ""
+    
+    var timeTappedBool = false
+    var accuracyTappedBool = false
+    
+    var tappedLetersInAll = -1
+    var correctLettersInAll = 0
+    
+    var correctLettersArray = [Int](repeatElement(0, count: 15))
+    var tappedLettersArray = [Int](repeatElement(0, count: 15))
+    var tempCorrectLetters = [Character]()
+    var tempTappedLetter = [Character]()
+    
+    override func viewDidLoad() {
+    super.viewDidLoad()
+    setup()
+    self.navigationItem.title = "Kingsman Collection II"
+    
+    currentLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[0].red)!), green: CGFloat(Double(colorMixViewController.colorArray[0].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[0].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[0].alpha)!))
+    currentLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[1].red)!), green: CGFloat(Double(colorMixViewController.colorArray[1].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[1].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[1].alpha)!))
+    unusedLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[2].red)!), green: CGFloat(Double(colorMixViewController.colorArray[2].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[2].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[2].alpha)!))
+    unusedLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[3].red)!), green: CGFloat(Double(colorMixViewController.colorArray[3].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[3].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[3].alpha)!))
+    }
+    
+    func setup() {
+    for i in labelArray {
+    labelArrayß.append(i)
+    }
+    for i in lineArray {
+    lineArrayß.append(i)
+    }
+    
+    for i in lineArrayß {
+    i.autocorrectionType = .no
+    i.placeholder = ""
+    }
+    
+    for i in labelArrayß {
+    i.textColor = unusedLabelColor
+    i.text = ""
+    }
+    
+    labelArrayß[0].text = "Can you guess what the last thing was that flashed through my mind?"
+    labelArrayß[1].text = "It was absolutely nothing."
+    labelArrayß[2].text = "I had no ties, no bittersweet memories."
+    labelArrayß[3].text = "I was leaving nothing behind."
+    labelArrayß[4].text = "Never experienced companionship,"
+    labelArrayß[5].text = "never been in love,"
+    labelArrayß[6].text = "and at that moment,"
+    labelArrayß[7].text = "all I felt was loneliness,"
+    labelArrayß[8].text = "and regret."
+    labelArrayß[9].text = "Just knowing that having something to lose is what makes life worth living."
+    lineCount = 10
+    
+    lineArrayß[0].text = " "
+    
+    var i = -1
+    for int in 0...labelArrayß.count-1 {
+    i += 1
+    if labelArrayß[i].text! == "" {
+    labelArrayß.remove(at: i)
+    lineArrayß.remove(at: i)
+    i -= 1
+    
+    labelArray[int].isHidden = true
+    lineArray[int].isHidden = true
+    }
+    }
+    }
+    
+    //Timer
+    
+    func startTimer() {
+    timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+    self.timeCounter += 0.1
+    guard self.timer != nil else { return }
+    
+    let str = String(self.timeCounter)
+    var array:[String] = []
+    self.timePassed = ""
+    
+    for i in str {
+    array.append(String(i))
+    }
+    
+    for i in 0...array.count-1 {
+    self.timePassed += array[i]
+    
+    if array[i] == "." {
+    self.timePassed += array[i+1]
+    break
+    }
+    }
+    
+    self.timeLabel.title = "Time: \\(String(self.timePassed))"
+    
+    if self.timeTappedBool {
+    self.navigationItem.title = self.timeLabel.title
+    self.timeLabel.title = "Time"
+    }
+    if !self.timeTappedBool && !self.accuracyTappedBool {
+    self.navigationItem.title = "Kingsman Collection II"
+    }
+    
+    if MenuViewController.forceQuite {
+    if self.timeCounter >= 60.0 {
+    let correctLetters = self.correctLettersInAll
+    let tappedLetters = self.tappedLetersInAll
+    
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Kingsman Collection II", "", MenuViewController.userName)
+    
+    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
+    self.navigationController!.pushViewController(viewController, animated: true)
+    }
+    }
+    })
+    }
+    
+    func stopTimer() {
+    if timer != nil {
+    timer!.invalidate() //销毁timer
+    timer = nil
+    }
+    }
+    
+    func updateAccuracyLabel() {
+    if accuracyTappedBool {
+    self.navigationItem.title = "Correct Letters: \\(correctLettersInAll), Tapped Letters: \\(tappedLetersInAll), Accuracy Rate: \\(correctLettersInAll*100/tappedLetersInAll)%"
+    self.accuracylabel.title = "Accuracy Rate"
+    } else {
+    self.accuracylabel.title = "Accuracy: \\(correctLettersInAll*100/tappedLetersInAll)%"
+    }
+    }
+    
+    
+    @IBAction func LineOneBegin(_ sender: Any) {
+    startTimer()
+    
+    labelArrayß[0].textColor = currentLabelColor
+    lineArrayß[0].textColor = currentLineColor
+    }
+    
+    
+    var tempCorrectLetterCount = 0
+    
+    //When User changed Valve...
+    func updateValue(line:Int) {
+    
+    guard lineArrayß[line-1].text != nil else { return }
+    guard lineArray[line-1].text!.count < labelArray[line-1].text!.count+2 else { return }
+    
+    if lineArrayß[line-1].text!.count == 0 {
+    if line == 1 {
+    lineArrayß[line-1].text = " "
+    } else {
+    lineArrayß[line-1].resignFirstResponder()
+    lineArrayß[line-2].becomeFirstResponder()
+    
+    labelArrayß[line-1].textColor = unusedLabelColor
+    labelArrayß[line-2].textColor = currentLabelColor
+    
+    lineArrayß[line-1].textColor = unusedLineColor
+    lineArrayß[line-2].textColor = currentLineColor
+    
+    tempCorrectLetters = []
+    tempTappedLetter = []
+    tempCorrectLetterCount = 0
+    
+    for i in lineArrayß[line-2].text! {
+    tempTappedLetter.append(i)
+    }
+    for i in labelArrayß[line-2].text! {
+    tempCorrectLetters.append(i)
+    }
+    for i in 0...tempTappedLetter.count-2 {
+    if tempCorrectLetters[i] == tempTappedLetter[i+1] {
+    tempCorrectLetterCount += 1
+    }
+    }
+    }
+    }
+    
+    guard labelArrayß[line-1].text != nil else { return }
+    guard lineArrayß[line-1].text!.count >= 2 else { return }
+    tappedLetersInAll = lineArrayß[line-1].text!.count
+    
+    
+    
+    if lineArrayß[line-1].text!.count > tempCorrectLetters.count {
+    tempCorrectLetters.append(labelArrayß[line-1].text![(labelArrayß[line-1].text?.index(labelArrayß[line-1].text!.startIndex, offsetBy: tempCorrectLetters.count))!])
+    tempTappedLetter.append(lineArrayß[line-1].text![lineArrayß[line-1].text!.index(before: lineArrayß[line-1].text!.endIndex)])
+    
+    if tempTappedLetter[tempTappedLetter.count-1] == tempCorrectLetters[tempCorrectLetters.count-1] {
+    tempCorrectLetterCount += 1
+    } else {
+    lineArrayß[line-1].text!.removeLast()
+    lineArrayß[line-1].text!.append("_")
+    }
+    
+    } else {
+    if tempCorrectLetters[tempCorrectLetters.count-1] == tempTappedLetter[tempTappedLetter.count-1] {
+    tempCorrectLetterCount -= 1
+    }
+    
+    tempCorrectLetters.remove(at: tempCorrectLetters.count-1)
+    tempTappedLetter.remove(at: tempTappedLetter.count-1)
+    }
+    
+    correctLettersArray[line-1] = tempCorrectLetterCount
+    tappedLettersArray[line-1] = lineArrayß[line-1].text!.count - 1
+    
+    correctLettersInAll = 0
+    for i in correctLettersArray {
+    correctLettersInAll += i
+    }
+    
+    tappedLetersInAll = 0
+    for i in tappedLettersArray {
+    tappedLetersInAll += i
+    }
+    
+    updateAccuracyLabel()
+    
+    if lineArrayß[line-1].text!.count == labelArrayß[line-1].text!.count+1 {
+    guard line != lineCount else {
+    stopTimer()
+    let correctLetters = self.correctLettersInAll
+    let tappedLetters = self.tappedLetersInAll
+    
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Kingsman Collection II", "", MenuViewController.userName)
+    
+    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
+    self.navigationController!.pushViewController(viewController, animated: true)
+    
+    return
+    }
+    
+    lineArrayß[line-1].resignFirstResponder()
+    lineArrayß[line].text = " "
+    lineArrayß[line].becomeFirstResponder()
+    
+    labelArrayß[line-1].textColor = unusedLabelColor
+    labelArrayß[line].textColor = currentLabelColor
+    
+    lineArrayß[line-1].textColor = unusedLineColor
+    lineArrayß[line].textColor = currentLineColor
+    tempCorrectLetters = []
+    tempTappedLetter = []
+    tempCorrectLetterCount = 0
+    return
+    }
+    }
+    
+    @IBAction func lineOneChanged(_ sender: Any) {
+    updateValue(line: 1)
+    }
+    
+    @IBAction func lineTwoChaged(_ sender: Any) {
+    updateValue(line: 2)
+    }
+    
+    @IBAction func lineThreeChanged(_ sender: Any) {
+    updateValue(line: 3)
+    }
+    
+    @IBAction func lineFourChanged(_ sender: Any) {
+    updateValue(line: 4)
+    }
+    
+    @IBAction func lineFiveChanged(_ sender: Any) {
+    updateValue(line: 5)
+    }
+    
+    @IBAction func lineSixChanged(_ sender: Any) {
+    updateValue(line: 6)
+    }
+    
+    @IBAction func lineSevenChanged(_ sender: Any) {
+    updateValue(line: 7)
+    }
+    
+    @IBAction func lineEightChanged(_ sender: Any) {
+    updateValue(line: 8)
+    }
+    
+    @IBAction func lineNineChanged(_ sender: Any) {
+    updateValue(line: 9)
+    }
+    
+    @IBAction func lineTenChanged(_ sender: Any) {
+    updateValue(line: 10)
+    }
+    
+    
+    @IBAction func timetapped(_ sender: Any) {
+    guard timeLabel.title != nil else { return }
+    timeTappedBool = !timeTappedBool
+    }
+    
+    @IBAction func accuracyTapped(_ sender: Any) {
+    guard accuracylabel.title != nil else { return }
+    accuracyTappedBool = !accuracyTappedBool
+    updateAccuracyLabel()
+    }
+    
+    
+    @IBAction func doneTapped(_ sender: Any) {
+    stopTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    stopTimer()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    super.prepare(for: segue, sender: sender)
+    
+    guard segue.identifier == "ResultsSegue" else { return }
+    
+    let correctLetters = correctLettersInAll
+    let tappedLetters = tappedLetersInAll
+    
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, "Kingsman Collection II", "", MenuViewController.userName)
+    }
+    
+    
+    }
+    
+    //All rights reserved.
+
+"""
+    static let StoryViewContrioller = """
+    //
+    //  StoryViewController.swift
+    //  Typer.proj
+    //
+    //  Created by Vaida on 2019/5/26.
+    //  Copyright © 2019 Martin_Vaida. All rights reserved.
+    //
+    
+    import Foundation
+    import UIKit
+    
+    class storyViewController:UITableViewController {
+    
+    static var scrips:[String] = []
+    static var passageName = ""
+    
+    var lineCount = 0
+    
+    @IBOutlet var labelArray: [UILabel]!
+    @IBOutlet var lineArray: [UITextField]!
+    
+    var labelArrayß:[UILabel] = []
+    var lineArrayß:[UITextField] = []
+    
+    @IBOutlet weak var timeLabel: UIBarButtonItem!
+    @IBOutlet weak var accuracylabel: UIBarButtonItem!
+    
+    var currentLabelColor:UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
+    var currentLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    var unusedLabelColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    var unusedLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    
+    var timer:Timer?
+    var timeCounter = 0.0
+    var timePassed = ""
+    
+    var timeTappedBool = false
+    var accuracyTappedBool = false
+    
+    var tappedLetersInAll = -1
+    var correctLettersInAll = 0
+    
+    var correctLettersArray = [Int](repeatElement(0, count: 15))
+    var tappedLettersArray = [Int](repeatElement(0, count: 15))
+    var tempCorrectLetters = [Character]()
+    var tempTappedLetter = [Character]()
+    
+    override func viewDidLoad() {
+    super.viewDidLoad()
+    setup()
+    self.navigationItem.title = storyViewController.passageName
+    
+    currentLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[0].red)!), green: CGFloat(Double(colorMixViewController.colorArray[0].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[0].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[0].alpha)!))
+    currentLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[1].red)!), green: CGFloat(Double(colorMixViewController.colorArray[1].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[1].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[1].alpha)!))
+    unusedLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[2].red)!), green: CGFloat(Double(colorMixViewController.colorArray[2].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[2].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[2].alpha)!))
+    unusedLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[3].red)!), green: CGFloat(Double(colorMixViewController.colorArray[3].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[3].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[3].alpha)!))
+    }
+    
+    func setup() {
+    for i in labelArray {
+    labelArrayß.append(i)
+    }
+    for i in lineArray {
+    lineArrayß.append(i)
+    }
+    
+    for i in lineArrayß {
+    i.autocorrectionType = .no
+    i.placeholder = ""
+    }
+    
+    for i in labelArrayß {
+    i.textColor = unusedLabelColor
+    i.text = ""
+    }
+    
+    for i in 0...storyViewController.scrips.count-1 {
+    labelArrayß[i].text = storyViewController.scrips[i]
+    }
+    
+    lineCount = storyViewController.scrips.count
+    
+    lineArrayß[0].text = " "
+    
+    var i = -1
+    for int in 0...storyViewController.scrips.count-1 {
+    i += 1
+    if labelArrayß[i].text! == "" {
+    labelArrayß.remove(at: i)
+    lineArrayß.remove(at: i)
+    i -= 1
+    
+    labelArray[int].isHidden = true
+    lineArray[int].isHidden = true
+    }
+    }
+    }
+    
+    //Timer
+    
+    func startTimer() {
+    timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+    self.timeCounter += 0.1
+    guard self.timer != nil else { return }
+    
+    let str = String(self.timeCounter)
+    var array:[String] = []
+    self.timePassed = ""
+    
+    for i in str {
+    array.append(String(i))
+    }
+    
+    for i in 0...array.count-1 {
+    self.timePassed += array[i]
+    
+    if array[i] == "." {
+    self.timePassed += array[i+1]
+    break
+    }
+    }
+    
+    self.timeLabel.title = "Time: \\(String(self.timePassed))"
+    
+    if self.timeTappedBool {
+    self.navigationItem.title = self.timeLabel.title
+    self.timeLabel.title = "Time"
+    }
+    if !self.timeTappedBool && !self.accuracyTappedBool {
+    self.navigationItem.title = storyViewController.passageName
+    }
+    
+    if MenuViewController.forceQuite {
+    if self.timeCounter >= 60.0 {
+    let correctLetters = self.correctLettersInAll
+    let tappedLetters = self.tappedLetersInAll
+    storyViewController.scrips.removeAll()
+    
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, storyViewController.passageName, "", MenuViewController.userName)
+    
+    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
+    self.navigationController!.pushViewController(viewController, animated: true)
+    }
+    }
+    })
+    }
+    
+    func stopTimer() {
+    if timer != nil {
+    timer!.invalidate() //销毁timer
+    timer = nil
+    }
+    }
+    
+    func updateAccuracyLabel() {
+    if accuracyTappedBool {
+    self.navigationItem.title = "Correct Letters: \\(correctLettersInAll), Tapped Letters: \\(tappedLetersInAll), Accuracy Rate: \\(correctLettersInAll*100/tappedLetersInAll)%"
+    self.accuracylabel.title = "Accuracy Rate"
+    } else {
+    self.accuracylabel.title = "Accuracy: \\(correctLettersInAll*100/tappedLetersInAll)%"
+    }
+    }
+    
+    
+    @IBAction func LineOneBegin(_ sender: Any) {
+    startTimer()
+    
+    labelArrayß[0].textColor = currentLabelColor
+    lineArrayß[0].textColor = currentLineColor
+    }
+    
+    
+    var tempCorrectLetterCount = 0
+    
+    //When User changed Valve...
+    func updateValue(line:Int) {
+    
+    guard lineArrayß[line-1].text != nil else { return }
+    guard lineArray[line-1].text!.count < labelArray[line-1].text!.count+2 else { return }
+    
+    if lineArrayß[line-1].text!.count == 0 {
+    if line == 1 {
+    lineArrayß[line-1].text = " "
+    } else {
+    lineArrayß[line-1].resignFirstResponder()
+    lineArrayß[line-2].becomeFirstResponder()
+    
+    labelArrayß[line-1].textColor = unusedLabelColor
+    labelArrayß[line-2].textColor = currentLabelColor
+    
+    lineArrayß[line-1].textColor = unusedLineColor
+    lineArrayß[line-2].textColor = currentLineColor
+    
+    tempCorrectLetters = []
+    tempTappedLetter = []
+    tempCorrectLetterCount = 0
+    
+    for i in lineArrayß[line-2].text! {
+    tempTappedLetter.append(i)
+    }
+    for i in labelArrayß[line-2].text! {
+    tempCorrectLetters.append(i)
+    }
+    for i in 0...tempTappedLetter.count-2 {
+    if tempCorrectLetters[i] == tempTappedLetter[i+1] {
+    tempCorrectLetterCount += 1
+    }
+    }
+    }
+    }
+    
+    guard labelArrayß[line-1].text != nil else { return }
+    guard lineArrayß[line-1].text!.count >= 2 else { return }
+    tappedLetersInAll = lineArrayß[line-1].text!.count
+    
+    
+    
+    if lineArrayß[line-1].text!.count > tempCorrectLetters.count {
+    tempCorrectLetters.append(labelArrayß[line-1].text![(labelArrayß[line-1].text?.index(labelArrayß[line-1].text!.startIndex, offsetBy: tempCorrectLetters.count))!])
+    tempTappedLetter.append(lineArrayß[line-1].text![lineArrayß[line-1].text!.index(before: lineArrayß[line-1].text!.endIndex)])
+    
+    if tempTappedLetter[tempTappedLetter.count-1] == tempCorrectLetters[tempCorrectLetters.count-1] {
+    tempCorrectLetterCount += 1
+    } else {
+    lineArrayß[line-1].text!.removeLast()
+    lineArrayß[line-1].text!.append("_")
+    }
+    
+    } else {
+    if tempCorrectLetters[tempCorrectLetters.count-1] == tempTappedLetter[tempTappedLetter.count-1] {
+    tempCorrectLetterCount -= 1
+    }
+    
+    tempCorrectLetters.remove(at: tempCorrectLetters.count-1)
+    tempTappedLetter.remove(at: tempTappedLetter.count-1)
+    }
+    
+    correctLettersArray[line-1] = tempCorrectLetterCount
+    tappedLettersArray[line-1] = lineArrayß[line-1].text!.count - 1
+    
+    correctLettersInAll = 0
+    for i in correctLettersArray {
+    correctLettersInAll += i
+    }
+    
+    tappedLetersInAll = 0
+    for i in tappedLettersArray {
+    tappedLetersInAll += i
+    }
+    
+    updateAccuracyLabel()
+    
+    if lineArrayß[line-1].text!.count == labelArrayß[line-1].text!.count+1 {
+    guard line != lineCount else {
+    stopTimer()
+    let correctLetters = self.correctLettersInAll
+    let tappedLetters = self.tappedLetersInAll
+    storyViewController.scrips.removeAll()
+    
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, storyViewController.passageName, "", MenuViewController.userName)
+    
+    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
+    self.navigationController!.pushViewController(viewController, animated: true)
+    
+    return
+    }
+    
+    lineArrayß[line-1].resignFirstResponder()
+    lineArrayß[line].text = " "
+    lineArrayß[line].becomeFirstResponder()
+    
+    labelArrayß[line-1].textColor = unusedLabelColor
+    labelArrayß[line].textColor = currentLabelColor
+    
+    lineArrayß[line-1].textColor = unusedLineColor
+    lineArrayß[line].textColor = currentLineColor
+    tempCorrectLetters = []
+    tempTappedLetter = []
+    tempCorrectLetterCount = 0
+    return
+    }
+    }
+    
+    @IBAction func lineOneChanged(_ sender: Any) {
+    updateValue(line: 1)
+    }
+    
+    @IBAction func lineTwoChaged(_ sender: Any) {
+    updateValue(line: 2)
+    }
+    
+    @IBAction func lineThreeChanged(_ sender: Any) {
+    updateValue(line: 3)
+    }
+    
+    @IBAction func lineFourChanged(_ sender: Any) {
+    updateValue(line: 4)
+    }
+    
+    @IBAction func lineFiveChanged(_ sender: Any) {
+    updateValue(line: 5)
+    }
+    
+    @IBAction func lineSixChanged(_ sender: Any) {
+    updateValue(line: 6)
+    }
+    
+    @IBAction func lineSevenChanged(_ sender: Any) {
+    updateValue(line: 7)
+    }
+    
+    @IBAction func lineEightChanged(_ sender: Any) {
+    updateValue(line: 8)
+    }
+    
+    @IBAction func lineNineChanged(_ sender: Any) {
+    updateValue(line: 9)
+    }
+    
+    @IBAction func lineTenChanged(_ sender: Any) {
+    updateValue(line: 10)
+    }
+    
+    
+    @IBAction func timetapped(_ sender: Any) {
+    guard timeLabel.title != nil else { return }
+    timeTappedBool = !timeTappedBool
+    }
+    
+    @IBAction func accuracyTapped(_ sender: Any) {
+    guard accuracylabel.title != nil else { return }
+    accuracyTappedBool = !accuracyTappedBool
+    updateAccuracyLabel()
+    }
+    
+    
+    @IBAction func doneTapped(_ sender: Any) {
+    stopTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    stopTimer()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    super.prepare(for: segue, sender: sender)
+    
+    guard segue.identifier == "ResultsSegue" else { return }
+    storyViewController.scrips.removeAll()
+    
+    let correctLetters = correctLettersInAll
+    let tappedLetters = tappedLetersInAll
+    
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, storyViewController.passageName, "", MenuViewController.userName)
+    }
+    }
+    
+    //All rights reserved.
+
+"""
+    
+    static let RandomViewController = """
+    //
+    //  RandomViewController.swift
+    //  Typer.proj
+    //
+    //  Created by Vaida on 2019/5/23.
+    //  Copyright © 2019 Martin_Vaida. All rights reserved.
+    //
+    
+    import Foundation
+    import UIKit
+    
+    class RandomViewController:UITableViewController {
+    var lineCount = 0
+    
+    @IBOutlet var labelArray: [UILabel]!
+    @IBOutlet var lineArray: [UITextField]!
+    
+    var labelArrayß:[UILabel] = []
+    var lineArrayß:[UITextField] = []
+    var labelUsed = [Bool](repeatElement(false, count: 10))
+    
+    @IBOutlet weak var timeLabel: UIBarButtonItem!
+    @IBOutlet weak var accuracylabel: UIBarButtonItem!
+    
+    var currentLabelColor:UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
+    var currentLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    var unusedLabelColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    var unusedLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    
+    var timer:Timer?
+    var timeCounter = 0.0
+    var timePassed = ""
+    
+    var timeTappedBool = false
+    var accuracyTappedBool = false
+    
+    var tappedLetersInAll = -1
+    var correctLettersInAll = 0
+    
+    var correctLettersArray = [Int](repeatElement(0, count: 15))
+    var tappedLettersArray = [Int](repeatElement(0, count: 15))
+    var tempCorrectLetters = [Character]()
+    var tempTappedLetter = [Character]()
+    
+    let letters:[String] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"," "," ", " ", " "]
+    
+    override func viewDidLoad() {
+    super.viewDidLoad()
+    setup()
+    self.navigationItem.title = "Random Mode"
+    
+    currentLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[0].red)!), green: CGFloat(Double(colorMixViewController.colorArray[0].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[0].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[0].alpha)!))
+    currentLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[1].red)!), green: CGFloat(Double(colorMixViewController.colorArray[1].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[1].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[1].alpha)!))
+    unusedLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[2].red)!), green: CGFloat(Double(colorMixViewController.colorArray[2].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[2].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[2].alpha)!))
+    unusedLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[3].red)!), green: CGFloat(Double(colorMixViewController.colorArray[3].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[3].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[3].alpha)!))
+    
+    startTimerß()
+    }
+    
+    func setup() {
+    for i in labelArray {
+    labelArrayß.append(i)
+    }
+    for i in lineArray {
+    lineArrayß.append(i)
+    }
+    
+    for i in lineArrayß {
+    i.autocorrectionType = .no
+    i.placeholder = ""
+    }
+    
+    for i in labelArrayß {
+    i.textColor = unusedLabelColor
+    i.text = ""
+    }
+    lineCount = 10
+    
+    lineArrayß[0].text = " "
+    
+    let alertController = UIAlertController(title: "Notice", message: "This is a mode designed for the masters in typing. \n All the letters will be chosen randomly.", preferredStyle: .alert)
+    let confirmAction = UIAlertAction(title: "Got it!", style: .default, handler: nil)
+    let cancelAction = UIAlertAction(title: "Next time maybe", style: .cancel) { (_) in
+    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Choose_Passage_View") as! ChoosePassageController
+    self.navigationController!.pushViewController(viewController, animated: true)
+    }
+    alertController.addAction(confirmAction)
+    alertController.addAction(cancelAction)
+    self.present(alertController, animated: true, completion: nil)
+    }
+    
+    //Timer
+    
+    func startTimer() {
+    timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+    self.timeCounter += 0.1
+    guard self.timer != nil else { return }
+    
+    let str = String(self.timeCounter)
+    var array:[String] = []
+    self.timePassed = ""
+    
+    for i in str {
+    array.append(String(i))
+    }
+    
+    for i in 0...array.count-1 {
+    self.timePassed += array[i]
+    
+    if array[i] == "." {
+    self.timePassed += array[i+1]
+    break
+    }
+    }
+    
+    self.timeLabel.title = "Time: \\(String(self.timePassed))"
+    
+    if self.timeTappedBool {
+    self.navigationItem.title = self.timeLabel.title
+    self.timeLabel.title = "Time"
+    }
+    if !self.timeTappedBool && !self.accuracyTappedBool {
+    self.navigationItem.title = "Random Mode"
+    }
+    
+    if MenuViewController.forceQuite {
+    if self.timeCounter >= 60.0 {
+    let correctLetters = self.correctLettersInAll
+    let tappedLetters = self.tappedLetersInAll
+    
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Random Mode", "", MenuViewController.userName)
+    
+    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
+    self.navigationController!.pushViewController(viewController, animated: true)
+    }
+    }
+    })
+    }
+    
+    func startTimerß() {
+    Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (_) in
+    for i in 0...self.labelArray.count-1 {
+    guard !self.labelUsed[i] else { continue }
+    //make text
+    self.labelArrayß[i].text = ""
+    for _ in 0...25 {
+    let int = arc4random_uniform(28)
+    self.labelArrayß[i].text! += self.letters[Int(int)]
+    }
+    }
+    }
+    }
+    
+    func stopTimer() {
+    if timer != nil {
+    timer!.invalidate() //销毁timer
+    timer = nil
+    }
+    }
+    
+    func updateAccuracyLabel() {
+    if accuracyTappedBool {
+    self.navigationItem.title = "Correct Letters: \\(correctLettersInAll), Tapped Letters: \\(tappedLetersInAll), Accuracy Rate: \\(correctLettersInAll*100/tappedLetersInAll)%"
+    self.accuracylabel.title = "Accuracy Rate"
+    } else {
+    self.accuracylabel.title = "Accuracy: \\(correctLettersInAll*100/tappedLetersInAll)%"
+    }
+    }
+    
+    
+    @IBAction func LineOneBegin(_ sender: Any) {
+    startTimer()
+    
+    //make text
+    labelUsed[0] = true
+    labelArrayß[0].text = ""
+    for _ in 0...25 {
+    let int = arc4random_uniform(28)
+    labelArrayß[0].text! += letters[Int(int)]
+    }
+    
+    labelArrayß[0].textColor = currentLabelColor
+    lineArrayß[0].textColor = currentLineColor
+    }
+    
+    
+    var tempCorrectLetterCount = 0
+    
+    //When User changed Valve...
+    func updateValue(line:Int) {
+    
+    guard lineArrayß[line-1].text != nil else { return }
+    guard lineArray[line-1].text!.count < labelArray[line-1].text!.count+2 else { return }
+    
+    if lineArrayß[line-1].text!.count == 0 {
+    if line == 1 {
+    lineArrayß[line-1].text = " "
+    } else {
+    lineArrayß[line-1].resignFirstResponder()
+    lineArrayß[line-2].becomeFirstResponder()
+    
+    labelArrayß[line-1].textColor = unusedLabelColor
+    labelArrayß[line-2].textColor = currentLabelColor
+    
+    lineArrayß[line-1].textColor = unusedLineColor
+    lineArrayß[line-2].textColor = currentLineColor
+    
+    tempCorrectLetters = []
+    tempTappedLetter = []
+    tempCorrectLetterCount = 0
+    
+    for i in lineArrayß[line-2].text! {
+    tempTappedLetter.append(i)
+    }
+    for i in labelArrayß[line-2].text! {
+    tempCorrectLetters.append(i)
+    }
+    for i in 0...tempTappedLetter.count-2 {
+    if tempCorrectLetters[i] == tempTappedLetter[i+1] {
+    tempCorrectLetterCount += 1
+    }
+    }
+    }
+    }
+    
+    guard labelArrayß[line-1].text != nil else { return }
+    guard lineArrayß[line-1].text!.count >= 2 else { return }
+    tappedLetersInAll = lineArrayß[line-1].text!.count
+    
+    
+    
+    if lineArrayß[line-1].text!.count > tempCorrectLetters.count {
+    tempCorrectLetters.append(labelArrayß[line-1].text![(labelArrayß[line-1].text?.index(labelArrayß[line-1].text!.startIndex, offsetBy: tempCorrectLetters.count))!])
+    tempTappedLetter.append(lineArrayß[line-1].text![lineArrayß[line-1].text!.index(before: lineArrayß[line-1].text!.endIndex)])
+    
+    if tempTappedLetter[tempTappedLetter.count-1] == tempCorrectLetters[tempCorrectLetters.count-1] {
+    tempCorrectLetterCount += 1
+    } else {
+    lineArrayß[line-1].text!.removeLast()
+    lineArrayß[line-1].text!.append("_")
+    }
+    
+    } else {
+    if tempCorrectLetters[tempCorrectLetters.count-1] == tempTappedLetter[tempTappedLetter.count-1] {
+    tempCorrectLetterCount -= 1
+    }
+    
+    tempCorrectLetters.remove(at: tempCorrectLetters.count-1)
+    tempTappedLetter.remove(at: tempTappedLetter.count-1)
+    }
+    
+    correctLettersArray[line-1] = tempCorrectLetterCount
+    tappedLettersArray[line-1] = lineArrayß[line-1].text!.count - 1
+    
+    correctLettersInAll = 0
+    for i in correctLettersArray {
+    correctLettersInAll += i
+    }
+    
+    tappedLetersInAll = 0
+    for i in tappedLettersArray {
+    tappedLetersInAll += i
+    }
+    
+    updateAccuracyLabel()
+    
+    if lineArrayß[line-1].text!.count == labelArrayß[line-1].text!.count+1 {
+    guard line != lineCount else {
+    stopTimer()
+    let correctLetters = self.correctLettersInAll
+    let tappedLetters = self.tappedLetersInAll
+    
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), self.timePassed, false, "Random Mode", "", MenuViewController.userName)
+    
+    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Score_View_Single") as! ScoreViewController
+    self.navigationController!.pushViewController(viewController, animated: true)
+    
+    return
+    }
+    
+    lineArrayß[line-1].resignFirstResponder()
+    lineArrayß[line].text = " "
+    lineArrayß[line].becomeFirstResponder()
+    
+    labelUsed[line] = true
+    labelArrayß[line].text = ""
+    for _ in 0...25 {
+    let int = arc4random_uniform(28)
+    labelArrayß[line].text! += letters[Int(int)]
+    }
+    
+    labelArrayß[line-1].textColor = unusedLabelColor
+    labelArrayß[line].textColor = currentLabelColor
+    
+    lineArrayß[line-1].textColor = unusedLineColor
+    lineArrayß[line].textColor = currentLineColor
+    tempCorrectLetters = []
+    tempTappedLetter = []
+    tempCorrectLetterCount = 0
+    return
+    }
+    }
+    
+    @IBAction func lineOneChanged(_ sender: Any) {
+    updateValue(line: 1)
+    }
+    
+    @IBAction func lineTwoChaged(_ sender: Any) {
+    updateValue(line: 2)
+    }
+    
+    @IBAction func lineThreeChanged(_ sender: Any) {
+    updateValue(line: 3)
+    }
+    
+    @IBAction func lineFourChanged(_ sender: Any) {
+    updateValue(line: 4)
+    }
+    
+    @IBAction func lineFiveChanged(_ sender: Any) {
+    updateValue(line: 5)
+    }
+    
+    @IBAction func lineSixChanged(_ sender: Any) {
+    updateValue(line: 6)
+    }
+    
+    @IBAction func lineSevenChanged(_ sender: Any) {
+    updateValue(line: 7)
+    }
+    
+    @IBAction func lineEightChanged(_ sender: Any) {
+    updateValue(line: 8)
+    }
+    
+    @IBAction func lineNineChanged(_ sender: Any) {
+    updateValue(line: 9)
+    }
+    
+    @IBAction func lineTenChanged(_ sender: Any) {
+    updateValue(line: 10)
+    }
+    
+    
+    @IBAction func timetapped(_ sender: Any) {
+    guard timeLabel.title != nil else { return }
+    timeTappedBool = !timeTappedBool
+    }
+    
+    @IBAction func accuracyTapped(_ sender: Any) {
+    guard accuracylabel.title != nil else { return }
+    accuracyTappedBool = !accuracyTappedBool
+    updateAccuracyLabel()
+    }
+    
+    
+    @IBAction func doneTapped(_ sender: Any) {
+    stopTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    stopTimer()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    super.prepare(for: segue, sender: sender)
+    
+    guard segue.identifier == "ResultsSegue" else { return }
+    
+    let correctLetters = correctLettersInAll
+    let tappedLetters = tappedLetersInAll
+    
+    ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, "Random Mode", "", MenuViewController.userName)
+    }
+    
+    }
+    
+    //All rights reserved.
+
+"""
+    
+    static let gameViewController = """
+//
+//  gameViewController.swift
+//  Typer.proj
+//
+//  Created by Vaida on 2019/5/23.
+//  Copyright © 2019 Martin_Vaida. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class gameViewController:UIViewController {
+    var viewArray:[UIView] = []
+    var time = 4
+    var timer:Timer?
+    static var textArray:[String] = []
+    static var showTextArray:[UITextField] = []
+    var tempText = ""
+    var currentLine = 0
+    
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var centerLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setup()
+    }
+    
+    func setup() {
+        centerLabel.text = ""
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
+            self.time -= 1
+            self.centerLabel.text = String(self.time)
+            if self.time == 0 {
+                self.textField.becomeFirstResponder()
+                self.stopTimer()
+                self.centerLabel.text = ""
+                
+                self.viewArray.append(UIView.makeView(x: Support.width, y: 0, labelText: "HaHaHa"))
+                self.view.addSubview(self.viewArray[0])
+                
+                UIView.animate(withDuration: 10) {
+                    self.viewArray[0].frame = CGRect(x: 0, y:Int(self.viewArray[0].frame.origin.y), width: Support.width, height: 88)
+                }
+                UIView.animate(withDuration: 10, delay: 9.8, options: [], animations: {
+                    self.viewArray[0].frame = CGRect(x: -Support.width, y:Int(self.viewArray[0].frame.origin.y), width: Support.width, height: 88)
+                }, completion: nil)
+            }
+        }
+        
+    }
+    
+    func stopTimer() {
+        timer!.invalidate()
+    }
+    
+    @IBAction func textFieldChanged(_ sender: Any) {
+        tempText = textField.text!
+        textField.text = ""
+        gameViewController.showTextArray[currentLine].text! += tempText
+    }
+    
+}
+
+//All rights reserved.
+
+"""
+    static let ITViewController = """
+//
+//  ITViewController.swift
+//  Typer.proj
+//
+//  Created by Vaida on 2019/5/28.
+//  Copyright © 2019 Martin_Vaida. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class ITViewController:UITableViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        guard !MenuViewController.developerMode else { return }
+        let alertController = UIAlertController(title: "Notice", message: "In this mode, \n we will build apps together. \n Try to type in the code, \n and some easy apps will be built.", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Got it!", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Next time maybe", style: .cancel) { (_) in
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Choose_Passage_View") as! ChoosePassageController
+            self.navigationController!.pushViewController(viewController, animated: true)
+        }
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+//All rights reserved.
+
+"""
+    static let LightViewController = """
+    //
+    //  LightViewController.swift
+    //  Typer.proj
+    //
+    //  Created by Vaida on 2019/5/28.
+    //  Copyright © 2019 Martin_Vaida. All rights reserved.
+    //
+    
+    import Foundation
+    import UIKit
+    
+    class LightViewController:UITableViewController {
+    @IBOutlet var introductionLabel: [UILabel]!     //seven objects
+    @IBOutlet var labelArray: [UILabel]!
+    @IBOutlet var lineArray: [UITextField]!
+    
+    var currentLabelColor:UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
+    var currentLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    var unusedLabelColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    var unusedLineColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    
+    var correct = false
+    var botton = UIButton(frame: CGRect(x: 23, y: 70, width: 100, height: 44))
+    let dateFormatter = DateFormatter()
+    
+    override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    setup()
+    }
+    
+    func setup() {
+    for i in introductionLabel {
+    i.text = "//  "
+    }
+    introductionLabel[1].text! += "ViewController.swift"
+    introductionLabel[2].text! += "Light"
+    
+    dateFormatter.dateStyle = .short
+    dateFormatter.timeStyle = .none
+    dateFormatter.locale = Locale(identifier: "zh_CN")
+    let takenDate = String(dateFormatter.string(from: Date()))
+    introductionLabel[4].text! += "Created by \\(MenuViewController.userName) on \\(takenDate)."
+    
+    currentLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[0].red)!), green: CGFloat(Double(colorMixViewController.colorArray[0].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[0].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[0].alpha)!))
+    currentLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[1].red)!), green: CGFloat(Double(colorMixViewController.colorArray[1].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[1].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[1].alpha)!))
+    unusedLabelColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[2].red)!), green: CGFloat(Double(colorMixViewController.colorArray[2].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[2].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[2].alpha)!))
+    unusedLineColor = UIColor(red: CGFloat(Double(colorMixViewController.colorArray[3].red)!), green: CGFloat(Double(colorMixViewController.colorArray[3].green)!), blue: CGFloat(Double(colorMixViewController.colorArray[3].blue)!), alpha: CGFloat(Double(colorMixViewController.colorArray[3].alpha)!))
+    
+    for i in lineArray {
+    i.textColor = unusedLineColor
+    }
+    for i in labelArray {
+    i.textColor = unusedLabelColor
+    }
+    }
+    
+    func check() {
+    for i in 0...labelArray.count-1 {
+    if labelArray[i].text! == lineArray[i].text! {
+    } else {
+    lineArray[i].backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.1)
+    correct = false
+    }
+    }
+    }
+    
+    let iPhoneFace = UIImageView(image: UIImage(named: "iPhone XR face black"))
+    
+    @IBAction func build(_ sender: Any) {
+    check()
+    if MenuViewController.developerMode {
+    correct = true
+    }
+    
+    guard correct else { return }
+    
+    let iPhone = UIImageView(image: UIImage(named: "iPhone XR"))
+    iPhone.frame = CGRect(x: 0, y: 0, width: (view.frame.height-100)/1532*759, height: view.frame.height-100)
+    self.view.addSubview(iPhone)
+    
+    iPhoneFace.frame = CGRect(x: 0, y: 0, width: (view.frame.height-100)/1532*759, height: view.frame.height-100)
+    self.view.addSubview(iPhoneFace)
+    
+    botton.backgroundColor = .blue
+    botton.setTitle("OFF", for: .normal)
+    self.view.addSubview(botton)
+    botton.addTarget(self, action: #selector(bottonPressed), for: .touchUpInside)
+    
+    UIView.animate(withDuration: 2) {
+    self.navigationItem.rightBarButtonItems?.append(UIBarButtonItem(barButtonSystemItem: .pause, target: self, action: #selector(self.done)))
+    }
+    }
+    
+    @objc func done() {
+    let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Menu_View") as! MenuViewController
+    self.present(viewController, animated: true, completion: nil)
+    }
+    
+    func jumpToNextLine(line: Int) {
+    lineArray[line-1].textColor = unusedLineColor
+    labelArray[line-1].textColor = unusedLabelColor
+    lineArray[line-1].resignFirstResponder()
+    lineArray[line].becomeFirstResponder()
+    lineArray[line].textColor = currentLineColor
+    labelArray[line].textColor = currentLabelColor
+    }
+    
+    var lightOn = true
+    @objc func bottonPressed() {
+    lightOn = !lightOn
+    if lightOn {
+    iPhoneFace.image = UIImage(named: "iPhone XR face black")
+    botton.setTitle("OFF", for: .normal)
+    }else{
+    iPhoneFace.image = UIImage(named: "iPhone XR face")
+    botton.setTitle("ON", for: .normal)
+    }
+    }
+    
+    @IBAction func lineOneBegin(_ sender: Any) {
+    lineArray[0].textColor = currentLineColor
+    labelArray[0].textColor = currentLabelColor
+    }
+    @IBAction func lineOne(_ sender: Any) {
+    jumpToNextLine(line: 1)
+    }
+    @IBAction func lineTwo(_ sender: Any) {
+    jumpToNextLine(line: 2)
+    }
+    @IBAction func lineThree(_ sender: Any) {
+    jumpToNextLine(line: 3)
+    }
+    @IBAction func lineFour(_ sender: Any) {
+    jumpToNextLine(line: 4)
+    }
+    @IBAction func lineFive(_ sender: Any) {
+    jumpToNextLine(line: 5)
+    }
+    @IBAction func lineSix(_ sender: Any) {
+    jumpToNextLine(line: 6)
+    }
+    @IBAction func lineSeven(_ sender: Any) {
+    jumpToNextLine(line: 7)
+    }
+    @IBAction func lineEight(_ sender: Any) {
+    jumpToNextLine(line: 8)
+    }
+    @IBAction func lineNine(_ sender: Any) {
+    jumpToNextLine(line: 9)
+    }
+    @IBAction func lineTen(_ sender: Any) {
+    jumpToNextLine(line: 10)
+    }
+    @IBAction func lineEleven(_ sender: Any) {
+    jumpToNextLine(line: 11)
+    }
+    @IBAction func lineTwelve(_ sender: Any) {
+    jumpToNextLine(line: 12)
+    }
+    @IBAction func lineThirtee(_ sender: Any) {
+    jumpToNextLine(line: 13)
+    }
+    
+    
+    }
+    
+    //All rights reserved.
+
+"""
+    static let LightController = """
+//
+//  LightController.swift
+//  Typer.proj
+//
+//  Created by Vaida on 2019/5/28.
+//  Copyright © 2019 Martin_Vaida. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class LightController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        botton.setTitle("OFF", for: .normal)
+        self.view.addSubview(botton)
+        botton.addTarget(self, action: #selector(bottonPressed), for: .touchUpInside)
+    }
+    
+    var lightOn = true
+    let botton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+    
+    @objc func bottonPressed() {
+        lightOn = !lightOn
+        if lightOn {
+            view.backgroundColor = .white
+            botton.setTitle("OFF", for: .normal)
+        }else{
+            view.backgroundColor = .black
+            botton.setTitle("ON", for: .normal)
+        }
+    }
+}
+
+//All rights reserved.
 
 """
     
     
+    
 }
+//All rights reserved.

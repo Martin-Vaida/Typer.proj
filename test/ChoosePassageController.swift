@@ -127,3 +127,5 @@ class ChoosePassageController:UITableViewController {
  storyViewController.scrips.append("<#T##newElement: String##String#>")
  storyViewController.passageName = ""
  */
+
+//All rights reserved.

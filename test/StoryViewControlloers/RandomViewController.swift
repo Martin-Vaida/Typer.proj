@@ -375,3 +375,5 @@ class RandomViewController:UITableViewController {
     }
     
 }
+
+//All rights reserved.

@@ -22,7 +22,7 @@ class SourceTableViewController:UITableViewController {
         case DetailViewController
         case ColorMixViewController
         case StatisticsViewController
-        case MarryHadALittleLambController
+        case MaryHadALittleLambController
     }
     static var target:Target = .MenuViewController
     
@@ -32,7 +32,6 @@ class SourceTableViewController:UITableViewController {
             SourceTableViewController.target = .MenuViewController
         case "scoresView.swift":
             SourceTableViewController.target = .scoresView
-            print("Ha")
         case "Score.swift":
             SourceTableViewController.target = .Score
         case "scoresViewCell.swift":
@@ -51,10 +50,12 @@ class SourceTableViewController:UITableViewController {
             SourceTableViewController.target = .ColorMixViewController
         case "StatisticsViewController.swift":
             SourceTableViewController.target = .StatisticsViewController
-        case "MarryHadALittleLambController.swift":
-            SourceTableViewController.target = .MarryHadALittleLambController
+        case "MaryHadALittleLambViewController.swift":
+            SourceTableViewController.target = .MaryHadALittleLambController
         default:
             break
         }
     }
 }
+
+//All rights reserved.

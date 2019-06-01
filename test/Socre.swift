@@ -266,3 +266,5 @@ class Score:NSObject, NSCoding{
         NSKeyedArchiver.archiveRootObject(score, toFile: Score.ArchiveURL.path)
     }
 }
+
+//All rights reserved.

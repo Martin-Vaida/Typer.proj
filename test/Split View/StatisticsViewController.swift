@@ -513,3 +513,5 @@ class StatisticsViewController:UITableViewController {
     
     
 }
+
+//All rights reserved.

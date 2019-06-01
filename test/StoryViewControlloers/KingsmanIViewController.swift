@@ -356,3 +356,5 @@ class KingsmanIViewController:UITableViewController {
     
     
 }
+
+//All rights reserved.

@@ -92,3 +92,4 @@ class MasterViewController: UITableViewController {
     
 }
 
+//All rights reserved.

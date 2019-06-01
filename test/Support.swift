@@ -60,3 +60,5 @@ func SetMutiBorderRoundingCorners(_ view:UIView,corner:CGFloat) {
     maskLayer.path = maskPath.cgPath
     view.layer.mask = maskLayer
 }
+
+//All rights reserved.

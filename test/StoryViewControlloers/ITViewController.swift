@@ -25,3 +25,5 @@ class ITViewController:UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 }
+
+//All rights reserved.

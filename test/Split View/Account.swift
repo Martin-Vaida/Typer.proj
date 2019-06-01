@@ -45,3 +45,5 @@ class Account:NSObject, NSCoding {
         NSKeyedArchiver.archiveRootObject(account, toFile: Account.ArchiveURL.path)
     }
 }
+
+//All rights reserved.

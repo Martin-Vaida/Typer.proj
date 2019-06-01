@@ -355,3 +355,5 @@ class storyViewController:UITableViewController {
         ScoreViewController.score = Score(String(correctLetters), String(tappedLetters), timePassed, false, storyViewController.passageName, "", MenuViewController.userName)
     }
 }
+
+//All rights reserved.

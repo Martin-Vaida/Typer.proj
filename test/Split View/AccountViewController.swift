@@ -69,3 +69,5 @@ class AccountViewController: UIViewController {
     }
     
 }
+
+//All rights reserved.

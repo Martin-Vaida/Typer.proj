@@ -32,3 +32,5 @@ class LightController: UIViewController {
         }
     }
 }
+
+//All rights reserved.

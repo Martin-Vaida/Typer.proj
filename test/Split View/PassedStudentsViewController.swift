@@ -35,3 +35,5 @@ class PassedStudentsViewController:UITableViewController {
         return cell
     }
 }
+
+//All rights reserved.

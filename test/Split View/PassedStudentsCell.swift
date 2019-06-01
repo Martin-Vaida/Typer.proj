@@ -12,3 +12,5 @@ import UIKit
 class PassedStudentsCell:UITableViewCell {
     @IBOutlet weak var label: UILabel!
 }
+
+//All rights reserved.

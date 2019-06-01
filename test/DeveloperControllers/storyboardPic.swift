@@ -12,3 +12,5 @@ import UIKit
 class storyboardPic:UIViewController {
     
 }
+
+//All rights reserved.

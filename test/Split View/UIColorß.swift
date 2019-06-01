@@ -58,3 +58,5 @@ class UIColorß: NSObject, NSCoding {
         NSKeyedArchiver.archiveRootObject(colors, toFile: UIColorß.ArchiveURL.path)
     }
 }
+
+//All rights reserved.

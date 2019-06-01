@@ -180,3 +180,5 @@ class scoresView:UITableViewController, UINavigationControllerDelegate {
     }
     
 }
+
+//All rights reserved.

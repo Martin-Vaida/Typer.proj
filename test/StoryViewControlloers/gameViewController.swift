@@ -63,3 +63,5 @@ class gameViewController:UIViewController {
     }
     
 }
+
+//All rights reserved.

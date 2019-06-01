@@ -22,3 +22,5 @@ class scoresViewCell:UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     
 }
+
+//All rights reserved.

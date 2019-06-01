@@ -31,8 +31,8 @@ class SourceCodeViewController:UIViewController {
             textField.text = SourceCode.ColorMixViewController
         case .DetailViewController:
             textField.text = SourceCode.DetailViewController
-        case .MarryHadALittleLambController:
-            textField.text = SourceCode.maryHadALittlelambController
+        case .MaryHadALittleLambController:
+            textField.text = SourceCode.maryHadALittlelambViewController
         case .MasterViewController:
             textField.text = SourceCode.MasterViewController
         case .MasterViewControllerCell:
@@ -46,3 +46,5 @@ class SourceCodeViewController:UIViewController {
         }
     }
 }
+
+//All rights reserved.

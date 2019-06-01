@@ -14,3 +14,5 @@ class storyBoardViewController:UIViewController {
         
     }
 }
+
+//All rights reserved.
