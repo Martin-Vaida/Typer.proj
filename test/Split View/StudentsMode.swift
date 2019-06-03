@@ -57,3 +57,5 @@ class StudentsMode:NSObject, NSCoding {
         return "isOn:\(isOnß), autoStop:\(autoStopß)"
     }
 }
+
+//All rights reserved.

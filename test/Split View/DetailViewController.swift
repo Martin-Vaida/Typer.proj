@@ -149,7 +149,7 @@ class DetailViewController:UIViewController {
         print(StudentsMode.load()!)
         
         if studentsModeSwitch.isOn {
-            let alert = UIAlertController(title: "Notice", message: "Your incompleted tasks will no longer be shown in statistics.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Notice", message: "Your incomplete tasks will no longer be shown in statistics.", preferredStyle: .alert)
             let confirmAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
             alert.addAction(confirmAction)
             self.present(alert, animated: true, completion: nil)

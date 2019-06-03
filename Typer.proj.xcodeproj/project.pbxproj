@@ -30,6 +30,7 @@
 		B4A0930E22968B2A004470F7 /* KingsmanIIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A0930D22968B2A004470F7 /* KingsmanIIViewController.swift */; };
 		B4A0931022968F8A004470F7 /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A0930F22968F8A004470F7 /* RandomViewController.swift */; };
 		B4A0931422969470004470F7 /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A0931322969470004470F7 /* Support.swift */; };
+		B4BCE84522A25BF800C3A939 /* Introduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BCE84422A25BF800C3A939 /* Introduction.swift */; };
 		B4C079D122955BD1005514C8 /* KingsmanIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C079D022955BD1005514C8 /* KingsmanIViewController.swift */; };
 		B4C78BBE2291516F002EE8DF /* UIColorß.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C78BBD2291516F002EE8DF /* UIColorß.swift */; };
 		B4CB31B2228AFA9D00DC305C /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB31B1228AFA9D00DC305C /* StatisticsViewController.swift */; };
@@ -69,6 +70,7 @@
 		B4A0930D22968B2A004470F7 /* KingsmanIIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingsmanIIViewController.swift; sourceTree = "<group>"; };
 		B4A0930F22968F8A004470F7 /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
 		B4A0931322969470004470F7 /* Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Support.swift; sourceTree = "<group>"; };
+		B4BCE84422A25BF800C3A939 /* Introduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Introduction.swift; sourceTree = "<group>"; };
 		B4C079D022955BD1005514C8 /* KingsmanIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingsmanIViewController.swift; sourceTree = "<group>"; };
 		B4C78BBD2291516F002EE8DF /* UIColorß.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColorß.swift"; sourceTree = "<group>"; };
 		B4CB31B1228AFA9D00DC305C /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				B4D682B32283E06E006FBC3C /* AppDelegate.swift */,
 				B4E281C72286B2D00065D480 /* Socre.swift */,
+				B4BCE84422A25BF800C3A939 /* Introduction.swift */,
 				B47B2D922283EC0300CB0911 /* MenuViewController.swift */,
 				B4667FF0228AE2A300EC329F /* Split View */,
 				B48E2D652284195700E4066C /* scoresView.swift */,
@@ -298,6 +301,7 @@
 				B4D682C92283E1F0006FBC3C /* MarryHadALittleLambController.swift in Sources */,
 				B4F568F1228FA53B00265167 /* SourceCodeViewController.swift in Sources */,
 				B4CB31B2228AFA9D00DC305C /* StatisticsViewController.swift in Sources */,
+				B4BCE84522A25BF800C3A939 /* Introduction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
