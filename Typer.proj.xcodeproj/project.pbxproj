@@ -144,7 +144,7 @@
 		B4D682A72283E06E006FBC3C = {
 			isa = PBXGroup;
 			children = (
-				B4D682B22283E06E006FBC3C /* Typer */,
+				B4D682B22283E06E006FBC3C /* test */,
 				B4D682B12283E06E006FBC3C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -157,7 +157,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B4D682B22283E06E006FBC3C /* Typer */ = {
+		B4D682B22283E06E006FBC3C /* test */ = {
 			isa = PBXGroup;
 			children = (
 				B4D682B32283E06E006FBC3C /* AppDelegate.swift */,
@@ -177,7 +177,7 @@
 				B4D682BF2283E06F006FBC3C /* LaunchScreen.storyboard */,
 				B4D682C22283E06F006FBC3C /* Info.plist */,
 			);
-			path = Typer;
+			path = test;
 			sourceTree = "<group>";
 		};
 		B4F568EF228FA52500265167 /* DeveloperControllers */ = {
