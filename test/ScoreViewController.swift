@@ -32,6 +32,11 @@ class ScoreViewController:UITableViewController {
                 return
         }
         
+        guard ScoreViewController.score!.timePassed != "" else {
+            defaultScore()
+            return
+        }
+        
         timeLabel.text = ScoreViewController.score!.timeDescription()
         accuracyLabelOne.text = ScoreViewController.score!.accuracyRateDescreption()
         accuracyLabelTwo.text = ScoreViewController.score!.accuracyDescription()

@@ -2510,7 +2510,7 @@ class MasterViewController: UITableViewController {
         <!--Navigation Controller-->
         <scene sceneID="hc3-Gd-RM8">
             <objects>
-                <navigationController id="rdp-xT-oUN" sceneMemberID="viewController">
+                <navigationController wantsFullScreenLayout="YES" id="rdp-xT-oUN" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hd8-DO-GpC">
                         <rect key="frame" x="0.0" y="0.0" width="712" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2894,11 +2894,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="688" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8pz-Ny-dPV" id="TXe-Wr-iXF">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Eight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIX-Mm-LBi">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -2920,11 +2920,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="732" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uyd-3h-6Xb" id="Gmw-Fq-2vX">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Nine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbW-VB-CfX">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2942,11 +2942,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="776" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sww-w2-R3b" id="MYF-v4-h1D">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Nine" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NGW-GR-2dn">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -2968,11 +2968,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="820" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r7T-ut-Iep" id="Ohr-NW-wch">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Ten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJ1-2W-xA9">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2990,11 +2990,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="864" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H2z-th-vU1" id="hXd-Ra-yWv">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Ten" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pcL-XE-hYA">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -3016,11 +3016,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="908" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zqA-70-XgL" id="I9C-PS-32g">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Eleven" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJ3-uG-57b">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3038,11 +3038,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="952" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Eei-al-1NT" id="RBD-jK-gFw">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Eleven" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="akN-rS-vsk">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -3064,11 +3064,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="996" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N3v-ub-Cvk" id="Oz2-Fh-N25">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Twelve" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqJ-Ps-ydf">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3086,11 +3086,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1040" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WxW-8u-l1d" id="wd6-pW-Lkt">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Twelve" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DfK-Jd-d5N">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -3112,11 +3112,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1084" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MH2-xu-6Qb" id="4ve-eN-WKe">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Thirteen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7M-5N-XKc">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3134,11 +3134,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1128" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v8c-e2-NV5" id="neM-W5-jme">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Thirteen" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U7T-fL-335">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -3160,11 +3160,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1172" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K87-9O-ft3" id="Jet-7J-SNO">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Fourteen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqC-5M-oPv">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3182,11 +3182,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1216" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TYn-oa-CbT" id="5Hd-c3-V7t">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Fourteen" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uWN-W6-Vnc">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -3208,11 +3208,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1260" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rah-Tk-4iw" id="fe3-lx-0kf">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Fifteen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOt-99-uNh">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3230,11 +3230,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1304" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xLj-PN-gK7" id="p3k-Lb-xBH">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Fifteen" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MpC-Ma-Iey">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -3958,11 +3958,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="688" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m5T-GW-3yP" id="lxo-tb-P8s">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Eight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jQm-JI-hcL">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -3983,11 +3983,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="732" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NQM-mg-UL9" id="w6D-Uo-71C">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Nine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLE-eV-Gmr">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4005,11 +4005,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="776" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C7n-WP-upR" id="S44-cq-QoX">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Nine" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ayY-3K-ezg">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -4030,11 +4030,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="820" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OjL-hJ-iN5" id="M10-Sz-sGU">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Ten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdT-uU-qQk">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4052,11 +4052,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="864" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KX0-uX-Sjw" id="hFP-55-8a5">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Ten" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="blc-t0-RO8">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -4077,11 +4077,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="908" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z0q-aA-Aym" id="2cE-GI-WZ7">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Eleven" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxJ-iK-gL3">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4099,11 +4099,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="952" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wf0-Hb-0G6" id="5fm-Im-hbM">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Eleven" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3S2-Lv-gNU">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -4121,11 +4121,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="996" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4v7-oc-cbK" id="5Ex-dG-HvF">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Twelve" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QH6-l4-FrA">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4143,11 +4143,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1040" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nti-Mf-4FX" id="hZf-sT-pvA">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Twelve" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nTo-i4-uN7">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -4165,11 +4165,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1084" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="knd-Zg-une" id="xn8-xH-PgT">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Thirteen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1d7-ah-y4N">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4187,11 +4187,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1128" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p4t-J3-C1e" id="CYX-XA-fHV">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Thirteen" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfl-W9-Mls">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -4209,11 +4209,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1172" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kzq-73-LOg" id="bf5-Wo-d6E">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Fourteen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpu-BZ-xUX">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4231,11 +4231,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1216" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nkC-pS-1jy" id="Py8-mA-eWY">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Fourteen" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6oF-6d-P3m">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -4253,11 +4253,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1260" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M55-UV-XyB" id="MWE-Pl-eW0">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Fifteen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUR-r9-uA6">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4275,11 +4275,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1304" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5CH-EI-gv2" id="217-8O-19u">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Fifteen" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2bQ-fC-1Nf">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -4727,11 +4727,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="688" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rwy-vT-nlW" id="jau-iR-tjz">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Eight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8EB-Yz-051">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -4752,11 +4752,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="732" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bdL-H4-2GV" id="jyW-Mo-0Ec">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Nine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLO-hF-bWj">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4774,11 +4774,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="776" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hX5-CU-L0S" id="sCS-Y5-0Xs">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Nine" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kDx-Aj-OIX">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -4799,11 +4799,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="820" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YxI-2t-epU" id="rY7-6w-sfE">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Ten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLJ-GR-2FJ">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4821,11 +4821,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="864" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U3R-XD-E7e" id="hsb-e6-Ra4">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Ten" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0uV-Jb-Cin">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -4846,11 +4846,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="908" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cuq-z5-QrR" id="o5T-W6-VP8">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Eleven" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsn-6g-Blw">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4868,11 +4868,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="952" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MZW-MI-NmX" id="XAb-Fx-vO1">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Eleven" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G8G-tr-CIP">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -4890,11 +4890,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="996" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LpH-hJ-68S" id="BnS-HC-vFn">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Twelve" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyw-eE-rWU">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4912,11 +4912,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1040" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9bo-w7-CZG" id="pUJ-3r-tbj">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Twelve" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hop-cO-coK">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -4934,11 +4934,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1084" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JOL-JM-03v" id="eHJ-IJ-yJV">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Thirteen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ynz-BX-Vun">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4956,11 +4956,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1128" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w2V-6G-bar" id="oeW-56-qqT">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Thirteen" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xxR-ZY-aaQ">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -4978,11 +4978,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1172" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8pf-D6-aHT" id="kTh-gy-mbX">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Fourteen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTf-M3-ZQi">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -5000,11 +5000,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1216" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MsE-KF-gqT" id="qwB-xJ-G7d">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Fourteen" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ArF-J3-Z28">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -5022,11 +5022,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1260" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yCL-Y8-k9k" id="bL5-bS-fNw">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Fifteen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cse-vL-qgJ">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -5044,11 +5044,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1304" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2VC-gb-pZV" id="ept-4p-6ei">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Fifteen" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lMV-0l-hRG">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -5701,11 +5701,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="688" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fh5-0f-sa2" id="7Ke-ZL-AYe">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="}" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGo-qa-cvI">
-                                                    <rect key="frame" x="50" y="0.0" width="974" height="33"/>
+                                                    <rect key="frame" x="50" y="0.0" width="662" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="1LC-y0-55z"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="gQy-jN-HYm"/>
@@ -5726,7 +5726,7 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="721" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bfk-bd-LDn" id="jgq-f6-fjm">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -5734,11 +5734,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="754" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OPV-Ip-UIf" id="Gaz-Dh-QUA">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="var lightOn = true" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vx4-Ve-wLu">
-                                                    <rect key="frame" x="50" y="0.0" width="974" height="33"/>
+                                                    <rect key="frame" x="50" y="0.0" width="662" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="2yY-ur-aFy"/>
                                                         <constraint firstAttribute="height" constant="33" id="VvW-Yg-zvO"/>
@@ -5760,11 +5760,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="787" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2y4-AD-qBc" id="YOe-gV-LrP">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Four" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2G7-2k-8ED">
-                                                    <rect key="frame" x="50" y="0.0" width="974" height="33"/>
+                                                    <rect key="frame" x="50" y="0.0" width="662" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="Auh-2g-vdp"/>
                                                         <constraint firstAttribute="height" constant="33" id="TnJ-eM-Pq2"/>
@@ -5789,11 +5789,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="820" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q5e-39-kx0" id="PxJ-Ez-d6e">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="let botton = UIBotton(frame: CGRect(x: 0,  y: 0, width: 100, height:44))" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0U-hg-xfn">
-                                                    <rect key="frame" x="50" y="0.0" width="974" height="33"/>
+                                                    <rect key="frame" x="50" y="0.0" width="662" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="35t-WB-5v4"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="9Rt-qh-OgX"/>
@@ -5816,11 +5816,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="853" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YMq-cz-pKN" id="0kp-pw-vSZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Five" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hq-xJ-BKL">
-                                                    <rect key="frame" x="50" y="0.0" width="974" height="33"/>
+                                                    <rect key="frame" x="50" y="0.0" width="662" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="PBD-cc-93y"/>
                                                         <constraint firstAttribute="height" constant="33" id="cow-TR-tKv"/>
@@ -5846,7 +5846,7 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="886" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oBw-UN-vtF" id="ad5-SQ-M8O">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -5854,11 +5854,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="919" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sha-qJ-SiR" id="74v-V2-Pqb">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@objc func bottonPressed() {" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8c6-SF-ruh">
-                                                    <rect key="frame" x="50" y="0.0" width="974" height="33"/>
+                                                    <rect key="frame" x="50" y="0.0" width="662" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="1pD-Jx-SQH"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="MJ9-oC-HHp"/>
@@ -5882,11 +5882,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="952" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q1l-xd-tyA" id="3TW-do-zwg">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Six" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hSD-YY-M3J">
-                                                    <rect key="frame" x="50" y="0.0" width="974" height="33"/>
+                                                    <rect key="frame" x="50" y="0.0" width="662" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="G3S-BR-gBm"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="Toa-wp-tMh"/>
@@ -5913,11 +5913,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="985" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C3l-D6-uAm" id="zn7-kq-W84">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lightOn = !lightOn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXm-bZ-kWZ">
-                                                    <rect key="frame" x="90" y="0.0" width="934" height="33"/>
+                                                    <rect key="frame" x="90" y="0.0" width="622" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="0EH-T0-66M"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="D3V-qO-cVR"/>
@@ -5942,11 +5942,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1018" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B0e-56-BgX" id="23T-ve-qnT">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Seven" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x7g-ju-GEP">
-                                                    <rect key="frame" x="90" y="0.0" width="934" height="33"/>
+                                                    <rect key="frame" x="90" y="0.0" width="622" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="3yj-my-gSy"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="C3B-6l-sCG"/>
@@ -5974,11 +5974,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1051" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Us8-Pu-cNn" id="mVl-VK-LoU">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="if lightOn {" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQk-1f-ChA">
-                                                    <rect key="frame" x="90" y="0.0" width="934" height="33"/>
+                                                    <rect key="frame" x="90" y="0.0" width="622" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="Cf6-pV-Jp0"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="MmK-BM-lGH"/>
@@ -6004,11 +6004,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1084" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZNn-z8-eCb" id="KMX-ZZ-baA">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Eight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ho-bN-X67">
-                                                    <rect key="frame" x="90" y="0.0" width="934" height="33"/>
+                                                    <rect key="frame" x="90" y="0.0" width="622" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="5Hz-BY-zx5"/>
                                                         <constraint firstAttribute="height" constant="33" id="Q21-50-ZxC"/>
@@ -6036,11 +6036,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1117" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4dh-MA-hZi" id="IF2-ic-o7g">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="view.backgroundColor = .white" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tud-Lh-5Dy">
-                                                    <rect key="frame" x="130" y="0.0" width="894" height="33"/>
+                                                    <rect key="frame" x="130" y="0.0" width="582" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="2iI-Nk-JzU"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="GCL-jW-k16"/>
@@ -6066,11 +6066,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1150" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CfP-uQ-Gbg" id="Kpn-qO-z8n">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Nine" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oye-UY-LyC">
-                                                    <rect key="frame" x="130" y="0.0" width="894" height="33"/>
+                                                    <rect key="frame" x="130" y="0.0" width="582" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="EDJ-kb-byP"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="JJj-eA-fXl"/>
@@ -6098,11 +6098,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1183" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1pL-AR-Lbz" id="FKw-Lm-utL">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="botton.setTitle(&quot;OFF&quot;, for: .normal)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aku-sf-dJF">
-                                                    <rect key="frame" x="130" y="0.0" width="894" height="33"/>
+                                                    <rect key="frame" x="130" y="0.0" width="582" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="DcY-66-XY3"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="IRO-Ix-XXm"/>
@@ -6128,11 +6128,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1216" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t8e-SY-2II" id="gMS-9Y-biL">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Ten" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kyl-YV-RnK">
-                                                    <rect key="frame" x="130" y="0.0" width="894" height="33"/>
+                                                    <rect key="frame" x="130" y="0.0" width="582" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="G2K-xJ-wFf"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="Khb-6T-fbb"/>
@@ -6160,11 +6160,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1249" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rjR-oF-lAg" id="FC2-uP-tfp">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="} else {" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvq-sE-XFT">
-                                                    <rect key="frame" x="90" y="0.0" width="934" height="33"/>
+                                                    <rect key="frame" x="90" y="0.0" width="622" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="BAj-Ur-iXm"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="JQE-fO-DUZ"/>
@@ -6190,11 +6190,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1282" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nJV-eI-4tF" id="0Yg-FD-SN2">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Eleven" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fWs-Ru-G7X">
-                                                    <rect key="frame" x="90" y="0.0" width="934" height="33"/>
+                                                    <rect key="frame" x="90" y="0.0" width="622" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="I9B-ku-0Xx"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="N14-F8-9C2"/>
@@ -6222,11 +6222,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1315" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KKX-Ys-Y1T" id="I2f-5B-0TF">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="view.backgroundColor = .white" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPt-YB-rzV">
-                                                    <rect key="frame" x="130" y="0.0" width="894" height="33"/>
+                                                    <rect key="frame" x="130" y="0.0" width="582" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="7GD-IS-kwY"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="NIb-0b-myW"/>
@@ -6252,11 +6252,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1348" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UHj-31-BZg" id="mD9-Dt-bQS">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Twelve" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l4a-vU-8NW">
-                                                    <rect key="frame" x="130" y="0.0" width="894" height="33"/>
+                                                    <rect key="frame" x="130" y="0.0" width="582" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="0Lo-R9-Ci0"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="7fz-LW-HVO"/>
@@ -6284,11 +6284,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1381" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Ie-F7-7nd" id="14G-7x-Rwr">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="botton.setTitle(&quot;ON&quot;, for: .normal)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gF-Cx-qiN">
-                                                    <rect key="frame" x="130" y="0.0" width="894" height="33"/>
+                                                    <rect key="frame" x="130" y="0.0" width="582" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="0eA-mP-d9b"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="Cik-M2-DMs"/>
@@ -6314,11 +6314,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1414" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6k5-e7-zTC" id="s8l-ke-Qgp">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Thirteen" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j3v-Dg-D6D">
-                                                    <rect key="frame" x="130" y="0.0" width="894" height="33"/>
+                                                    <rect key="frame" x="130" y="0.0" width="582" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="4wx-Xu-aJp"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="APP-sk-jui"/>
@@ -6346,11 +6346,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1447" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wmW-Kf-hRG" id="00U-pg-6XX">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="}" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VtR-sR-NL0">
-                                                    <rect key="frame" x="90" y="0.0" width="934" height="33"/>
+                                                    <rect key="frame" x="90" y="0.0" width="622" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="EFq-Gr-nwP"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="Jbs-o9-z3C"/>
@@ -6376,11 +6376,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1480" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wrP-Fe-cee" id="hNn-t7-7SQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="}" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hrn-6i-nVi">
-                                                    <rect key="frame" x="50" y="0.0" width="974" height="33"/>
+                                                    <rect key="frame" x="50" y="0.0" width="662" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="5sV-55-rds"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="FBB-Rn-uyx"/>
@@ -6406,11 +6406,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="1513" width="712" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CxT-Z3-kqb" id="SU2-2c-SO8">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="}" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LkB-cE-62F">
-                                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="33"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="712" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="FuC-a2-uWm"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="Gnu-zX-go3"/>
@@ -6898,11 +6898,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="688" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RQo-HP-rup" id="Wx4-81-mcb">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Eight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2d4-Nw-IgH">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -6923,11 +6923,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="732" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NZw-MB-kka" id="VVg-Vn-Myb">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Nine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5K-yo-SDY">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -6945,11 +6945,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="776" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SOx-NE-e7g" id="rLH-L3-hwB">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Nine" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2C1-wB-b4W">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -6970,11 +6970,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="820" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ivO-m6-MeW" id="yBp-Co-0w6">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Ten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edd-Qf-PkE">
-                                                    <rect key="frame" x="18" y="0.0" width="999" height="44"/>
+                                                    <rect key="frame" x="18" y="0.0" width="687" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -6992,11 +6992,11 @@ class MasterViewController: UITableViewController {
                                         <rect key="frame" x="0.0" y="864" width="712" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yB3-Wc-V9g" id="LLH-5U-pft">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="712" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line Ten" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xap-Ef-HLq">
-                                                    <rect key="frame" x="7" y="0.0" width="1010" height="44"/>
+                                                    <rect key="frame" x="7" y="0.0" width="698" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -7868,7 +7868,7 @@ class MasterViewController: UITableViewController {
         <image name="Main.storyboard" width="2880" height="1800"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MJy-RJ-LlT"/>
+        <segue reference="bw9-2R-GI3"/>
         <segue reference="IOX-s6-hXO"/>
         <segue reference="Mlg-h3-IXb"/>
         <segue reference="sbH-8g-80O"/>
